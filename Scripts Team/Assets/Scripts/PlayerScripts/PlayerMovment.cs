@@ -12,13 +12,12 @@ namespace Scripts.Player
         private Vector3 playerVelocity;
         private bool groundedPlayer;
         public float playerSpeed = 5.0f;
-        public float speintSpeed = 8.0f;
         private float gravityValue = -9.81f;
 
         private PlayerControls playerControls;
         private void Awake()
         {
-            controller = gameObject.GetComponent<CharacterController>();
+            controller = GetComponent<CharacterController>();
             playerControls = new PlayerControls();
         }
 
@@ -32,8 +31,18 @@ namespace Scripts.Player
             playerControls?.Disable();
         }
 
+
+        private void UpdateAnimator()
+        {
+            Vector3 velocity = GetComponent<CharacterController>().velocity;
+            Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+            float speed = localVelocity.z;
+            GetComponent<Animator>().SetFloat("walk", speed);
+        }
         void Update()
         {
+
+
             groundedPlayer = controller.isGrounded;
             if (groundedPlayer && playerVelocity.y < 0)
             {
@@ -41,15 +50,9 @@ namespace Scripts.Player
             }
 
             Vector3 move = new Vector3(playerControls.Player.Movement.ReadValue<Vector2>().x, 0, playerControls.Player.Movement.ReadValue<Vector2>().y);
-            if (playerControls.Player.Sprint.IsPressed())
-            {
-                controller.Move(move * Time.deltaTime * speintSpeed);
-            }
-            else
-            {
-                controller.Move(move * Time.deltaTime * playerSpeed);
-            }
-            
+            controller.Move(move * Time.deltaTime * playerSpeed);
+
+            UpdateAnimator();
 
             if (move != Vector3.zero)
             {
@@ -58,6 +61,8 @@ namespace Scripts.Player
 
             playerVelocity.y += gravityValue * Time.deltaTime;
             controller.Move(playerVelocity * Time.deltaTime);
+
+            
         }
     }
 }
