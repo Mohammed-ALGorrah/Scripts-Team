@@ -6,7 +6,8 @@ namespace Scripts.PlayerScripts
 {
     public class FollowCamera : MonoBehaviour
     {
-        [SerializeField] public Transform target;
+        [SerializeField]
+         public Transform target;
 
         private void LateUpdate()
         {

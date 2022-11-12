@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts.Systems
-{
+// namespace Scripts.Systems
+// {
 	public class ChargeSystem : MonoBehaviour
 	{
 		public event Action <ChargeSystem> OnCharageGained;
@@ -52,4 +52,4 @@ namespace Scripts.Systems
 		}
 
 	}
-}
+// }

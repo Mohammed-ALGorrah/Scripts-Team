@@ -2,8 +2,8 @@
 
 public enum PlayerType {
     
-        healther,
+        fighter,
         defneder,
-        fighter
+        healther
 
 }

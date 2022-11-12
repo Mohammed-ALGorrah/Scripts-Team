@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Team : MonoBehaviour
 {
-    // Start is called before the first frame update
+    List <Player> players;
+    public int currentScore;
+    
     void Start()
     {
         
@@ -13,6 +15,6 @@ public class Team : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        currentScore  = players[0].numOfKills + players[1].numOfKills + players[2].numOfKills;
     }
 }

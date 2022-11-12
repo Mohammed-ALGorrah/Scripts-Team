@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
 
     bool statred;
     int targetNum = 20;
-    // Team FirstTeam;
-    // Team SecondTeam;
+    Team FirstTeam;
+    Team SecondTeam;
     public static event Action WinEvent;
     public static event Action LoseEvent;
 

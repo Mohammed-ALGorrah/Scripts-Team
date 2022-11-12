@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Scripts.SystemsScripts
-{
+
+// namespace Scripts.SystemsScripts
+// {
     public class HealthSystem : MonoBehaviour
     {
         public int currentHealth = 100;
@@ -67,4 +68,4 @@ namespace Scripts.SystemsScripts
         }*/
 
     }
-}
+// }
