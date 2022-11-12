@@ -9,19 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: c5c0b6bf5594dc3459b424f709b4b10d, type: 3}
   m_Name: Warrior
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
-  prefabName: 
-  numberOfPrefabsToCreate: 0
-  image: 
-  name: 
+  prefabName: Warrior
+  image: {fileID: 0}
   bio: 
-  attackRange: 0
-  basicSkillDamage: 0
-  speacialSkill: 0
-  plarType: 0
+  attackRange: 1
+  basicSkillDamage: 30
+  speacialSkillDamage: 80
+  playerType: 2
   animator: {fileID: 0}
-  animatorOverrideController: {fileID: 0}
-  maxHealth: 0
-  maxCharge: 0
+  maxHealth: 250
+  maxCharge: 4
