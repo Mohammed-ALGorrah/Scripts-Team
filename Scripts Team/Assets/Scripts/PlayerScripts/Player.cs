@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     
-    PlayerData playerData;
+    public PlayerData playerData;
     // HealthSystem health;
     // ChargeSystem chargeSystem;
     public bool CanSpecialAttack;

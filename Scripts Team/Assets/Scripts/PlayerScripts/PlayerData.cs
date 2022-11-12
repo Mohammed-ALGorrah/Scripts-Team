@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerData : ScriptableObject
 {
     
+    
     public string prefabName;
     public Image image;
     public string bio;
