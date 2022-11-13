@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
@@ -8,21 +9,13 @@ public class PlayerAttack : MonoBehaviour
 
     PlayerType playerType;
     PlayerControls playerControls;
-    bool n;
+    public GameObject normalAttackImage;
     private void Awake()
     {
         playerType = GetComponent<Player>().playerData.playerType;
         playerControls = new PlayerControls();
-        //playerControls.Player.Fire.started += _ => normalAttack();
-        //playerControls.Player.Fire.performed += normalAttack;
         
-            playerControls.Player.Fire.started += _ => StartNormalAttack();
-
-           // playerControls.Player.Fire.canceled += _ => normalAttack();
-
-        
-
-        
+      //  playerControls.Player.Fire.started += _ => StartNormalAttack();
 
     }
     private void OnEnable()
@@ -44,7 +37,6 @@ public class PlayerAttack : MonoBehaviour
     {
         playerType = GetComponent<Player>().playerData.playerType;
 
-        //   playerControls.Player.Attack.performed += normalAttack;
         switch(playerType){
 
             case PlayerType.fighter:
@@ -68,16 +60,30 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+
+        if (Input.GetMouseButton(0))
         {
-            Debug.Log("cancleeeee");
-            playerControls.Player.Fire.canceled += _ => normalAttack();
+            normalAttackImage.SetActive(true);
+
+
         }
-        if(Input.GetKeyDown(KeyCode.R)){
+        else if (Input.GetMouseButtonUp(0) && !Input.GetKey(KeyCode.Space))
+        {
             normalAttack();
-        }else if(Input.GetKeyDown(KeyCode.G)){
-            specialAttack();
+            normalAttackImage.SetActive(false);
         }
+
+        /*if(Input.GetMouseButtonUp(0)){
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Debug.Log("attac camncle");
+                return;
+            }
+            normalAttack();
+        }else if(Input.GetMouseButtonDown(1))
+        {
+            specialAttack();
+        }*/
     }
     
 
@@ -85,9 +91,15 @@ public class PlayerAttack : MonoBehaviour
     {
        Debug.Log("Start Attack");    
     }
-    void normalAttack()
-    {
-            Debug.Log("Cancle Attack");
+
+        void normalAttack()
+        {
+            Instantiate(Bullet, firePoint.position, transform.rotation);
+        }
+
+
+        void specialAttack()
+        {
             switch (playerType)
             {
 
@@ -105,33 +117,8 @@ public class PlayerAttack : MonoBehaviour
 
                     break;
             }
-
-    void normalAttack(){
-        Instantiate(Bullet,firePoint.position, transform.rotation);
-        
-    }
-
-
-    void specialAttack()
-    {
-        switch (playerType)
-        {
-
-            case PlayerType.fighter:
-                Debug.Log(playerType);
-                break;
-
-            case PlayerType.defneder:
-                Debug.Log(playerType);
-
-                break;
-
-            case PlayerType.healther:
-                Debug.Log(playerType);
-
-                break;
         }
-    }
+    
 
 
 }
