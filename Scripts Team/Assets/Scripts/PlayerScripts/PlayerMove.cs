@@ -55,7 +55,7 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        moveInput = new Vector3(playerControls.Player.Movement.ReadValue<Vector2>().x, 0, playerControls.Player.Movement.ReadValue<Vector2>().y);
+        moveInput = new Vector3(playerControls.Player.Move.ReadValue<Vector2>().x, 0, playerControls.Player.Move.ReadValue<Vector2>().y);
         moveVelocity = moveInput * moveSpeed;
         animator.SetFloat("walk" , moveVelocity.magnitude);
         LookAtMousePostion();

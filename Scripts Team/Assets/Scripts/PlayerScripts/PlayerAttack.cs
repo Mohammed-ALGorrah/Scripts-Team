@@ -1,48 +1,88 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
-    
+
     PlayerType playerType;
+    PlayerControls playerControls;
+    bool n;
+    private void Awake()
+    {
+        playerType = GetComponent<Player>().playerData.playerType;
+        playerControls = new PlayerControls();
+        //playerControls.Player.Fire.started += _ => normalAttack();
+        //playerControls.Player.Fire.performed += normalAttack;
+        
+            playerControls.Player.Fire.started += _ => StartNormalAttack();
+
+           // playerControls.Player.Fire.canceled += _ => normalAttack();
+
+        
+
+        
+
+    }
+    private void OnEnable()
+    {
+        playerControls.Enable();
+    }
+    private void OnDisable()
+    {
+        playerControls.Disable();
+    }
 
     void Start()
     {
         playerType = GetComponent<Player>().playerData.playerType;
+
+        //   playerControls.Player.Attack.performed += normalAttack;
     }
-    
-    
+
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F)){
-            normalAttack();
-        }else if(Input.GetKeyDown(KeyCode.G)){
-            specialAttack();
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Debug.Log("cancleeeee");
+            playerControls.Player.Fire.canceled += _ => normalAttack();
         }
     }
 
-    void normalAttack(){
-        switch(playerType){
+    void StartNormalAttack()
+    {
+       Debug.Log("Start Attack");    
+    }
+    void normalAttack()
+    {
+            Debug.Log("Cancle Attack");
+            switch (playerType)
+            {
 
-            case PlayerType.fighter:
-                Debug.Log(playerType);
-                break;
+                case PlayerType.fighter:
+                    Debug.Log(playerType);
+                    break;
 
-            case PlayerType.defneder:
-                Debug.Log(playerType);
+                case PlayerType.defneder:
+                    Debug.Log(playerType);
 
-                break;
+                    break;
 
-            case PlayerType.healther:
-                Debug.Log(playerType);
+                case PlayerType.healther:
+                    Debug.Log(playerType);
 
-                break;
-           }
+                    break;
+            }
+
     }
 
-    void specialAttack(){
-        switch(playerType){
+
+    void specialAttack()
+    {
+        switch (playerType)
+        {
 
             case PlayerType.fighter:
                 Debug.Log(playerType);
@@ -57,7 +97,7 @@ public class PlayerAttack : MonoBehaviour
                 Debug.Log(playerType);
 
                 break;
-           }
+        }
     }
 
 
