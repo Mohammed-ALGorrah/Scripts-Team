@@ -1204,6 +1204,37 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.106906354, y: -0.019914344, z: -0.00000062584877}
     m_Extent: {x: 0.6373319, y: 0.20383312, z: 0.3740506}
   m_DirtyAABB: 0
+--- !u!1 &1362052901031807521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5293758761077194746}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5293758761077194746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362052901031807521}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2340518639034874651}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2340518639034874654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,6 +1250,7 @@ GameObject:
   - component: {fileID: 2340518639034874649}
   - component: {fileID: 2340518639034874631}
   - component: {fileID: 2340518639034874648}
+  - component: {fileID: 746254172}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -1239,6 +1271,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 695119410074528156}
+  - {fileID: 5293758761077194746}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1284,6 +1317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 8e45b20fd56ff98438aee742710947aa, type: 2}
+  BulletSpwanPoint: {fileID: 0}
   CanSpecialAttack: 0
   numOfKills: 0
   numOfDead: 0
@@ -1329,3 +1363,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCharge: 0
   maxCharage: 0
+--- !u!114 &746254172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2340518639034874654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f009b8e47ad58a469c04b0030fbb7c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 5293758761077194746}

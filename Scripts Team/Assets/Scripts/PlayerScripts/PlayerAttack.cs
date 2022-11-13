@@ -34,11 +34,35 @@ public class PlayerAttack : MonoBehaviour
         playerControls.Disable();
     }
 
+    [SerializeField]
+    Transform firePoint;
+
+    public GameObject Bullet;
+
+
     void Start()
     {
         playerType = GetComponent<Player>().playerData.playerType;
 
         //   playerControls.Player.Attack.performed += normalAttack;
+        switch(playerType){
+
+            case PlayerType.fighter:
+                Bullet = Resources.Load<GameObject>("BulletsPrefs/Warrior_Ammo");
+                break;
+
+            case PlayerType.defneder:
+            
+                Bullet = Resources.Load<GameObject>("BulletsPrefs/Archer_Ammo");
+
+                break;
+
+            case PlayerType.healther:
+            
+                Bullet = Resources.Load<GameObject>("BulletsPrefs/Wizard_Ammo");
+
+                break;
+           }
     }
 
 
@@ -49,7 +73,13 @@ public class PlayerAttack : MonoBehaviour
             Debug.Log("cancleeeee");
             playerControls.Player.Fire.canceled += _ => normalAttack();
         }
+        if(Input.GetKeyDown(KeyCode.R)){
+            normalAttack();
+        }else if(Input.GetKeyDown(KeyCode.G)){
+            specialAttack();
+        }
     }
+    
 
     void StartNormalAttack()
     {
@@ -76,6 +106,9 @@ public class PlayerAttack : MonoBehaviour
                     break;
             }
 
+    void normalAttack(){
+        Instantiate(Bullet,firePoint.position, transform.rotation);
+        
     }
 
 

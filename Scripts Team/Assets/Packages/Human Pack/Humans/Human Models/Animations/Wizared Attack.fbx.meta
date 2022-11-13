@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c5a4b4545dfdfe947be01d70ce952688
+guid: 16c011bd29c1fe3418ef3ba0d7887e0d
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
@@ -182,7 +182,7 @@ ModelImporter:
     second: masterHuman
   - first:
       74: 7400000
-    second: Human Idle
+    second: Human Attack Sword
   - first:
       95: 9500000
     second: //RootNode
@@ -202,15 +202,22 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: "Invalid copied Avatar Rig Configuration:\n\tNo human bone found.
-      Ensure both rig type match\n"
-    rigImportWarnings: 
+    rigImportErrors: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Errors found in
+      old project file will be treated as a warnings. Configuration mis-match will
+      be ignored, but current Configuration needs to be fixed:\n\tTransform 'Human_master'
+      not found in HumanDescription.\nCopied Avatar Rig Configuration mis-match.
+      Inbetween bone rotation in copied configuration does not match rotation in
+      animation file:\n\t'Base HumanSpine3' : rotation error = 10.621375 deg\n"
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Base HumanSpine3' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 1
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -220,19 +227,19 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Human Idle
+      name: Human Attack Sword
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 15
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
       loopBlendPositionXZ: 1
@@ -248,9 +255,9 @@ ModelImporter:
       - path: 
         weight: 1
       - path: Goal
-        weight: 0
+        weight: 1
       - path: Goal (2)
-        weight: 0
+        weight: 1
       - path: Human_master
         weight: 1
       - path: Human_master/FbxUpAxisConvert
@@ -266,7 +273,7 @@ ModelImporter:
           HumanLCalf/Base HumanLFoot
         weight: 1
       - path: Human_master/FbxUpAxisConvert/Base HumanPelvis/Base HumanLThigh/FullBodyIK
-        weight: 0
+        weight: 1
       - path: Human_master/FbxUpAxisConvert/Base HumanPelvis/Base HumanRThigh
         weight: 1
       - path: Human_master/FbxUpAxisConvert/Base HumanPelvis/Base HumanRThigh/Base
@@ -277,7 +284,7 @@ ModelImporter:
         weight: 1
       - path: Human_master/FbxUpAxisConvert/Base HumanPelvis/Base HumanRThigh/FullBodyIK
           (2)
-        weight: 0
+        weight: 1
       - path: Human_master/FbxUpAxisConvert/Base HumanPelvis/Base HumanSpine1
         weight: 1
       - path: Human_master/FbxUpAxisConvert/Base HumanPelvis/Base HumanSpine1/Base
@@ -326,7 +333,7 @@ ModelImporter:
           HumanRUpperarm/Base HumanRForearm/Base HumanRPalm
         weight: 1
       - path: Human_master/FbxUpAxisConvert/masterHuman
-        weight: 0
+        weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
