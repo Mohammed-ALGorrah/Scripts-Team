@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
     public PlayerData playerData;
     HealthSystem health;
     ChargeSystem chargeSystem;
+
+    [SerializeField]
+    Transform BulletSpwanPoint;
     public bool CanSpecialAttack;
     public int numOfKills;
     public int numOfDead;
@@ -17,7 +20,7 @@ public class Player : MonoBehaviour
         
     }
 
-    
+
     void Update()
     {
         
