@@ -9,9 +9,18 @@ public class PlayerAttack : MonoBehaviour
 
     PlayerType playerType;
     PlayerControls playerControls;
+
     public GameObject normalAttackImage;
+    
+    [SerializeField]
+    Transform firePoint;
+
+    Animator animator;
+    
+    GameObject Bullet;
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         playerType = GetComponent<Player>().playerData.playerType;
         playerControls = new PlayerControls();
         
@@ -27,10 +36,7 @@ public class PlayerAttack : MonoBehaviour
         playerControls.Disable();
     }
 
-    [SerializeField]
-    Transform firePoint;
-
-    public GameObject Bullet;
+    
 
 
     void Start()
@@ -69,7 +75,9 @@ public class PlayerAttack : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0) && !Input.GetKey(KeyCode.Space))
         {
-            normalAttack();
+            
+            animator.SetTrigger("isAttack");
+            
             normalAttackImage.SetActive(false);
         }
 
@@ -119,6 +127,10 @@ public class PlayerAttack : MonoBehaviour
             }
         }
     
+
+    public void shoot(){
+        normalAttack();
+    }
 
 
 }

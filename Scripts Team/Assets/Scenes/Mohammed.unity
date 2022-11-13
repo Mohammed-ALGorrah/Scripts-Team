@@ -294,13 +294,38 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163260663}
   m_LocalRotation: {x: 0.573489, y: 0.014296209, z: -0.010010312, w: 0.8190273}
-  m_LocalPosition: {x: -1.04, y: 9, z: -2.12}
+  m_LocalPosition: {x: -1.04, y: 15.63, z: -4.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1856106393}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 70, y: 2, z: 0}
+--- !u!1 &209818412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4951930733786972997, guid: 7c3c63fe8606ca1418c1627fd5c90c00, type: 3}
+  m_PrefabInstance: {fileID: 4951930735159328730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &209818421
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209818412}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 358612dced86d0545afeb44de80ef74d, type: 3}
+  m_Controller: {fileID: 22100000, guid: f0017c1b9d276ce41ae5e95a566e05a0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &402429031
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,11 +438,61 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 9.999997, y: 3.15289, z: 10}
   m_Center: {x: 0, y: -1.576445, z: 0}
+--- !u!1 &679860089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8191985040236469931, guid: fad6242a6607839438866e6dddd88220, type: 3}
+  m_PrefabInstance: {fileID: 8191985040986308414}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &746254164 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2340518639034874654, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}
+  m_PrefabInstance: {fileID: 2340518638266294999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &746254173
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746254164}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 358612dced86d0545afeb44de80ef74d, type: 3}
+  m_Controller: {fileID: 22100000, guid: 55d78aaf2eb32364ba3acb90523e7164, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1574347160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8191985040236469926, guid: fad6242a6607839438866e6dddd88220, type: 3}
   m_PrefabInstance: {fileID: 8191985040986308414}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1574347168
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679860089}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 358612dced86d0545afeb44de80ef74d, type: 3}
+  m_Controller: {fileID: 22100000, guid: 903e4ad8e730f0b4a9531112a93decbc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1856106391
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +546,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 695119410065529362, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2340518639034874651, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -521,7 +600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2340518639034874654, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}
@@ -532,6 +611,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1855468685, guid: 7c3c63fe8606ca1418c1627fd5c90c00, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4951930733786972997, guid: 7c3c63fe8606ca1418c1627fd5c90c00, type: 3}
       propertyPath: m_Name
       value: Archer
@@ -584,6 +667,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4951930733805836912, guid: 7c3c63fe8606ca1418c1627fd5c90c00, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c3c63fe8606ca1418c1627fd5c90c00, type: 3}
 --- !u!1001 &8191985040986308414
@@ -593,6 +680,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2622902914109206601, guid: fad6242a6607839438866e6dddd88220, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8191985040236469926, guid: fad6242a6607839438866e6dddd88220, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -643,7 +734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8191985040236469931, guid: fad6242a6607839438866e6dddd88220, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fad6242a6607839438866e6dddd88220, type: 3}
