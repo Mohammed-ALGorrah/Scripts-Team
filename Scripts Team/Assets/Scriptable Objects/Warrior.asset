@@ -18,7 +18,7 @@ MonoBehaviour:
   attackRange: 1
   basicSkillDamage: 30
   speacialSkillDamage: 80
-  playerType: 2
+  playerType: 0
   animator: {fileID: 0}
   maxHealth: 250
   maxCharge: 4

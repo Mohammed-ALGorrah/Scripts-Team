@@ -391,7 +391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2622902914100229971}
   m_Layer: 0
-  m_Name: shootpoint
+  m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1025,6 +1025,7 @@ GameObject:
   - component: {fileID: 8191985040236469924}
   - component: {fileID: 8191985040236469922}
   - component: {fileID: 8191985040236469925}
+  - component: {fileID: 1574347167}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Untagged
@@ -1090,6 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 14c7137c71f499c4486bad4630d20bba, type: 2}
+  BulletSpwanPoint: {fileID: 0}
   CanSpecialAttack: 0
   numOfKills: 0
   numOfDead: 0
@@ -1135,3 +1137,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCharge: 0
   maxCharage: 0
+--- !u!114 &1574347167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191985040236469931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f009b8e47ad58a469c04b0030fbb7c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 2622902914100229971}
