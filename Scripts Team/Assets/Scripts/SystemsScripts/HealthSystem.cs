@@ -16,13 +16,13 @@ using UnityEngine;
 
         public void Start()
         {
-            currentHealth = maxHealth;
+
         }
 
-        public HealthSystem(int max)
+       /* public HealthSystem(int max)
         {
             maxHealth = max;
-        }
+        }*/
 
         public void TakeDamage(int amount)
         {

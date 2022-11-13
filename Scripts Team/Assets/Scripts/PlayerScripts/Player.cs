@@ -15,9 +15,15 @@ public class Player : MonoBehaviour
     public int numOfKills;
     public int numOfDead;
 
+    private void Awake()
+    {
+        health = GetComponent<HealthSystem>();
+        chargeSystem = GetComponent<ChargeSystem>();
+    }
     void Start()
     {
-        
+        health.maxHealth = playerData.maxHealth;
+        chargeSystem.maxCharage = playerData.maxCharge;
     }
 
 
