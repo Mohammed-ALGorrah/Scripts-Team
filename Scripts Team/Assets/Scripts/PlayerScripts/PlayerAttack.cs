@@ -84,5 +84,13 @@ public class PlayerAttack : MonoBehaviour
         Instantiate(basicAttack.skillProjectile, firePoint.position, transform.rotation);
     }
 
+    public void activeColl(){
+        GameObject.Find("WarriorSword").GetComponent<BoxCollider>().enabled = true;
+    }
+
+    public void disActiveColl(){
+        GameObject.Find("WarriorSword").GetComponent<BoxCollider>().enabled = false;
+    }
+
 
 }

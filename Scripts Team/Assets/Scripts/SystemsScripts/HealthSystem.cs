@@ -2,14 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-// namespace Scripts.SystemsScripts
-// {
+    
     public class HealthSystem : MonoBehaviour
     {
         public int currentHealth;
         public int maxHealth ;
-        //bool isDead;
+
         public event Action <HealthSystem> OnTakeDamage;
         public event Action <HealthSystem> OnDead;
         public event Action <HealthSystem> OnHeal;
@@ -37,35 +35,27 @@ using UnityEngine;
 
                 if (currentHealth <= 0)
                 {
+                    gameObject.SetActive(false);
                     this.OnDead.Invoke(this);
                 }
             }
-            //validate
-            //OnTakeDamage?.Invoke(this);
-
-            // amount <= 0
-            //OnDead?.Invoke(this);
-            //Dead();
+            
         }
 
 
         public void Heal(int amount)
         {
-            currentHealth += amount;
-            if (currentHealth > maxHealth)
-            {
+            if(currentHealth + amount > maxHealth){
                 currentHealth = maxHealth;
+            }else{
+                currentHealth += amount;
             }
+            
         }
 
         public bool IsDead()
         {
             return currentHealth <= 0;
         }
-        /*void Dead()
-        {
-            isDead = true;
-        }*/
 
     }
-// }

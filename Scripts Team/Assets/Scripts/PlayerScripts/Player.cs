@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         health.maxHealth = playerData.maxHealth;
+        health.currentHealth = playerData.maxHealth;
         chargeSystem.maxCharage = playerData.maxCharge;
     }
 
@@ -42,15 +43,21 @@ public class Player : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision coll) {
-        if (coll.gameObject.GetComponent<BulletManager>().skillData != null)
-        {
-            SkillData Sd = coll.gameObject.GetComponent<BulletManager>().skillData;
-            health.TakeDamage(Sd.skillDmg);
-            coll.gameObject.GetComponent<Rigidbody>().useGravity = false;
+    private void OnTriggerEnter(Collider coll) {
+        if(gameObject != coll.gameObject){
+            if (coll.gameObject.GetComponent<BulletManager>() != null)
+            {
 
+                SkillData Sd = coll.gameObject.GetComponent<BulletManager>().skillData;
+                health.TakeDamage(Sd.skillDmg);
 
+                Destroy(coll.gameObject);
+
+            }else if(coll.gameObject.CompareTag("sward")){
+                SkillData Sd = GetComponent<PlayerAttack>().basicAttack;
+                health.TakeDamage(Sd.skillDmg);
+                    
+            }
         }
     }
-
 }

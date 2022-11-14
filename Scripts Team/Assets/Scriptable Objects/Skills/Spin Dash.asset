@@ -22,7 +22,7 @@ MonoBehaviour:
   skillWidth: 3
   skillCooldown: 10
   hasProjectile: 0
-  skillIndicator: {fileID: 0}
-  skillProjectile: {fileID: 0}
+  skillIndicator: {fileID: 160012, guid: 56701ba36c1152a41a66631747c05c59, type: 3}
+  skillProjectile: {fileID: 118330, guid: b2ee7a54062d06848b6e1eefd07adea3, type: 3}
   ProjectileLifeTime: 5
   ProjectiSpeed: 3

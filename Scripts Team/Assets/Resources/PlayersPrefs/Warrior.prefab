@@ -1138,6 +1138,7 @@ GameObject:
   - component: {fileID: 695119410074540140}
   - component: {fileID: 695119410071627888}
   - component: {fileID: 695119410072761242}
+  - component: {fileID: 2063624003}
   m_Layer: 0
   m_Name: humanWarrior_sword
   m_TagString: Untagged
@@ -1211,6 +1212,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2063624003
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695119410074954862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.21695602, y: 0.08278086, z: 0.8184742}
+  m_Center: {x: -0.00000014366205, y: -0.00000011047, z: 0.32049513}
 --- !u!1 &695119410074956718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,7 +1480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2340518639034874651
 Transform:
   m_ObjectHideFlags: 0
