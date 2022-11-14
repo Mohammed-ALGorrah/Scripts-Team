@@ -41,7 +41,7 @@ Material:
     - _Blur: 0.015
     - _Fill: 0.6786971
     - _InvFade: 1
-    - _Offset: 0.5052503
+    - _Offset: 0.34472907
     m_Colors:
     - _Color: {r: 0.5661765, g: 0.9281947, b: 1, a: 1}
     - _FillColor: {r: 1, g: 1, b: 1, a: 1}
