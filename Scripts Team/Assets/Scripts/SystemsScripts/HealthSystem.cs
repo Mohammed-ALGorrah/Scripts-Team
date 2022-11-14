@@ -35,7 +35,6 @@ using UnityEngine;
 
                 if (currentHealth <= 0)
                 {
-                    gameObject.SetActive(false);
                     this.OnDead.Invoke(this);
                 }
             }

@@ -359,6 +359,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 746254172, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2340518639034874651, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -373,7 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2340518639034874651, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.06
       objectReference: {fileID: 0}
     - target: {fileID: 2340518639034874651, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -403,13 +407,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2340518639034874653, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2340518639034874654, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
     - target: {fileID: 2340518639034874654, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}

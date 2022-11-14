@@ -25,6 +25,21 @@ public class Player : MonoBehaviour
         chargeSystem.maxCharage = playerData.maxCharge;
     }
 
+    private void OnEnable()
+    {
+        health.OnDead += Health_OnDead;
+
+    }
+    private void OnDisable()
+    {
+        health.OnDead -= Health_OnDead;
+
+    }
+
+    private void Health_OnDead(HealthSystem obj)
+    {
+        gameObject.SetActive(false);
+    }
 
     void Update()
     {
