@@ -177,6 +177,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1265699441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1265699442}
+  m_Layer: 0
+  m_Name: Indicator Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1265699442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265699441}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2340518639034874651}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &695119410074757044
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,7 +686,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695119410074794484}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 358612dced86d0545afeb44de80ef74d, type: 3}
   m_Controller: {fileID: 22100000, guid: 55d78aaf2eb32364ba3acb90523e7164, type: 2}
   m_CullingMode: 0
@@ -1428,13 +1459,14 @@ GameObject:
   - component: {fileID: 2340518639034874631}
   - component: {fileID: 2340518639034874648}
   - component: {fileID: 746254172}
+  - component: {fileID: 746254173}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2340518639034874651
 Transform:
   m_ObjectHideFlags: 0
@@ -1450,6 +1482,7 @@ Transform:
   - {fileID: 695119410074528156}
   - {fileID: 5293758761077194746}
   - {fileID: 136675926}
+  - {fileID: 1265699442}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1552,6 +1585,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f009b8e47ad58a469c04b0030fbb7c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalAttackImage: {fileID: 243077959}
+  basicAttack: {fileID: 11400000, guid: c6f2898c33e3d574890397d2667653c0, type: 2}
+  specialAttack: {fileID: 11400000, guid: 28553c712a5c6694785d592929f3df5d, type: 2}
   firePoint: {fileID: 5293758761077194746}
-  Bullet: {fileID: 0}
+  indicatorParent: {fileID: 1265699442}
+--- !u!95 &746254173
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2340518639034874654}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 358612dced86d0545afeb44de80ef74d, type: 3}
+  m_Controller: {fileID: 22100000, guid: 55d78aaf2eb32364ba3acb90523e7164, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

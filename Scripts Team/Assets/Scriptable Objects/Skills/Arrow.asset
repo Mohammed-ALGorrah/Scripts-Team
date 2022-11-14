@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc4f05b6c5cd8347b69f7c1bae14616, type: 3}
+  m_Name: Arrow
+  m_EditorClassIdentifier: 
+  skillImage: {fileID: 21300000, guid: f82dfc5fc3c5a8f4080a3550427019c8, type: 3}
+  skillName: Arrow
+  skillDescription: Create a magic ball that can be hit in any direction from a distance
+  skillType: 0
+  skillDmg: 50
+  skillRange: 9
+  skillWidth: 1
+  skillCooldown: 1
+  hasProjectile: 1
+  skillIndicator: {fileID: 195872, guid: 681bd95467a254041bb423e8dd49fd4d, type: 3}
+  skillProjectile: {fileID: 194614, guid: 975080680c2dd2349826cd2a445aff6c, type: 3}
+  ProjectileLifeTime: 3
+  ProjectiSpeed: 18

@@ -6,27 +6,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
-
-    PlayerType playerType;
     PlayerControls playerControls;
-
-    public GameObject normalAttackImage;
-    
+    public SkillData basicAttack;
+    public SkillData specialAttack;
     [SerializeField]
     Transform firePoint;
-
     Animator animator;
-    
-    GameObject Bullet;
+    GameObject skillIndicator;
+    GameObject skillSpecialIndicator;
+    public Transform indicatorParent;
+    private Camera mainCamera;
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        playerType = GetComponent<Player>().playerData.playerType;
         playerControls = new PlayerControls();
-        
-      //  playerControls.Player.Fire.started += _ => StartNormalAttack();
-
     }
+
+    
     private void OnEnable()
     {
         playerControls.Enable();
@@ -36,31 +32,15 @@ public class PlayerAttack : MonoBehaviour
         playerControls.Disable();
     }
 
-    
-
 
     void Start()
     {
-        playerType = GetComponent<Player>().playerData.playerType;
-
-        switch(playerType){
-
-            case PlayerType.fighter:
-                Bullet = Resources.Load<GameObject>("BulletsPrefs/Warrior_Ammo");
-                break;
-
-            case PlayerType.defneder:
-            
-                Bullet = Resources.Load<GameObject>("BulletsPrefs/Archer_Ammo");
-
-                break;
-
-            case PlayerType.healther:
-            
-                Bullet = Resources.Load<GameObject>("BulletsPrefs/Wizard_Ammo");
-
-                break;
-           }
+        mainCamera = FindObjectOfType<Camera>();
+        skillIndicator = Instantiate(basicAttack.skillIndicator,indicatorParent);
+        skillIndicator.transform.position = Vector3.zero;
+        
+        skillSpecialIndicator= Instantiate(specialAttack.skillIndicator,indicatorParent);
+        skillSpecialIndicator.transform.position = Vector3.zero;   
     }
 
 
@@ -69,67 +49,39 @@ public class PlayerAttack : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            normalAttackImage.SetActive(true);
-
-
+            skillIndicator.SetActive(true);
         }
-        else if (Input.GetMouseButtonUp(0) && !Input.GetKey(KeyCode.Space))
+        else if (Input.GetMouseButtonUp(0))
         {
             
             animator.SetTrigger("isAttack");
-            
-            normalAttackImage.SetActive(false);
+            skillIndicator.SetActive(false);
         }
 
-        /*if(Input.GetMouseButtonUp(0)){
-            if (Input.GetKey(KeyCode.Space))
+        if(Input.GetMouseButton(1)){
+            skillSpecialIndicator.SetActive(true);
+            Vector3 pointToLook = Vector3.zero;
+            Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+            Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+            float rayLength;
+
+            if (groundPlane.Raycast(cameraRay, out rayLength))
             {
-                Debug.Log("attac camncle");
-                return;
+                pointToLook = cameraRay.GetPoint(rayLength);
             }
-            normalAttack();
-        }else if(Input.GetMouseButtonDown(1))
-        {
-            specialAttack();
-        }*/
-    }
-    
+            skillSpecialIndicator.transform.position = new Vector3(pointToLook.x,transform.position.y,pointToLook.z);
 
-    void StartNormalAttack()
-    {
-       Debug.Log("Start Attack");    
+        }
+        else if(Input.GetMouseButtonUp(1))
+        {
+            animator.SetTrigger("isAttack"); // Change it
+            skillSpecialIndicator.SetActive(false);
+        }
     }
 
-        void normalAttack()
-        {
-            Instantiate(Bullet, firePoint.position, transform.rotation);
-        }
-
-
-        void specialAttack()
-        {
-            switch (playerType)
-            {
-
-                case PlayerType.fighter:
-                    Debug.Log(playerType);
-                    break;
-
-                case PlayerType.defneder:
-                    Debug.Log(playerType);
-
-                    break;
-
-                case PlayerType.healther:
-                    Debug.Log(playerType);
-
-                    break;
-            }
-        }
-    
 
     public void shoot(){
-        normalAttack();
+        Instantiate(basicAttack.skillProjectile, firePoint.position, transform.rotation);
     }
 
 

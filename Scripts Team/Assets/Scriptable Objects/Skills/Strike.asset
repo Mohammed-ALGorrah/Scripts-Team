@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc4f05b6c5cd8347b69f7c1bae14616, type: 3}
+  m_Name: Strike
+  m_EditorClassIdentifier: 
+  skillImage: {fileID: 0}
+  skillName: Strike
+  skillDescription: Hit the enemy with a sword in one blow
+  skillType: 0
+  skillDmg: 30
+  skillRange: 2
+  skillWidth: 2
+  skillCooldown: 1
+  hasProjectile: 0
+  skillIndicator: {fileID: 125970, guid: a6c0e5342d76d9f4c9af2aa6c112f532, type: 3}
+  skillProjectile: {fileID: 6993682249073927449, guid: 4fc635603ef1d1e4c8ae90daf1481b64, type: 3}
+  ProjectileLifeTime: 2
+  ProjectiSpeed: 1

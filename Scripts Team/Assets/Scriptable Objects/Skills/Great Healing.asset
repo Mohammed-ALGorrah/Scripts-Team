@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bc4f05b6c5cd8347b69f7c1bae14616, type: 3}
+  m_Name: Great Healing
+  m_EditorClassIdentifier: 
+  skillImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  skillName: Great Healing
+  skillDescription: A special hit that heals friends
+  skillType: 1
+  skillDmg: 100
+  skillRange: 10
+  skillWidth: 3
+  skillCooldown: 10
+  hasProjectile: 1
+  skillIndicator: {fileID: 0}
+  skillProjectile: {fileID: 0}
+  ProjectileLifeTime: 5
+  ProjectiSpeed: 2
