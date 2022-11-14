@@ -44,7 +44,11 @@ Material:
     - _InvFade: 1
     - _Offset: 0.65576124
     - _OffsetX: 0
+<<<<<<< Updated upstream
     - _OffsetY: 0.85920435
+=======
+    - _OffsetY: 0.67338824
+>>>>>>> Stashed changes
     m_Colors:
     - _Color: {r: 0.5661765, g: 0.9281947, b: 1, a: 1}
     - _MainColor: {r: 0, g: 0.95862055, b: 1, a: 1}
