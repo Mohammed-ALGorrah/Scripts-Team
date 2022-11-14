@@ -39,8 +39,8 @@ public class PlayerAttack : MonoBehaviour
         skillIndicator = Instantiate(basicAttack.skillIndicator,indicatorParent);
         skillIndicator.transform.position = Vector3.zero;
         
-        skillSpecialIndicator= Instantiate(specialAttack.skillIndicator,indicatorParent);
-        skillSpecialIndicator.transform.position = Vector3.zero;   
+//        skillSpecialIndicator= Instantiate(specialAttack.skillIndicator,indicatorParent);
+      //  skillSpecialIndicator.transform.position = Vector3.zero;   
     }
 
 
@@ -57,7 +57,7 @@ public class PlayerAttack : MonoBehaviour
             animator.SetTrigger("isAttack");
             skillIndicator.SetActive(false);
         }
-
+/*
         if(Input.GetMouseButton(1)){
             skillSpecialIndicator.SetActive(true);
             Vector3 pointToLook = Vector3.zero;
@@ -76,7 +76,7 @@ public class PlayerAttack : MonoBehaviour
         {
             animator.SetTrigger("isAttack"); // Change it
             skillSpecialIndicator.SetActive(false);
-        }
+        }*/
     }
 
 

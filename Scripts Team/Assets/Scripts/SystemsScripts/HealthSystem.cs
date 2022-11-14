@@ -7,8 +7,8 @@ using UnityEngine;
 // {
     public class HealthSystem : MonoBehaviour
     {
-        public int currentHealth = 100;
-        public int maxHealth = 100;
+        public int currentHealth;
+        public int maxHealth ;
         //bool isDead;
         public event Action <HealthSystem> OnTakeDamage;
         public event Action <HealthSystem> OnDead;
@@ -16,7 +16,7 @@ using UnityEngine;
 
         public void Start()
         {
-
+            currentHealth = maxHealth;
         }
 
        /* public HealthSystem(int max)
