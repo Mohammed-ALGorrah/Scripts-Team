@@ -407,6 +407,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 2340518639034874654, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03f1af2942ba8a14bbfc20bbcae14d3f, type: 3}
 --- !u!1001 &4951930735159328730
@@ -419,6 +423,10 @@ PrefabInstance:
     - target: {fileID: 4951930733786972997, guid: 7c3c63fe8606ca1418c1627fd5c90c00, type: 3}
       propertyPath: m_Name
       value: Archer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4951930733786972997, guid: 7c3c63fe8606ca1418c1627fd5c90c00, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4951930733786973050, guid: 7c3c63fe8606ca1418c1627fd5c90c00, type: 3}
       propertyPath: m_RootOrder
@@ -712,6 +720,10 @@ PrefabInstance:
     - target: {fileID: 8191985040236469931, guid: fad6242a6607839438866e6dddd88220, type: 3}
       propertyPath: m_Name
       value: Wizard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8191985040236469931, guid: fad6242a6607839438866e6dddd88220, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fad6242a6607839438866e6dddd88220, type: 3}
