@@ -30,6 +30,10 @@ public class Player : MonoBehaviour
         
     }
 
+    void LateUpdate() {
+        
+    }
+
     public void HandleOnDeadth(){
 
     }
@@ -38,5 +42,15 @@ public class Player : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter(Collision coll) {
+        if (coll.gameObject.GetComponent<BulletManager>().skillData != null)
+        {
+            SkillData Sd = coll.gameObject.GetComponent<BulletManager>().skillData;
+            health.TakeDamage(Sd.skillDmg);
+            coll.gameObject.GetComponent<Rigidbody>().useGravity = false;
+
+
+        }
+    }
 
 }
