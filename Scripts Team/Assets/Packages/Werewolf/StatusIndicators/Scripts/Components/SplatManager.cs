@@ -68,7 +68,7 @@ namespace Werewolf.StatusIndicators.Components {
     private void InitializeSplat(Splat splat) {
       splat.Manager = this;
       splat.Initialize();
-      splat.gameObject.SetActive(false);
+      //splat.gameObject.SetActive(false);
       UpdateProjectorIgnoreLayers(splat);
     }
 

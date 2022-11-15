@@ -62,11 +62,16 @@ public class Player : MonoBehaviour
         if(gameObject != coll.gameObject){
             if (coll.gameObject.GetComponent<BulletManager>() != null)
             {
-
                 SkillData Sd = coll.gameObject.GetComponent<BulletManager>().skillData;
-                health.TakeDamage(Sd.skillDmg);
-
-                Destroy(coll.gameObject);
+                if (Sd.skillType.ToString().Equals("NORMAL")) {          
+                    health.TakeDamage(Sd.skillDmg);
+                    Destroy(coll.gameObject);
+                }
+                else
+                {
+                    health.Heal(Sd.skillDmg);
+                }
+                
 
             }else if(coll.gameObject.CompareTag("sward")){
                 SkillData Sd = GetComponent<PlayerAttack>().basicAttack;

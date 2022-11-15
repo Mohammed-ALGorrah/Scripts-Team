@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     public SkillData specialAttack;
     [SerializeField]
     Transform firePoint;
+    Transform spicalPoint;
     Animator animator;
     GameObject skillIndicator;
     GameObject skillSpecialIndicator;
@@ -35,12 +36,14 @@ public class PlayerAttack : MonoBehaviour
 
     void Start()
     {
+        
         mainCamera = FindObjectOfType<Camera>();
+
         skillIndicator = Instantiate(basicAttack.skillIndicator,indicatorParent);
         skillIndicator.transform.position = Vector3.zero;
         
-//        skillSpecialIndicator= Instantiate(specialAttack.skillIndicator,indicatorParent);
-      //  skillSpecialIndicator.transform.position = Vector3.zero;   
+        skillSpecialIndicator= Instantiate(specialAttack.skillIndicator,indicatorParent);
+        skillSpecialIndicator.transform.position = Vector3.zero;
     }
 
 
@@ -52,36 +55,31 @@ public class PlayerAttack : MonoBehaviour
             skillIndicator.SetActive(true);
         }
         else if (Input.GetMouseButtonUp(0))
-        {
-            
+        {            
             animator.SetTrigger("isAttack");
             skillIndicator.SetActive(false);
         }
-/*
+
         if(Input.GetMouseButton(1)){
             skillSpecialIndicator.SetActive(true);
-            Vector3 pointToLook = Vector3.zero;
-            Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
-            Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-            float rayLength;
-
-            if (groundPlane.Raycast(cameraRay, out rayLength))
-            {
-                pointToLook = cameraRay.GetPoint(rayLength);
-            }
-            skillSpecialIndicator.transform.position = new Vector3(pointToLook.x,transform.position.y,pointToLook.z);
-
         }
         else if(Input.GetMouseButtonUp(1))
         {
-            animator.SetTrigger("isAttack"); // Change it
+            spicalPoint = GameObject.FindGameObjectWithTag("Point").transform;
+            spicalPoint.position = new Vector3(spicalPoint.position.x, 0.5f, spicalPoint.position.z);
+            animator.SetTrigger("isPowr"); // Change it            
             skillSpecialIndicator.SetActive(false);
-        }*/
+            
+        }
     }
 
 
     public void shoot(){
         Instantiate(basicAttack.skillProjectile, firePoint.position, transform.rotation);
+    }
+    
+    public void special(){
+        Instantiate(specialAttack.skillProjectile, spicalPoint.position, transform.rotation);
     }
 
     public void activeColl(){
