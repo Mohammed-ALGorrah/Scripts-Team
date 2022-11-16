@@ -71,7 +71,16 @@ public class Player : MonoBehaviour
                 }
                 else
                 {
-                    health.Heal(Sd.skillDmg);
+                    if (Sd.HelaingSkill)
+                    {
+                        health.Heal(Sd.skillDmg);
+                    }
+                    else
+                    {
+                        health.TakeDamage(Sd.skillDmg);
+                        //Destroy(coll.gameObject);
+                    }
+                    
                 }
                 
 

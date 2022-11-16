@@ -13,10 +13,12 @@ public class SkillData : ScriptableObject
     public int skillWidth;
     public int skillCooldown;
     public bool hasProjectile;
+    public bool HelaingSkill;
     public GameObject skillIndicator;
     public GameObject skillProjectile;
     public float ProjectileLifeTime;
     public float ProjectiSpeed;
+    public Vector3 skillRotation = new Vector3(0,0,0);
 }
 
 public enum SkillType{
