@@ -9,7 +9,6 @@ public class PlayerData : ScriptableObject
     public Image image;
     public string bio;
     public PlayerType playerType;
-    public Animator animator;
     public int maxHealth;
     public int maxCharge;
 }

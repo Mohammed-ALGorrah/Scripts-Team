@@ -4895,7 +4895,7 @@ GameObject:
   - component: {fileID: 4793508864191006011}
   - component: {fileID: 4744373163272788923}
   m_Layer: 0
-  m_Name: ArrowExplosionPink
+  m_Name: basic archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
