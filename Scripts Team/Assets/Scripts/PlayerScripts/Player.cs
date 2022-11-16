@@ -29,15 +29,19 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
+        chargeSystem.OnChargeMaxed += Charge_Max;
         health.OnDead += Health_OnDead;
-
     }
     private void OnDisable()
     {
+        chargeSystem.OnChargeMaxed -= Charge_Max;
         health.OnDead -= Health_OnDead;
-
     }
 
+    private void Charge_Max( ChargeSystem obj)
+    {
+        CanSpecialAttack = true;
+    }
     private void Health_OnDead(HealthSystem obj)
     {
         gameObject.SetActive(false);
@@ -60,6 +64,7 @@ public class Player : MonoBehaviour
 
     }
 
+
     private void OnTriggerEnter(Collider coll) {
         if(gameObject != coll.gameObject){
             if (coll.gameObject.GetComponent<BulletManager>() != null)
@@ -67,17 +72,22 @@ public class Player : MonoBehaviour
                 SkillData Sd = coll.gameObject.GetComponent<BulletManager>().skillData;
                 if (Sd.skillType.ToString().Equals("NORMAL")) {          
                     health.TakeDamage(Sd.skillDmg);
+                    chargeSystem.IncreaseCharge(+1);
                     Destroy(coll.gameObject);
                 }
-                else
+                else if(CanSpecialAttack)
                 {
                     if (Sd.HelaingSkill)
                     {
                         health.Heal(Sd.skillDmg);
+                        CanSpecialAttack = false;
+                        chargeSystem.ResetCharge();
                     }
                     else
                     {
                         health.TakeDamage(Sd.skillDmg);
+                        CanSpecialAttack = false;
+                        chargeSystem.ResetCharge();
                         //Destroy(coll.gameObject);
                     }
                     

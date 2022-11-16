@@ -36,7 +36,7 @@ using UnityEngine;
 
 				if (currentCharge >= maxCharage)
 				{
-					this.OnChargeMaxed.Invoke(this);
+					this.OnChargeMaxed?.Invoke(this);
 				}
 			}
 		}
