@@ -95,14 +95,4 @@ public class PlayerAttack : MonoBehaviour
     public void special(){
         Instantiate(specialAttack.skillProjectile, spicalPoint.position , Quaternion.Euler(specialAttack.skillRotation));
     }
-
-    public void activeColl(){
-        //GameObject.Find("WarriorSword").GetComponent<BoxCollider>().enabled = true;
-    }
-
-    public void disActiveColl(){
-        //GameObject.Find("WarriorSword").GetComponent<BoxCollider>().enabled = false;
-    }
-
-
 }

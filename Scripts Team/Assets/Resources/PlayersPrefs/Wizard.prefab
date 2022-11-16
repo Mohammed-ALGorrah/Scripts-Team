@@ -1228,13 +1228,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8191985040236469926}
   - component: {fileID: 8191985040236469929}
-  - component: {fileID: 8191985040236469928}
-  - component: {fileID: 8191985040236469927}
   - component: {fileID: 8191985040236469924}
+  - component: {fileID: 1574347168}
+  - component: {fileID: 8191985040236469927}
+  - component: {fileID: 8191985040236469928}
+  - component: {fileID: 1574347167}
   - component: {fileID: 8191985040236469922}
   - component: {fileID: 8191985040236469925}
-  - component: {fileID: 1574347167}
-  - component: {fileID: 1574347168}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Untagged
@@ -1276,19 +1276,40 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &8191985040236469928
-MonoBehaviour:
+--- !u!136 &8191985040236469924
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191985040236469931}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5154611
+  m_Height: 2.462846
+  m_Direction: 1
+  m_Center: {x: 0.0628072, y: 1.32, z: 0.20661545}
+--- !u!95 &1574347168
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8191985040236469931}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fa9ff0e3083615458fa8bc1d3f9503f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
+  m_Avatar: {fileID: 9000000, guid: 358612dced86d0545afeb44de80ef74d, type: 3}
+  m_Controller: {fileID: 22100000, guid: 903e4ad8e730f0b4a9531112a93decbc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &8191985040236469927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1305,20 +1326,35 @@ MonoBehaviour:
   CanSpecialAttack: 0
   numOfKills: 0
   numOfDead: 0
---- !u!136 &8191985040236469924
-CapsuleCollider:
+--- !u!114 &8191985040236469928
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8191985040236469931}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5154611
-  m_Height: 2.462846
-  m_Direction: 1
-  m_Center: {x: 0.0628072, y: 1.32, z: 0.20661545}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa9ff0e3083615458fa8bc1d3f9503f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+--- !u!114 &1574347167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8191985040236469931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f009b8e47ad58a469c04b0030fbb7c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicAttack: {fileID: 11400000, guid: f921022ea92679d4ea4fdfd41bf0ea43, type: 2}
+  specialAttack: {fileID: 11400000, guid: a9ecf4b301829f840a387d3e4ef7a1a6, type: 2}
+  firePoint: {fileID: 2622902914100229971}
+  indicatorParent: {fileID: 880952876}
 --- !u!114 &8191985040236469922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1347,39 +1383,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCharge: 0
   maxCharage: 0
---- !u!114 &1574347167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8191985040236469931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f009b8e47ad58a469c04b0030fbb7c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basicAttack: {fileID: 11400000, guid: f921022ea92679d4ea4fdfd41bf0ea43, type: 2}
-  specialAttack: {fileID: 11400000, guid: a9ecf4b301829f840a387d3e4ef7a1a6, type: 2}
-  firePoint: {fileID: 2622902914100229971}
-  indicatorParent: {fileID: 880952876}
---- !u!95 &1574347168
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8191985040236469931}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 358612dced86d0545afeb44de80ef74d, type: 3}
-  m_Controller: {fileID: 22100000, guid: 903e4ad8e730f0b4a9531112a93decbc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

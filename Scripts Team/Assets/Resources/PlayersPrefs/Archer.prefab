@@ -1227,13 +1227,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4951930733786973050}
   - component: {fileID: 4951930733786973048}
-  - component: {fileID: 4951930733786973051}
-  - component: {fileID: 4951930733786973049}
+  - component: {fileID: 209818421}
   - component: {fileID: 4951930733786973054}
+  - component: {fileID: 4951930733786973049}
+  - component: {fileID: 4951930733786973051}
+  - component: {fileID: 209818420}
   - component: {fileID: 4951930733786973052}
   - component: {fileID: 4951930733786973055}
-  - component: {fileID: 209818420}
-  - component: {fileID: 209818421}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -1275,19 +1275,40 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &4951930733786973051
-MonoBehaviour:
+--- !u!95 &209818421
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4951930733786972997}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fa9ff0e3083615458fa8bc1d3f9503f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
+  m_Avatar: {fileID: 9000000, guid: 358612dced86d0545afeb44de80ef74d, type: 3}
+  m_Controller: {fileID: 22100000, guid: f0017c1b9d276ce41ae5e95a566e05a0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &4951930733786973054
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951930733786972997}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.57
+  m_Height: 2.37
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.32, z: 0}
 --- !u!114 &4951930733786973049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1304,20 +1325,35 @@ MonoBehaviour:
   CanSpecialAttack: 0
   numOfKills: 0
   numOfDead: 0
---- !u!136 &4951930733786973054
-CapsuleCollider:
+--- !u!114 &4951930733786973051
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4951930733786972997}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.57
-  m_Height: 2.37
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.32, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa9ff0e3083615458fa8bc1d3f9503f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+--- !u!114 &209818420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951930733786972997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f009b8e47ad58a469c04b0030fbb7c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicAttack: {fileID: 11400000, guid: 7aa568cc5991be34f806695523e5bc86, type: 2}
+  specialAttack: {fileID: 11400000, guid: bc95539a37236d946a0a38023f0cdb1b, type: 2}
+  firePoint: {fileID: 2263065615901523265}
+  indicatorParent: {fileID: 104754179}
 --- !u!114 &4951930733786973052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1346,39 +1382,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCharge: 0
   maxCharage: 0
---- !u!114 &209818420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4951930733786972997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f009b8e47ad58a469c04b0030fbb7c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basicAttack: {fileID: 11400000, guid: 7aa568cc5991be34f806695523e5bc86, type: 2}
-  specialAttack: {fileID: 11400000, guid: bc95539a37236d946a0a38023f0cdb1b, type: 2}
-  firePoint: {fileID: 2263065615901523265}
-  indicatorParent: {fileID: 104754179}
---- !u!95 &209818421
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4951930733786972997}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 358612dced86d0545afeb44de80ef74d, type: 3}
-  m_Controller: {fileID: 22100000, guid: f0017c1b9d276ce41ae5e95a566e05a0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
