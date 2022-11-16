@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
+    int id;
     public PlayerData playerData;
     HealthSystem health;
     ChargeSystem chargeSystem;
@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        id = Random.Range(100,1000000);
+
         health = GetComponent<HealthSystem>();
         chargeSystem = GetComponent<ChargeSystem>();
     }

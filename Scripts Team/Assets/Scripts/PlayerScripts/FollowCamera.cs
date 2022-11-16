@@ -14,5 +14,9 @@ namespace Scripts.PlayerScripts
             transform.position = target.position;
         }
 
+        public void setTarget(Transform newPlayer){
+            target =newPlayer;
+        }
+
     }
 }
