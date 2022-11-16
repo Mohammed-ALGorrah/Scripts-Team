@@ -70,13 +70,14 @@ public class Player : MonoBehaviour
         if(gameObject != coll.gameObject){
             if (coll.gameObject.GetComponent<BulletManager>() != null)
             {
-                SkillData Sd;
-                Sd = coll.gameObject.GetComponent<BulletManager>().skillData;
+                SkillData Sd= coll.gameObject.GetComponent<BulletManager>().skillData;
+
                 if (Sd.skillType.ToString().Equals("NORMAL")) {          
                     health.TakeDamage(Sd.skillDmg);
                     chargeSystem.IncreaseCharge(+1);
                     Destroy(Instantiate(Sd.hitEffect,coll.transform.position,Quaternion.identity),2);
                     Destroy(coll.gameObject);
+                    
                 }
                 else 
                 {
@@ -86,8 +87,9 @@ public class Player : MonoBehaviour
                     }
                     else
                     {
+                        Debug.Log(Sd.skillDmg + Sd.skillName);
                         health.TakeDamage(Sd.skillDmg);
-                        chargeSystem.IncreaseCharge(+1);
+                        chargeSystem.IncreaseCharge(+2);
                     }
                     
                 }

@@ -93,6 +93,10 @@ public class PlayerAttack : MonoBehaviour
     }
     
     public void special(){
-        Instantiate(specialAttack.skillProjectile, spicalPoint.position , Quaternion.Euler(specialAttack.skillRotation));
+        Debug.Log("special");
+        GameObject bullet = (GameObject)Instantiate(specialAttack.skillProjectile, spicalPoint.position , Quaternion.Euler(specialAttack.skillRotation));
+        if(!specialAttack.hasProjectile){
+              bullet.transform.SetParent(spicalPoint);
+        }
     }
 }
