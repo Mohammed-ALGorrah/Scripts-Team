@@ -40,10 +40,10 @@ public class PlayerAttack : MonoBehaviour
         mainCamera = FindObjectOfType<Camera>();
 
         skillIndicator = Instantiate(basicAttack.skillIndicator,indicatorParent);
-        skillIndicator.transform.position = Vector3.zero;
+        skillIndicator.transform.position = transform.position;
         
         skillSpecialIndicator= Instantiate(specialAttack.skillIndicator,indicatorParent);
-        skillSpecialIndicator.transform.position = Vector3.zero;
+        skillSpecialIndicator.transform.position = transform.position;
     }
 
 
@@ -79,7 +79,7 @@ public class PlayerAttack : MonoBehaviour
     }
     
     public void special(){
-        Instantiate(specialAttack.skillProjectile, spicalPoint.position, transform.rotation);
+        Instantiate(specialAttack.skillProjectile, spicalPoint.position , Quaternion.Euler(specialAttack.skillRotation));
     }
 
     public void activeColl(){
