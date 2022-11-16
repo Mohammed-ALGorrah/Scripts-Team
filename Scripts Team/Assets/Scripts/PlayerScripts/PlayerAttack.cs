@@ -17,8 +17,10 @@ public class PlayerAttack : MonoBehaviour
     GameObject skillSpecialIndicator;
     public Transform indicatorParent;
     private Camera mainCamera;
+    Player player;
     private void Awake()
     {
+        player = GetComponent<Player>();
         animator = GetComponent<Animator>();
         playerControls = new PlayerControls();
     }
@@ -59,17 +61,19 @@ public class PlayerAttack : MonoBehaviour
             animator.SetTrigger("isAttack");
             skillIndicator.SetActive(false);
         }
-
-        if(Input.GetMouseButton(1)){
-            skillSpecialIndicator.SetActive(true);
-        }
-        else if(Input.GetMouseButtonUp(1))
+        if (player.CanSpecialAttack) 
         {
-            spicalPoint = GameObject.FindGameObjectWithTag("Point").transform;
-            spicalPoint.position = new Vector3(spicalPoint.position.x, 0.5f, spicalPoint.position.z);
-            animator.SetTrigger("isPowr"); // Change it            
-            skillSpecialIndicator.SetActive(false);
-            
+            if (Input.GetMouseButton(1)) {
+                skillSpecialIndicator.SetActive(true);
+            }
+            else if (Input.GetMouseButtonUp(1))
+            {
+                spicalPoint = GameObject.FindGameObjectWithTag("Point").transform;
+                spicalPoint.position = new Vector3(spicalPoint.position.x, 0.5f, spicalPoint.position.z);
+                animator.SetTrigger("isPowr"); // Change it            
+                skillSpecialIndicator.SetActive(false);
+
+            } 
         }
     }
 
