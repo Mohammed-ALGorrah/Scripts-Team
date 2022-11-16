@@ -18,9 +18,12 @@ public class PlayerAttack : MonoBehaviour
     public Transform indicatorParent;
     private Camera mainCamera;
     Player player;
+    ChargeSystem chargeSystem;
+
     private void Awake()
     {
         player = GetComponent<Player>();
+        chargeSystem = GetComponent<ChargeSystem>();
         animator = GetComponent<Animator>();
         playerControls = new PlayerControls();
     }
@@ -72,6 +75,8 @@ public class PlayerAttack : MonoBehaviour
                 spicalPoint.position = new Vector3(spicalPoint.position.x, 0.5f, spicalPoint.position.z);
                 animator.SetTrigger("isPowr"); // Change it            
                 skillSpecialIndicator.SetActive(false);
+                chargeSystem.ResetCharge();
+                player.CanSpecialAttack = false;
 
             } 
         }
@@ -79,7 +84,12 @@ public class PlayerAttack : MonoBehaviour
 
 
     public void shoot(){
-        Instantiate(basicAttack.skillProjectile, firePoint.position, transform.rotation);
+
+          GameObject bullet = (GameObject)Instantiate(basicAttack.skillProjectile, firePoint.position, transform.rotation);
+
+        if(!basicAttack.hasProjectile){
+              bullet.transform.SetParent(firePoint);
+        }
     }
     
     public void special(){
@@ -87,11 +97,11 @@ public class PlayerAttack : MonoBehaviour
     }
 
     public void activeColl(){
-        GameObject.Find("WarriorSword").GetComponent<BoxCollider>().enabled = true;
+        //GameObject.Find("WarriorSword").GetComponent<BoxCollider>().enabled = true;
     }
 
     public void disActiveColl(){
-        GameObject.Find("WarriorSword").GetComponent<BoxCollider>().enabled = false;
+        //GameObject.Find("WarriorSword").GetComponent<BoxCollider>().enabled = false;
     }
 
 

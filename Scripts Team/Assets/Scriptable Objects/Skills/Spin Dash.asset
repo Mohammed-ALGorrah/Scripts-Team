@@ -22,7 +22,9 @@ MonoBehaviour:
   skillWidth: 3
   skillCooldown: 10
   hasProjectile: 0
+  HelaingSkill: 0
   skillIndicator: {fileID: 5704644776639623240, guid: 3ce7bd199697d7840aac2bdfd1cbc626, type: 3}
   skillProjectile: {fileID: 125044, guid: ae6cf3671590f3741928b2570d0f0dba, type: 3}
-  ProjectileLifeTime: 5
+  ProjectileLifeTime: 2
   ProjectiSpeed: 3
+  skillRotation: {x: 0, y: 0, z: 0}

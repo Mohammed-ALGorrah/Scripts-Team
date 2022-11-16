@@ -21,7 +21,10 @@ MonoBehaviour:
   skillWidth: 1
   skillCooldown: 1
   hasProjectile: 1
+  HelaingSkill: 0
+  hitEffect: {fileID: 4631366699922186543, guid: 04782fbd341ec62458ac7b9e7ca03271, type: 3}
   skillIndicator: {fileID: 195872, guid: 681bd95467a254041bb423e8dd49fd4d, type: 3}
   skillProjectile: {fileID: 194614, guid: 975080680c2dd2349826cd2a445aff6c, type: 3}
   ProjectileLifeTime: 3
   ProjectiSpeed: 18
+  skillRotation: {x: 0, y: 0, z: 0}

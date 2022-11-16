@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     HealthSystem health;
     ChargeSystem chargeSystem;
     
+    
     public bool CanSpecialAttack;
     public int numOfKills;
     public int numOfDead;
@@ -69,35 +70,27 @@ public class Player : MonoBehaviour
         if(gameObject != coll.gameObject){
             if (coll.gameObject.GetComponent<BulletManager>() != null)
             {
-                SkillData Sd = coll.gameObject.GetComponent<BulletManager>().skillData;
+                SkillData Sd;
+                Sd = coll.gameObject.GetComponent<BulletManager>().skillData;
                 if (Sd.skillType.ToString().Equals("NORMAL")) {          
                     health.TakeDamage(Sd.skillDmg);
                     chargeSystem.IncreaseCharge(+1);
+                    Destroy(Instantiate(Sd.hitEffect,coll.transform.position,Quaternion.identity),2);
                     Destroy(coll.gameObject);
                 }
-                else if(CanSpecialAttack)
+                else 
                 {
                     if (Sd.HelaingSkill)
                     {
                         health.Heal(Sd.skillDmg);
-                        CanSpecialAttack = false;
-                        chargeSystem.ResetCharge();
                     }
                     else
                     {
                         health.TakeDamage(Sd.skillDmg);
-                        CanSpecialAttack = false;
-                        chargeSystem.ResetCharge();
-                        //Destroy(coll.gameObject);
+                        chargeSystem.IncreaseCharge(+1);
                     }
                     
                 }
-                
-
-            }else if(coll.gameObject.CompareTag("sward")){
-                SkillData Sd = GetComponent<PlayerAttack>().basicAttack;
-                health.TakeDamage(Sd.skillDmg);
-                    
             }
         }
     }
