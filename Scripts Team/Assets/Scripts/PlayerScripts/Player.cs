@@ -8,24 +8,28 @@ public class Player : MonoBehaviour
     public PlayerData playerData;
     HealthSystem health;
     ChargeSystem chargeSystem;
-    
-    
+    GameManager gameManager;
+        
     public bool CanSpecialAttack;
     public int numOfKills;
     public int numOfDead;
 
     private void Awake()
     {
+
+        
         id = Random.Range(100,1000000);
 
         health = GetComponent<HealthSystem>();
         chargeSystem = GetComponent<ChargeSystem>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     void Start()
     {
         health.maxHealth = playerData.maxHealth;
         health.currentHealth = playerData.maxHealth;
         chargeSystem.maxCharage = playerData.maxCharge;
+        
     }
 
     private void OnEnable()
@@ -50,7 +54,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     void LateUpdate() {
@@ -72,9 +76,14 @@ public class Player : MonoBehaviour
             {
                 SkillData Sd= coll.gameObject.GetComponent<BulletManager>().skillData;
 
-                if (Sd.skillType.ToString().Equals("NORMAL")) {          
+                if (Sd.skillType.ToString().Equals("NORMAL")) {  
+                    if(CheckFriend(Sd.player)){
+                            return;
+                    }
+                    
                     health.TakeDamage(Sd.skillDmg);
                     chargeSystem.IncreaseCharge(+1);
+                    
                     Destroy(Instantiate(Sd.hitEffect,coll.transform.position,Quaternion.identity),2);
                     Destroy(coll.gameObject);
                     
@@ -83,11 +92,16 @@ public class Player : MonoBehaviour
                 {
                     if (Sd.HelaingSkill)
                     {
-                        health.Heal(Sd.skillDmg);
+                        if(CheckFriend(Sd.player)){
+                            health.Heal(Sd.skillDmg);
+                         }
+                        
                     }
                     else
                     {
-                        Debug.Log(Sd.skillDmg + Sd.skillName);
+                        if(CheckFriend(Sd.player)){
+                            return;
+                         }
                         health.TakeDamage(Sd.skillDmg);
                         chargeSystem.IncreaseCharge(+2);
                     }
@@ -95,5 +109,16 @@ public class Player : MonoBehaviour
                 }
             }
         }
+    }
+
+    bool CheckFriend(Player player){
+
+        if(gameManager.FirstTeam.players.Contains(player) && gameManager.FirstTeam.players.Contains(this)){
+            return true;
+        }else if(gameManager.SecondTeam.players.Contains(player) && gameManager.SecondTeam.players.Contains(this)){
+            return true;
+        }
+        return false;
+        
     }
 }

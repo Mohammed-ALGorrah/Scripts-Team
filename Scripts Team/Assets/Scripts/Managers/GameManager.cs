@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
 
     bool statred;
     int targetNum = 20;
-    Team FirstTeam;
-    Team SecondTeam;
+    public Team FirstTeam;
+    public Team SecondTeam;
 
     [SerializeField]
     Transform [] SpwanPoints;
