@@ -22,8 +22,10 @@ MonoBehaviour:
   skillCooldown: 10
   hasProjectile: 1
   HelaingSkill: 1
+  player: {fileID: 0}
+  hitEffect: {fileID: 0}
   skillIndicator: {fileID: 5704644776639623240, guid: 3ce7bd199697d7840aac2bdfd1cbc626, type: 3}
-  skillProjectile: {fileID: 1233254026376546, guid: b6ac78dbb6751514392e2f44f82cc21f, type: 3}
+  skillProjectile: {fileID: 6125944756506189121, guid: 0b9f53baf54cd994c87513f94aac320e, type: 3}
   ProjectileLifeTime: 5
   ProjectiSpeed: 2
-  skillRotation: {x: 0, y: 0, z: 0}
+  skillRotation: {x: -90, y: 0, z: 0}

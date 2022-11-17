@@ -20,12 +20,17 @@ public class PlayerAttack : MonoBehaviour
     Player player;
     ChargeSystem chargeSystem;
 
+    public ParticleSystem releasspical;
+
     private void Awake()
     {
+        
         player = GetComponent<Player>();
         chargeSystem = GetComponent<ChargeSystem>();
         animator = GetComponent<Animator>();
         playerControls = new PlayerControls();
+        releasspical = Instantiate(releasspical, transform.position, Quaternion.Euler(specialAttack.skillRotation));
+        releasspical.transform.SetParent(this.transform);
     }
 
     
@@ -98,5 +103,11 @@ public class PlayerAttack : MonoBehaviour
         if(!specialAttack.hasProjectile){
               bullet.transform.SetParent(spicalPoint);
         }
+    }
+
+    public void releasSpical()
+    {
+        releasspical.transform.position = new Vector3(this.transform.position.x, 1f, this.transform.position.z);
+        releasspical.Play();
     }
 }

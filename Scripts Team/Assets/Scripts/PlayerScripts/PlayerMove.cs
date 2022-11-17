@@ -15,10 +15,14 @@ public class PlayerMove : MonoBehaviour
 
     private PlayerControls playerControls;
     private Animator animator;
+    public ParticleSystem footStep;
     private void Awake()
     {
+        
         animator = GetComponent<Animator>();
         playerControls = new PlayerControls();
+        footStep = Instantiate(footStep, transform.position, transform.rotation);
+        footStep.transform.SetParent(this.transform);
     }
 
     void Start()
@@ -64,5 +68,10 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         rB.velocity = moveVelocity;
+    }
+
+    void FootStep()
+    {
+        footStep.Play();
     }
 }

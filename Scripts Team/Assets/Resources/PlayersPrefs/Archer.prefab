@@ -1338,6 +1338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  footStep: {fileID: 198006683868144142, guid: 2e2e07699f67d524a9c1cacb203f276e, type: 3}
 --- !u!114 &209818420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1354,6 +1355,7 @@ MonoBehaviour:
   specialAttack: {fileID: 11400000, guid: bc95539a37236d946a0a38023f0cdb1b, type: 2}
   firePoint: {fileID: 2263065615901523265}
   indicatorParent: {fileID: 104754179}
+  releasspical: {fileID: 4984051608084243149, guid: 7e80f797cc506de4887d031ff36c2a1a, type: 3}
 --- !u!114 &4951930733786973052
 MonoBehaviour:
   m_ObjectHideFlags: 0
