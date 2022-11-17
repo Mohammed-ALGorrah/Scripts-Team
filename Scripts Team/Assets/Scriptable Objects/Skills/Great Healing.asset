@@ -23,7 +23,7 @@ MonoBehaviour:
   hasProjectile: 1
   HelaingSkill: 1
   player: {fileID: 0}
-  hitEffect: {fileID: 0}
+  hitEffect: {fileID: 8382068301544357172, guid: b5a34f44c611ab946881c09d1ead7e0f, type: 3}
   skillIndicator: {fileID: 5704644776639623240, guid: 3ce7bd199697d7840aac2bdfd1cbc626, type: 3}
   skillProjectile: {fileID: 6125944756506189121, guid: 0b9f53baf54cd994c87513f94aac320e, type: 3}
   ProjectileLifeTime: 5

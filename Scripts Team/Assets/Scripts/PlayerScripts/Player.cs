@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
 
                 if (Sd.skillType.ToString().Equals("NORMAL")) {  
                     if(CheckFriend(Sd.player)){
+                        Debug.Log("friend");
                             return;
                     }
                     
@@ -92,7 +93,9 @@ public class Player : MonoBehaviour
                 {
                     if (Sd.HelaingSkill)
                     {
+                        Debug.Log("f");
                         if(CheckFriend(Sd.player)){
+                             Debug.Log("HelaingSkill");
                             health.Heal(Sd.skillDmg);
                          }
                         
@@ -112,10 +115,8 @@ public class Player : MonoBehaviour
     }
 
     bool CheckFriend(Player player){
-
-        if(gameManager.FirstTeam.players.Contains(player) && gameManager.FirstTeam.players.Contains(this)){
-            return true;
-        }else if(gameManager.SecondTeam.players.Contains(player) && gameManager.SecondTeam.players.Contains(this)){
+        if((gameManager.FirstTeam.players.Contains(player) && gameManager.FirstTeam.players.Contains(this)) ||
+             (gameManager.SecondTeam.players.Contains(player) && gameManager.SecondTeam.players.Contains(this))){
             return true;
         }
         return false;
