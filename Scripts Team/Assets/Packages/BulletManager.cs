@@ -28,4 +28,6 @@ public class BulletManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+   
 }
