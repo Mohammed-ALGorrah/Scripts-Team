@@ -111,4 +111,10 @@ public class PlayerAttack : MonoBehaviour
         releasspical.transform.position = new Vector3(this.transform.position.x, 1f, this.transform.position.z);
         releasspical.Play();
     }
+
+    public void stopSpical()
+    {
+       // releasspical.transform.position = new Vector3(this.transform.position.x, 1f, this.transform.position.z);
+        releasspical.Stop();
+    }
 }
