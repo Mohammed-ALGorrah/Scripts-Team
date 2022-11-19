@@ -15,4 +15,17 @@ public class BulletManager : MonoBehaviour
         }
         Destroy(gameObject,skillData.ProjectileLifeTime);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("obstacle"))
+        {
+            Debug.Log("obstacle");
+            Destroy(gameObject);
+        }
+    }
 }

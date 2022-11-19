@@ -6,15 +6,17 @@ TagManager:
   tags:
   - sward
   - Point
+  - Missile
+  - obstacle
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - ' '
   - Water
   - UI
   - ground
-  - 
+  - mm
   - 
   - 
   - 
