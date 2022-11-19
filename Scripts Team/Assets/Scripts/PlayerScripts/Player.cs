@@ -71,6 +71,7 @@ public class Player : MonoBehaviour
 
 
     private void OnTriggerEnter(Collider coll) {
+
         if(gameObject != coll.gameObject){
             if (coll.gameObject.GetComponent<BulletManager>() != null)
             {

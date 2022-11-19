@@ -91,7 +91,7 @@ public class PlayerAttack : MonoBehaviour
     public void shoot(){
 
           GameObject bullet = (GameObject)Instantiate(basicAttack.skillProjectile, firePoint.position, transform.rotation);
-             basicAttack.player = player;
+          basicAttack.player = player;
         if(!basicAttack.hasProjectile){
               bullet.transform.SetParent(firePoint);
         }
@@ -101,6 +101,7 @@ public class PlayerAttack : MonoBehaviour
 
         GameObject bullet = (GameObject)Instantiate(specialAttack.skillProjectile, spicalPoint.position , Quaternion.Euler(specialAttack.skillRotation));
         specialAttack.player = player;
+        
         if(!specialAttack.hasProjectile){
               bullet.transform.SetParent(spicalPoint);
         }
