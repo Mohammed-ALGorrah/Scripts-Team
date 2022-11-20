@@ -7,12 +7,12 @@ namespace Werewolf.StatusIndicators.Effects {
     private Material Material;
 
     void Start() {
-      Material = GetComponent<Projector>().material;
+  //    Material = GetComponent<Projector>().material;
     }
 
     void Update() {
-      Material.SetFloat("_OffsetX", Mathf.Repeat(Time.time * XSpeed, 1));
-      Material.SetFloat("_OffsetY", Mathf.Repeat(Time.time * YSpeed, 1));
+//      Material.SetFloat("_OffsetX", Mathf.Repeat(Time.time * XSpeed, 1));
+ //    Material.SetFloat("_OffsetY", Mathf.Repeat(Time.time * YSpeed, 1));
     }
   }
 }

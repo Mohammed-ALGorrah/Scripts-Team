@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     int id;
+    Animator animator;
     public PlayerData playerData;
     HealthSystem health;
     ChargeSystem chargeSystem;
@@ -19,7 +20,7 @@ public class Player : MonoBehaviour
 
         
         id = Random.Range(100,1000000);
-
+        animator = GetComponent<Animator>();
         health = GetComponent<HealthSystem>();
         chargeSystem = GetComponent<ChargeSystem>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -48,7 +49,12 @@ public class Player : MonoBehaviour
         CanSpecialAttack = true;
     }
     private void Health_OnDead(HealthSystem obj)
-    {
+    {   
+        animator.SetTrigger("isDead");
+        Invoke("hidePlayer",1.5f);
+    }
+
+    void hidePlayer(){
         gameObject.SetActive(false);
     }
 
@@ -79,7 +85,7 @@ public class Player : MonoBehaviour
 
                 if (Sd.skillType.ToString().Equals("NORMAL")) {  
                     if(CheckFriend(Sd.player)){
-                        Debug.Log("friend");
+                             Debug.Log("friend");
                             return;
                     }
                     
@@ -94,7 +100,6 @@ public class Player : MonoBehaviour
                 {
                     if (Sd.HelaingSkill)
                     {
-                        Debug.Log("f");
                         if(CheckFriend(Sd.player)){
                              Debug.Log("HelaingSkill");
                             health.Heal(Sd.skillDmg);

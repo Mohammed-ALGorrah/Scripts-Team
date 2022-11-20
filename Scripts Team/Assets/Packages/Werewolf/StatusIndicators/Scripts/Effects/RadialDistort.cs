@@ -7,11 +7,11 @@ namespace Werewolf.StatusIndicators.Effects {
     private Material Material;
 
     void Start() {
-      Material = GetComponent<Projector>().material;
+      //Material = GetComponent<Projector>().material;
     }
 
     void Update() {
-      Material.SetFloat("_Offset", Mathf.Repeat(Time.time * Speed, 1));
+     // Material.SetFloat("_Offset", Mathf.Repeat(Time.time * Speed, 1));
     }
   }
 }
