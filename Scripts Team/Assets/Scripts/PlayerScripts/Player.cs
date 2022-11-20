@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-
         
         id = Random.Range(100,1000000);
         animator = GetComponent<Animator>();
@@ -51,11 +50,23 @@ public class Player : MonoBehaviour
     private void Health_OnDead(HealthSystem obj)
     {   
         animator.SetTrigger("isDead");
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        gameObject.GetComponent<PlayerAttack>().enabled = false;
+        gameObject.GetComponent<PlayerMove>().enabled = false;
+        gameObject.GetComponent<ChargeSystem>().enabled = false;
+        gameObject.GetComponent<HealthSystem>().enabled = false;
+        Destroy(Instantiate(Resources.Load("FireDeath"),new Vector3(transform.position.x,transform.position.y+1,transform.position.z),Quaternion.identity),2f);
         Invoke("hidePlayer",1.5f);
     }
 
     void hidePlayer(){
         gameObject.SetActive(false);
+        gameObject.GetComponent<CapsuleCollider>().enabled = true;
+        gameObject.GetComponent<PlayerAttack>().enabled = true;
+        gameObject.GetComponent<PlayerMove>().enabled = true;
+        gameObject.GetComponent<ChargeSystem>().enabled = true;
+        gameObject.GetComponent<HealthSystem>().enabled = true;
+
     }
 
     void Update()
