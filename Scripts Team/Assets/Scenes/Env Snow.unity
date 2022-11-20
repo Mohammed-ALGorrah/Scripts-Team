@@ -5921,6 +5921,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1322028268872667615, guid: 99b43fc0b93607f4da06f6c66b52772f, type: 3}
   m_PrefabInstance: {fileID: 260381721}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &260770485 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1407857646280421898, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+  m_PrefabInstance: {fileID: 7728664320905112219}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &265999128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13788,7 +13793,7 @@ GameObject:
   - component: {fileID: 630741048}
   m_Layer: 0
   m_Name: SnowHouse
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32952,7 +32957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1504341436
 Transform:
   m_ObjectHideFlags: 0
@@ -37758,6 +37763,14 @@ PrefabInstance:
     - target: {fileID: 1653319153743818746, guid: 3226ec384fa35f945b8e30ed4de1ac36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551358296171499635, guid: 3226ec384fa35f945b8e30ed4de1ac36, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551358296171499635, guid: 3226ec384fa35f945b8e30ed4de1ac36, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3226ec384fa35f945b8e30ed4de1ac36, type: 3}
@@ -46286,6 +46299,10 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4268315953505895430, guid: 3226ec384fa35f945b8e30ed4de1ac36, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3226ec384fa35f945b8e30ed4de1ac36, type: 3}
 --- !u!4 &1412805608584889982 stripped
@@ -47293,9 +47310,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 630741048}
     m_Modifications:
+    - target: {fileID: 113310911159144882, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 331588019324475933, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 403062614191373696, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 612736672162503656, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 899133171582366937, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 958273622830561387, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 1407857646280421898, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
       propertyPath: m_Name
       value: snow_house02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407857646280421898, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1426334338249971408, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 1784102465691248816, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
       propertyPath: m_RootOrder
@@ -47341,9 +47390,77 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1801490787502521232, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2269712626779531570, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010921311634844547, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4091893299083593000, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134077558081541752, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4289890630435497221, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850036104831794084, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5942325849856348956, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374598309866778821, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972659223808391951, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323375665893378970, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538808272333080336, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819629811867269001, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135578853902231586, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340606573400432431, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 8860153665805569152, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924710367180663196, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977919907937363625, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
+      propertyPath: m_TagString
+      value: obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
@@ -47500,6 +47617,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1784102465691248816, guid: 40df0add8b110364b990a3a0512d5672, type: 3}
   m_PrefabInstance: {fileID: 7728664320905112219}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &8323739515590279724
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260770485}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &9030362165648196416
 PrefabInstance:
   m_ObjectHideFlags: 0

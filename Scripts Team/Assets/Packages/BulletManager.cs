@@ -8,6 +8,8 @@ public class BulletManager : MonoBehaviour
 
     void Update()
     {
+        
+
         if (skillData.skillType.ToString().Equals("NORMAL") && skillData.hasProjectile)
         {
             transform.TransformDirection(Vector3.forward);        
@@ -18,7 +20,14 @@ public class BulletManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("obstacle"))
+        //IDamageable damageable = other.GetComponent<IDamageable>();
+
+        if (other.TryGetComponent<IDamageable>(out IDamageable damageable))
+        {
+            damageable.Damage(10);
+        }
+
+        if (other.CompareTag("obstacle"))
         {
             Debug.Log("obstacle");
             Destroy(gameObject);
