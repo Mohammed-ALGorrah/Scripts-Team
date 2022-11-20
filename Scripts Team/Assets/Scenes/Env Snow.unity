@@ -28623,7 +28623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1653319153743818746, guid: 3226ec384fa35f945b8e30ed4de1ac36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 3.666666
       objectReference: {fileID: 0}
     - target: {fileID: 1653319153743818746, guid: 3226ec384fa35f945b8e30ed4de1ac36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -28631,11 +28631,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1653319153743818746, guid: 3226ec384fa35f945b8e30ed4de1ac36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6432267229006593304, guid: 3226ec384fa35f945b8e30ed4de1ac36, type: 3}
-      propertyPath: maxHealth
-      value: 50
+      value: 3.666666
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3226ec384fa35f945b8e30ed4de1ac36, type: 3}

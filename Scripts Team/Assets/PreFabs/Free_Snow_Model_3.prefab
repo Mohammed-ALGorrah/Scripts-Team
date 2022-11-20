@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3551358296171499635}
   - component: {fileID: 6432267229006593304}
   - component: {fileID: 4124408097788014411}
+  - component: {fileID: 4305003213556980874}
   m_Layer: 0
   m_Name: Free_Snow_Model_3
   m_TagString: obstacle
@@ -29,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653319153743328218}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.28, y: 0.8027004, z: 5.8500347}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -145,6 +146,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fxDestroy: {fileID: 522978501356538971}
+--- !u!111 &4305003213556980874
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653319153743328218}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c5b3f9c97e7711841979137e1609f7f1, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c5b3f9c97e7711841979137e1609f7f1, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &522978501356424717
 PrefabInstance:
   m_ObjectHideFlags: 0
