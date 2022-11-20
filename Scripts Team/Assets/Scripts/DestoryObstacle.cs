@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent (typeof(HealthSystem))]
 public class DestoryObstacle : MonoBehaviour, IDamageable
 {
-    [SerializeField] ParticleSystem fxDestroy;
+    [SerializeField] GameObject fxDestroy;
     HealthSystem health;
     private void Awake()
     {
@@ -20,8 +20,8 @@ public class DestoryObstacle : MonoBehaviour, IDamageable
     }
     private void Health_OnDead(HealthSystem obj)
     {
-        fxDestroy.Play();
-        Destroy(gameObject,2);
+        fxDestroy.SetActive(true);
+        Destroy(gameObject,0.25f);
     }
 
     private void OnEnable()
