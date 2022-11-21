@@ -36,7 +36,7 @@ using UnityEngine;
 
                 if (currentHealth <= 0)
                 {
-                    this.OnDead.Invoke(this);
+                    this.OnDead?.Invoke(this);
                 }
             }
             
