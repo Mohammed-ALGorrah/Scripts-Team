@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class Player : MonoBehaviour
     public bool CanSpecialAttack;
     public int numOfKills;
     public int numOfDead;
+
+     [SerializeField]
+      Slider healthBar;
 
     private void Awake()
     {
@@ -32,10 +36,13 @@ public class Player : MonoBehaviour
         
     }
 
+
+
     private void OnEnable()
     {
         chargeSystem.OnChargeMaxed += Charge_Max;
         health.OnDead += Health_OnDead;
+        health.OnTakeDamage += Health_OnTakeDamage;
     }
     private void OnDisable()
     {
@@ -47,6 +54,11 @@ public class Player : MonoBehaviour
     {
         CanSpecialAttack = true;
     }
+
+    private void Health_OnTakeDamage(HealthSystem obj){
+        healthBar.value = health.currentHealth / health.maxHealth;
+    }
+
     private void Health_OnDead(HealthSystem obj)
     {   
         animator.SetTrigger("isDead");
@@ -69,15 +81,6 @@ public class Player : MonoBehaviour
 
     }
 
-    void Update()
-    {
-
-    }
-
-    void LateUpdate() {
-        
-    }
-
     public void HandleOnDeadth(){
 
     }
@@ -85,7 +88,6 @@ public class Player : MonoBehaviour
     public void ResponePlayer(){
 
     }
-
 
     private void OnTriggerEnter(Collider coll) {
 

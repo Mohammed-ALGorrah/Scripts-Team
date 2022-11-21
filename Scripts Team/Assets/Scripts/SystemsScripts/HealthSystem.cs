@@ -5,8 +5,8 @@ using UnityEngine;
     
     public class HealthSystem : MonoBehaviour
     {
-        public int currentHealth;
-        public int maxHealth ;
+        public float currentHealth;
+        public float maxHealth ;
 
         public event Action <HealthSystem> OnTakeDamage;
         public event Action <HealthSystem> OnDead;
@@ -31,6 +31,7 @@ using UnityEngine;
             if (currentHealth > 0 )
             {
                 currentHealth -= amount;
+                
                 this.OnTakeDamage?.Invoke(this);
 
                 if (currentHealth <= 0)
