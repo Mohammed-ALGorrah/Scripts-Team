@@ -63,11 +63,13 @@ public class PlayerMove : MonoBehaviour
         moveVelocity = moveInput * moveSpeed;
         animator.SetFloat("walk" , moveVelocity.magnitude);
         LookAtMousePostion();
+        rB.velocity = moveVelocity;
     }
 
     private void FixedUpdate()
     {
-        rB.velocity = moveVelocity;
+        
+        rB.AddForce(Vector3.down*10000);
     }
 
     void FootStep()

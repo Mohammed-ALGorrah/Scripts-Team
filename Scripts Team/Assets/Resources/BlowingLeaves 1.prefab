@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 19808404}
   - component: {fileID: 19947552}
   m_Layer: 0
-  m_Name: BlowingLeaves
+  m_Name: BlowingLeaves 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
