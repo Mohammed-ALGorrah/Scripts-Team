@@ -17,8 +17,8 @@ public class Player : MonoBehaviour
     public int numOfDead;
 
      [SerializeField]
-      Slider healthBar;
-
+     Slider healthBar;
+    
     private void Awake()
     {
         
@@ -33,9 +33,10 @@ public class Player : MonoBehaviour
         health.maxHealth = playerData.maxHealth;
         health.currentHealth = playerData.maxHealth;
         chargeSystem.maxCharage = playerData.maxCharge;
-        
+              
     }
 
+    
 
 
     private void OnEnable()
