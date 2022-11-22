@@ -14526,6 +14526,7 @@ GameObject:
   - component: {fileID: 9625044}
   - component: {fileID: 292765328674753211}
   - component: {fileID: 13525044}
+  - component: {fileID: 498423026352067190}
   m_Layer: 0
   m_Name: Wizard_Ammo
   m_TagString: Untagged
@@ -14736,3 +14737,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.55
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &498423026352067190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa5c1e37409a9344a344c0468db383d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabSound: {fileID: 1297775994297274, guid: d52a540dfee405e4f82a5422e2198606, type: 3}
+  destroyWhenDone: 1
+  soundPrefabIsChild: 0
+  pitchRandomMultiplier: 1.1

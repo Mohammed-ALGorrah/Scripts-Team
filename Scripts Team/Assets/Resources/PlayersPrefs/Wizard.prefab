@@ -1756,10 +1756,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AuraChargeGreen 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1175692197048250, guid: aa0ffbcb2a0fcd145923407581ad322a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4143362421210860, guid: aa0ffbcb2a0fcd145923407581ad322a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1803,22 +1799,6 @@ PrefabInstance:
     - target: {fileID: 4143362421210860, guid: aa0ffbcb2a0fcd145923407581ad322a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198568275775356368, guid: aa0ffbcb2a0fcd145923407581ad322a, type: 3}
-      propertyPath: looping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198844821358354874, guid: aa0ffbcb2a0fcd145923407581ad322a, type: 3}
-      propertyPath: looping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198857659042813560, guid: aa0ffbcb2a0fcd145923407581ad322a, type: 3}
-      propertyPath: looping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 198879472521764208, guid: aa0ffbcb2a0fcd145923407581ad322a, type: 3}
-      propertyPath: looping
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa0ffbcb2a0fcd145923407581ad322a, type: 3}

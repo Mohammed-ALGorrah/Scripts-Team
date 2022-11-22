@@ -1755,29 +1755,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: AuraChargePurple 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1166593180906054, guid: 8a8fdea35e8814f48b100d2a4c030bf1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4398009401770854, guid: 8a8fdea35e8814f48b100d2a4c030bf1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4632143612809574, guid: 8a8fdea35e8814f48b100d2a4c030bf1, type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4632143612809574, guid: 8a8fdea35e8814f48b100d2a4c030bf1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4632143612809574, guid: 8a8fdea35e8814f48b100d2a4c030bf1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4632143612809574, guid: 8a8fdea35e8814f48b100d2a4c030bf1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4632143612809574, guid: 8a8fdea35e8814f48b100d2a4c030bf1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1818,22 +1798,6 @@ PrefabInstance:
     - target: {fileID: 4632143612809574, guid: 8a8fdea35e8814f48b100d2a4c030bf1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 199172201224658918, guid: 8a8fdea35e8814f48b100d2a4c030bf1, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199178076596172408, guid: 8a8fdea35e8814f48b100d2a4c030bf1, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199640094654631220, guid: 8a8fdea35e8814f48b100d2a4c030bf1, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 199957833492129308, guid: 8a8fdea35e8814f48b100d2a4c030bf1, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8fdea35e8814f48b100d2a4c030bf1, type: 3}
