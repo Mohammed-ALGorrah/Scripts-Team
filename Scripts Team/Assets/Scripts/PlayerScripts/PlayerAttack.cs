@@ -82,6 +82,7 @@ public class PlayerAttack : MonoBehaviour
                 skillSpecialIndicator.SetActive(false);
                 chargeSystem.ResetCharge();
                 player.CanSpecialAttack = false;
+                player.fxSpecialAttack.gameObject.SetActive(false);
 
             } 
         }

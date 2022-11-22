@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     GameManager gameManager;
         
     public bool CanSpecialAttack;
+    public ParticleSystem fxSpecialAttack;
     public int numOfKills;
     public int numOfDead;
 
@@ -53,6 +54,7 @@ public class Player : MonoBehaviour
 
     private void Charge_Max( ChargeSystem obj)
     {
+        fxSpecialAttack.gameObject.SetActive(true);
         CanSpecialAttack = true;
     }
 
