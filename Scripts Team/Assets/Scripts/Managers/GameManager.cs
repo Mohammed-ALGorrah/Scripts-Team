@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         FollowCamera cam =GameObject.Find("Follow Camera").GetComponent<FollowCamera>();
 
         string playerName = PlayerPrefs.GetString("Player","Archer");
-
+        /*
         switch (playerName)
         {
             case "Archer":
@@ -45,8 +45,7 @@ public class GameManager : MonoBehaviour
         }
                      
             cam.setTarget(newPlayer.transform);
-
-        
+        */
     }
 
     // Update is called once per frame

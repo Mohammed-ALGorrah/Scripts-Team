@@ -17,8 +17,8 @@ public class UI_Manager : MonoBehaviour
         
     }
 
-    public void selectPlayer(string playerName){
-        PlayerPrefs.SetString("Player",playerName);
-        SceneManager.LoadScene(1);
-    }
+   /// public void selectPlayer(string playerName){
+   //     PlayerPrefs.SetString("Player",playerName);
+   //     SceneManager.LoadScene(1);
+   //ds }
 }

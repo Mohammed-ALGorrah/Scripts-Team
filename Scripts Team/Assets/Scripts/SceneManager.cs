@@ -15,6 +15,11 @@ public class SceneManager : MonoBehaviour
     public GameObject playerPrefab2;
     public GameObject playerPrefab3;
 
+    internal static void LoadScene(string v)
+    {
+        throw new System.NotImplementedException();
+    }
+
     #endregion
 
     #region UnityMethods
@@ -23,7 +28,7 @@ public class SceneManager : MonoBehaviour
     {
         if (PhotonNetwork.IsConnectedAndReady)
         {
-            int randomNumber1 = Random.Range(-110, -130);
+            int randomNumber1 = Random.Range(-10, 10);
             int randomNumber2 = Random.Range(-10,10);
 
             int prefab = (int)PhotonNetwork.LocalPlayer.CustomProperties["avatar"];

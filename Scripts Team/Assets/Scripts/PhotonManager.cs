@@ -123,7 +123,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.LoadLevel("Game2");
+            PhotonNetwork.LoadLevel(1);
         }
     }
 
@@ -187,15 +187,13 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     }
 
-    // public override void OnPlayerLeftRoom(Player otherPlayer)
-    // {
-    //     Destroy(playersList[otherPlayer.ActorNumber]);
-    //     playersList.Remove(otherPlayer.ActorNumber);
-    // }
+     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
+     {
+         Destroy(playersList[otherPlayer.ActorNumber]);
+         playersList.Remove(otherPlayer.ActorNumber);
+     }
 
-    public override void OnPlayerLeftRoom(Player otherPlayer){
-        
-    }
+
 
     public override void OnLeftRoom()
     {

@@ -1,3 +1,4 @@
+using Heros.Players;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data", menuName = "Scriptable Objects/Skill", order = 2)]

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
-
+using Heros.Players;
 
 public class PlayerSetup : MonoBehaviourPunCallbacks
 {
@@ -11,10 +11,11 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     
     public GameObject PlayerCanvas;
     public GameObject PlayerCamera;
-    public GameObject ShootScript;
-    public GameObject assaultScript;
-    public GameObject pistolScript;
-
+    public GameObject Player;
+    public GameObject PlayerAttack;
+    public GameObject PlayerMove;
+    public GameObject HealthSystem;
+    public GameObject ChargeSystem;
     [Header("Test data")]
     public Text numText;
     int num = 0;
@@ -27,20 +28,23 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
-            GetComponent<polygon_fps_controller>().enabled = true;
-            ShootScript.GetComponent<shoot_handle>().enabled = true;
-            assaultScript.GetComponent<assault57>().enabled = true;
-            pistolScript.GetComponent<old_pistol>().enabled = true;
-            PlayerCanvas.SetActive(true);
+            Player.GetComponent<Player>().enabled = true;
+            PlayerAttack.GetComponent<PlayerAttack>().enabled = true;
+            PlayerMove.GetComponent<PlayerMove>().enabled = true;
+            HealthSystem.GetComponent<HealthSystem>().enabled = true;
+            ChargeSystem.GetComponent<ChargeSystem>().enabled = true;
+
+           // PlayerCanvas.SetActive(true);
             PlayerCamera.SetActive(true);
         }
         else
         {
-            GetComponent<polygon_fps_controller>().enabled = false;
-            ShootScript.GetComponent<shoot_handle>().enabled = false;
-            assaultScript.GetComponent<assault57>().enabled = false;
-            pistolScript.GetComponent<old_pistol>().enabled = false;
-            PlayerCanvas.SetActive(false);
+            Player.GetComponent<Player>().enabled = false;
+            PlayerAttack.GetComponent<PlayerAttack>().enabled = false;
+            PlayerMove.GetComponent<PlayerMove>().enabled = false;
+            HealthSystem.GetComponent<HealthSystem>().enabled = false;
+            ChargeSystem.GetComponent<ChargeSystem>().enabled = false;
+            //PlayerCanvas.SetActive(false);
             PlayerCamera.SetActive(false);
         }
     }
