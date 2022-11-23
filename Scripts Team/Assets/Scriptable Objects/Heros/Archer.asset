@@ -15,10 +15,6 @@ MonoBehaviour:
   prefabName: Archer
   image: {fileID: 0}
   bio: 
-  attackRange: 7
-  basicSkillDamage: 50
-  speacialSkillDamage: 150
   playerType: 1
-  animator: {fileID: 0}
   maxHealth: 200
-  maxCharge: 8
+  maxCharge: 7
