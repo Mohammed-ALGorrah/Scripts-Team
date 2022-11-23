@@ -2130,6 +2130,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SplatManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5704644776639623240, guid: 3ce7bd199697d7840aac2bdfd1cbc626, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ce7bd199697d7840aac2bdfd1cbc626, type: 3}
 --- !u!4 &72943285183136013 stripped
