@@ -105,7 +105,7 @@ public class PlayerAttack : MonoBehaviour
         specialAttack.player = player;
         
         if(!specialAttack.hasProjectile){
-              bullet.transform.SetParent(spicalPoint);
+              bullet.transform.SetParent(releasspical.transform);
         }
     }
 

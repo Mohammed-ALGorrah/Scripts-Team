@@ -141,6 +141,10 @@ namespace Heros.Players
                             }
                             health.TakeDamage(Sd.skillDmg);
                             chargeSystem.IncreaseCharge(+2);
+                            if (Sd.skillName == "Spin Dash")
+                            {
+                                coll.gameObject.SetActive(false);
+                            }
                         }
 
                     }

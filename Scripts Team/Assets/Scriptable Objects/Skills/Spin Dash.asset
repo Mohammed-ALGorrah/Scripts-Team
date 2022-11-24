@@ -26,7 +26,7 @@ MonoBehaviour:
   player: {fileID: 0}
   hitEffect: {fileID: 3882313981118254925, guid: 79e7fe2992c41294ca23c243e12fd708, type: 3}
   skillIndicator: {fileID: 5704644776639623240, guid: 3ce7bd199697d7840aac2bdfd1cbc626, type: 3}
-  skillProjectile: {fileID: 6993682249073927449, guid: fe13a036afc63be4da7f087e0b7add2e, type: 3}
+  skillProjectile: {fileID: 8467155387230456515, guid: 6fc4633c3a76f6644b45cc773462e1e6, type: 3}
   ProjectileLifeTime: 1
   ProjectiSpeed: 3
   skillRotation: {x: -90, y: 0, z: 0}
