@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3844292556491783148}
   - component: {fileID: 8251400311750255313}
   - component: {fileID: -4323503410011069759}
+  - component: {fileID: 3997400483186981915}
+  - component: {fileID: 4955770346454812412}
   m_Layer: 0
   m_Name: Archer_Ammo
   m_TagString: Untagged
@@ -4939,6 +4941,45 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.10043329, y: 0.081051864, z: 0.2956687}
   m_Center: {x: -0.00024577975, y: -0.0015475899, z: 0.13216572}
+--- !u!114 &3997400483186981915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3803413199744261712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 0
+  ObservedComponents:
+  - {fileID: 4955770346454812412}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &4955770346454812412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3803413199744261712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &3803551746512498474
 GameObject:
   m_ObjectHideFlags: 0
