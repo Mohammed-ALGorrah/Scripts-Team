@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 namespace Heros.Players
 {
-    public class Player : MonoBehaviour
+    public class Player : MonoBehaviourPunCallbacks
     {
         int id;
         Animator animator;
@@ -13,14 +14,15 @@ namespace Heros.Players
         HealthSystem health;
         ChargeSystem chargeSystem;
         GameManager gameManager;
+        [SerializeField]
+        Slider healthBar;
 
         public bool CanSpecialAttack;
         public ParticleSystem fxSpecialAttack;
         public int numOfKills;
         public int numOfDead;
 
-        [SerializeField]
-        Slider healthBar;
+
 
         private void Awake()
         {
@@ -31,6 +33,7 @@ namespace Heros.Players
             chargeSystem = GetComponent<ChargeSystem>();
             gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         }
+
         void Start()
         {
             health.maxHealth = playerData.maxHealth;
@@ -45,13 +48,13 @@ namespace Heros.Players
         private void OnEnable()
         {
             chargeSystem.OnChargeMaxed += Charge_Max;
-            health.OnDead += Health_OnDead;
-            health.OnTakeDamage += Health_OnTakeDamage;
+            //health.OnDead += Health_OnDead;
+            //health.OnTakeDamage += Health_OnTakeDamage;
         }
         private void OnDisable()
         {
             chargeSystem.OnChargeMaxed -= Charge_Max;
-            health.OnDead -= Health_OnDead;
+            //health.OnDead -= Health_OnDead;
         }
 
         private void Charge_Max(ChargeSystem obj)
@@ -59,13 +62,15 @@ namespace Heros.Players
             fxSpecialAttack.gameObject.SetActive(true);
             CanSpecialAttack = true;
         }
-
-        private void Health_OnTakeDamage(HealthSystem obj)
+        
+        [PunRPC]
+        private void Health_OnTakeDamage(int m)
         {
             healthBar.value = health.currentHealth / health.maxHealth;
         }
 
-        private void Health_OnDead(HealthSystem obj)
+        [PunRPC]
+        private void Health_OnDead()
         {
             animator.SetTrigger("isDead");
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
@@ -74,7 +79,7 @@ namespace Heros.Players
             gameObject.GetComponent<ChargeSystem>().enabled = false;
             gameObject.GetComponent<HealthSystem>().enabled = false;
             Destroy(Instantiate(Resources.Load("FireDeath"), new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity), 2f);
-            Invoke("hidePlayer", 1.5f);
+            //Invoke("hidePlayer", 1.5f);
         }
 
         void hidePlayer()
@@ -103,7 +108,7 @@ namespace Heros.Players
 
             if (gameObject != coll.gameObject)
             {
-                if (coll.gameObject.GetComponent<BulletManager>() != null)
+                if (coll.gameObject.GetComponent<BulletManager>() != null && !coll.gameObject.GetComponent<PhotonView>().IsMine)
                 {
                     SkillData Sd = coll.gameObject.GetComponent<BulletManager>().skillData;
 
@@ -115,11 +120,11 @@ namespace Heros.Players
                             return;
                         }
 
-                        health.TakeDamage(Sd.skillDmg);
-                        chargeSystem.IncreaseCharge(+1);
+                        //chargeSystem.IncreaseCharge(+1);
 
-                        Destroy(Instantiate(Sd.hitEffect, coll.transform.position, Quaternion.identity), 2);
-                        Destroy(coll.gameObject);
+                        GetComponent<PhotonView>().RPC("TakeDamage",RpcTarget.AllBuffered,Sd.skillDmg,Sd.hitEffect.name);
+                        //   PhotonNetwork.Destroy(coll.gameObject.GetComponent<PhotonView>());
+                        
 
                     }
                     else
@@ -139,7 +144,7 @@ namespace Heros.Players
                             {
                                 return;
                             }
-                            health.TakeDamage(Sd.skillDmg);
+                            //health.TakeDamage(Sd,coll.transform);
                             chargeSystem.IncreaseCharge(+2);
                             if (Sd.skillName == "Spin Dash")
                             {

@@ -1,19 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Photon.Pun;
 
 public class HealthBar : MonoBehaviour
 {
     private Camera cam;
-    // Start is called before the first frame update
+      
+      
+    [SerializeField]
+    Slider healthBar;
+    HealthSystem health;
+
+
+
+
     void Start()
     {
         cam = Camera.main;
-    }
+        health = GetComponent<HealthSystem>();
+    }/*
+    [PunRPC]
+    private void Health_OnTakeDamage(HealthSystem obj)
+        {
+           // healthBar.value = health.currentHealth / health.maxHealth;
+        }*/
 
-    // Update is called once per frame
     private void Update()
     {
         transform.rotation = Quaternion.LookRotation(transform.position - cam.transform.position);
     }
+
+        private void OnEnable()
+        {
+            //health.OnTakeDamage += 
+        }
+
+            private void OnDisable()
+        {
+           // health.OnTakeDamage -= Health_OnTakeDamage;
+        }
 }

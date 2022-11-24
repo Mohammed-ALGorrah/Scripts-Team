@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 [RequireComponent(typeof(HealthSystem))]
 public class DestroyTree : MonoBehaviour , IDamageable
@@ -17,8 +18,9 @@ public class DestroyTree : MonoBehaviour , IDamageable
 
     public void Damage(int dmg)
     {
-        health.TakeDamage(dmg);
+        //health.TakeDamage(dmg);
     }
+    //[PunRPC]
     private void Health_OnDead(HealthSystem obj)
     {
         fxDestroy.gameObject.SetActive(true);
@@ -40,7 +42,8 @@ public class DestroyTree : MonoBehaviour , IDamageable
 
     private void OnEnable()
     {
-        health.OnDead += Health_OnDead;
+        //health.OnDead += GetComponent<PhotonView>().RPC("Health_OnDead",RpcTarget.AllBuffered);
+       health.OnDead += Health_OnDead;
         health.OnTakeDamage += Health_OnTakeDamage;
     }
     private void OnDisable()

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using Heros.Players;
+using Photon.Pun;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -92,12 +93,19 @@ public class PlayerAttack : MonoBehaviour
 
     public void shoot(){
 
-          GameObject bullet = (GameObject)Instantiate(basicAttack.skillProjectile, firePoint.position, transform.rotation);
+        GameObject bullet = (GameObject) PhotonNetwork.Instantiate("BulletsPrefs/"+basicAttack.skillProjectile.name, firePoint.position, transform.rotation);
+        StartCoroutine(BuletDestroy(bullet));
           basicAttack.player = player;
         if(!basicAttack.hasProjectile){
               bullet.transform.SetParent(firePoint);
         }
     }
+
+    IEnumerator BuletDestroy(GameObject bullet){
+        yield return new WaitForSeconds(1f);
+        PhotonNetwork.Destroy(bullet);
+    }
+
     
     public void special(){
 

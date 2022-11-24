@@ -1511,11 +1511,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 14c7137c71f499c4486bad4630d20bba, type: 2}
+  healthBar: {fileID: 8219103920816586712}
   CanSpecialAttack: 0
   fxSpecialAttack: {fileID: 2429529716009670512}
   numOfKills: 0
   numOfDead: 0
-  healthBar: {fileID: 8219103920816586712}
 --- !u!114 &8133879655770199403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1824,6 +1824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036fbff797fc2940a52c90f01dec049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
 --- !u!1001 &2555198726218304000
 PrefabInstance:
   m_ObjectHideFlags: 0

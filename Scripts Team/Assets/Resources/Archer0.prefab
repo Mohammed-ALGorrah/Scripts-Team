@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036fbff797fc2940a52c90f01dec049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 3523274864580927760}
 --- !u!1 &481103763857247676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1486,6 +1487,7 @@ GameObject:
   - component: {fileID: 6736810792136868895}
   - component: {fileID: 6736810792136868893}
   - component: {fileID: 1856960227319075920}
+  - component: {fileID: 8978944290662360233}
   - component: {fileID: 6782568168902738466}
   - component: {fileID: 6736810792136868891}
   - component: {fileID: 6736810792136868892}
@@ -1493,7 +1495,6 @@ GameObject:
   - component: {fileID: 1856960227319075921}
   - component: {fileID: 6736810792136868889}
   - component: {fileID: 6736810792136868890}
-  - component: {fileID: 8978944290662360233}
   - component: {fileID: 1012247120052319614}
   - component: {fileID: 955637782729584454}
   m_Layer: 0
@@ -1558,6 +1559,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8978944290662360233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6736810792136868896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 1
+  OwnershipTransfer: 0
+  observableSearch: 0
+  ObservedComponents:
+  - {fileID: 1012247120052319614}
+  - {fileID: 955637782729584454}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!114 &6782568168902738466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1605,11 +1630,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 83e69b2e3573a2647a4b4e6d7215d374, type: 2}
+  healthBar: {fileID: 3523274864580927760}
   CanSpecialAttack: 0
   fxSpecialAttack: {fileID: 9156522311937740632}
   numOfKills: 0
   numOfDead: 0
-  healthBar: {fileID: 3523274864580927760}
 --- !u!114 &6736810792136868894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1669,30 +1694,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCharge: 0
   maxCharage: 0
---- !u!114 &8978944290662360233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6736810792136868896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 0
-  ObservedComponents:
-  - {fileID: 1012247120052319614}
-  - {fileID: 955637782729584454}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!114 &1012247120052319614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1728,13 +1729,13 @@ MonoBehaviour:
     SynchronizeType: 2
     Name: walk
   - Type: 9
-    SynchronizeType: 2
+    SynchronizeType: 0
     Name: isDead
   - Type: 9
-    SynchronizeType: 2
+    SynchronizeType: 0
     Name: isAttack
   - Type: 9
-    SynchronizeType: 2
+    SynchronizeType: 0
     Name: isPowr
   m_SynchronizeLayers:
   - SynchronizeType: 0

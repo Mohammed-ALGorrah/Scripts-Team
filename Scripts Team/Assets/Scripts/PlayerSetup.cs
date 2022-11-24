@@ -11,8 +11,11 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     
     public GameObject PlayerCanvas;
     public GameObject PlayerCamera;
+    public GameObject Player;
     public GameObject PlayerAttack;
     public GameObject PlayerMove;
+    public GameObject HealthSystem;
+    public GameObject ChargeSystem;
     [Header("Test data")]
     public Text numText;
     int num = 0;
@@ -25,25 +28,32 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
-            //Player.GetComponent<Player>().enabled = true;
+            Player.GetComponent<Player>().enabled = true;
             PlayerAttack.GetComponent<PlayerAttack>().enabled = true;
             PlayerMove.GetComponent<PlayerMove>().enabled = true;
-            //HealthSystem.GetComponent<HealthSystem>().enabled = true;
-            //ChargeSystem.GetComponent<ChargeSystem>().enabled = true;
+            HealthSystem.GetComponent<HealthSystem>().enabled = true;
+            ChargeSystem.GetComponent<ChargeSystem>().enabled = true;
 
            // PlayerCanvas.SetActive(true);
             PlayerCamera.SetActive(true);
         }
         else
         {
-            //Player.GetComponent<Player>().enabled = false;
+            HealthSystem.GetComponent<HealthSystem>().maxHealth = Player.GetComponent<Player>().playerData.maxHealth;
+            HealthSystem.GetComponent<HealthSystem>().currentHealth = Player.GetComponent<Player>().playerData.maxHealth;
+
+            Player.GetComponent<Player>().enabled = false;
             PlayerAttack.GetComponent<PlayerAttack>().enabled = false;
             PlayerMove.GetComponent<PlayerMove>().enabled = false;
-            //HealthSystem.GetComponent<HealthSystem>().enabled = false;
-            //ChargeSystem.GetComponent<ChargeSystem>().enabled = false;
+            HealthSystem.GetComponent<HealthSystem>().enabled = false;
+            ChargeSystem.GetComponent<ChargeSystem>().enabled = false;
             //PlayerCanvas.SetActive(false);
             PlayerCamera.SetActive(false);
+
         }
+
+        
+
     }
     
     // Update is called once per frame
