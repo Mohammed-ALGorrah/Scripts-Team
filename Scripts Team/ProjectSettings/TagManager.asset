@@ -8,6 +8,9 @@ TagManager:
   - Point
   - Missile
   - obstacle
+  - eq
+  - Weapon
+  - WarriorPoint
   layers:
   - Default
   - TransparentFX

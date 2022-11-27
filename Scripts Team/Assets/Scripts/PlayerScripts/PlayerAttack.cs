@@ -78,7 +78,15 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
             }
             else if (Input.GetMouseButtonUp(1))
             {
-                spicalPoint = GameObject.FindGameObjectWithTag("Point").transform;
+                if (player.playerData.name == "Warrior0")
+                {
+                    spicalPoint = GameObject.FindGameObjectWithTag("WarriorPoint").transform;
+                }
+                else
+                {
+                    spicalPoint = GameObject.FindGameObjectWithTag("Point").transform;
+                }
+                
                 spicalPoint.position = new Vector3(spicalPoint.position.x, 0.5f, spicalPoint.position.z);
                 animator.SetTrigger("isPowr"); // Change it            
                 skillSpecialIndicator.SetActive(false);

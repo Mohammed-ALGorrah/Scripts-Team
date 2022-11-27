@@ -1693,7 +1693,7 @@ GameObject:
   - component: {fileID: 3348217868931731929}
   m_Layer: 0
   m_Name: special Point
-  m_TagString: Point
+  m_TagString: WarriorPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
