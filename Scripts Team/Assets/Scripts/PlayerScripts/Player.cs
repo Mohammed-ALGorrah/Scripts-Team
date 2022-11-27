@@ -127,7 +127,7 @@ namespace Heros.Players
                 {
                     SkillData Sd = coll.gameObject.GetComponent<BulletManager>().skillData;
 
-                    if (Sd.skillType.ToString().Equals("NORMAL"))
+                    if (Sd.skillType.ToString().Equals("NORMAL") && Sd.player != this)
                     {
                         if (CheckFriend(Sd.player))
                         {
@@ -142,7 +142,7 @@ namespace Heros.Players
                         Destroy(coll.gameObject);
 
                     }
-                    else
+                    else if(Sd.skillType.ToString().Equals("SPECIAL"))
                     {
                         if (Sd.HelaingSkill)
                         {
@@ -153,7 +153,7 @@ namespace Heros.Players
                             }
 
                         }
-                        else
+                        else if(Sd.player != this)
                         {
                             if (CheckFriend(Sd.player))
                             {
