@@ -127,7 +127,7 @@ namespace Heros.Players
                 {
                     SkillData Sd = coll.gameObject.GetComponent<BulletManager>().skillData;
 
-                    if (Sd.skillType.ToString().Equals("NORMAL") && Sd.player != this)
+                    if (Sd.skillType.ToString().Equals("NORMAL") && !Sd.player.gameObject.GetComponent<PhotonView>().IsMine)
                     {
                         if (CheckFriend(Sd.player))
                         {
@@ -153,7 +153,7 @@ namespace Heros.Players
                             }
 
                         }
-                        else if(Sd.player != this)
+                        else if(!Sd.player.gameObject.GetComponent<PhotonView>().IsMine)
                         {
                             if (CheckFriend(Sd.player))
                             {
