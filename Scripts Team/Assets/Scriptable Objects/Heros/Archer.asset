@@ -17,4 +17,4 @@ MonoBehaviour:
   bio: 
   playerType: 1
   maxHealth: 200
-  maxCharge: 7
+  maxCharge: 3

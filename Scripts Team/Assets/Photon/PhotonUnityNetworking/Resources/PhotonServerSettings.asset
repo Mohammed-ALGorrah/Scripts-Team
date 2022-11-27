@@ -34,16 +34,25 @@ MonoBehaviour:
   RunInBackground: 1
   StartInOfflineMode: 0
   RpcList:
-  - TakeDamage
-  - changeText
   - ClickRpc
   - DestroyRpc
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
-  - Damage
+  - changeText
+  - OnTriggerEnter
   - Health_OnDead
+  - hidePlayer
+  - TakeDamage
+  - Charge_Max
+  - shoot
   - Health_OnTakeDamage
+  - OnDisable
+  - OnEnable
+  - IncreaseCharge
+  - restChrages
+  - WarroirBasic
+  - WarroirSpecial
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

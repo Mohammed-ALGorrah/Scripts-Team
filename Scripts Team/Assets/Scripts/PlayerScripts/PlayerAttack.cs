@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using Heros.Players;
 using Photon.Pun;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : MonoBehaviourPunCallbacks
 {
     PlayerControls playerControls;
     public SkillData basicAttack;
@@ -82,41 +82,57 @@ public class PlayerAttack : MonoBehaviour
                 spicalPoint.position = new Vector3(spicalPoint.position.x, 0.5f, spicalPoint.position.z);
                 animator.SetTrigger("isPowr"); // Change it            
                 skillSpecialIndicator.SetActive(false);
-                chargeSystem.ResetCharge();
-                player.CanSpecialAttack = false;
-                player.fxSpecialAttack.gameObject.SetActive(false);
+                GetComponent<PhotonView>().RPC("restChrages", RpcTarget.AllBuffered);
 
             } 
         }
     }
 
-
-    public void shoot(){
-
-        GameObject bullet = (GameObject) PhotonNetwork.Instantiate("BulletsPrefs/"+basicAttack.skillProjectile.name, firePoint.position, transform.rotation);
-        StartCoroutine(BuletDestroy(bullet));
-          basicAttack.player = player;
-        if(!basicAttack.hasProjectile){
-              bullet.transform.SetParent(firePoint);
-        }
+    [PunRPC]
+    private void restChrages()
+    {
+        chargeSystem.ResetCharge();
+        player.CanSpecialAttack = false;
+        player.fxSpecialAttack.gameObject.SetActive(false);
     }
 
-    IEnumerator BuletDestroy(GameObject bullet){
-        yield return new WaitForSeconds(1f);
-        PhotonNetwork.Destroy(bullet);
+
+    public void shoot() {
+        if (photonView.IsMine) {
+            GameObject bullet = (GameObject)PhotonNetwork.Instantiate("BulletsPrefs/" + basicAttack.skillProjectile.name, firePoint.position, transform.rotation);
+            basicAttack.player = player;
+            GetComponent<PhotonView>().RPC("WarroirBasic", RpcTarget.AllBuffered , bullet);
+        } 
     }
-
-    
-    public void special(){
-
-        GameObject bullet = (GameObject)Instantiate(specialAttack.skillProjectile, spicalPoint.position , Quaternion.Euler(specialAttack.skillRotation));
-        specialAttack.player = player;
+    [PunRPC]
+    private void WarroirBasic(PhotonView bullet)
+    {
         
-        if(!specialAttack.hasProjectile){
-              bullet.transform.SetParent(releasspical.transform);
+        if (!basicAttack.hasProjectile)
+        {
+            bullet.transform.SetParent(firePoint);
+        }
+    }
+    public void special()
+    {
+        if (photonView.IsMine)
+        {
+            GameObject bullet = (GameObject)PhotonNetwork.Instantiate("BulletsPrefs/"+ specialAttack.skillProjectile.name, spicalPoint.position, Quaternion.Euler(specialAttack.skillRotation));
+            specialAttack.player = player;
+            GetComponent<PhotonView>().RPC("WarroirBasic", RpcTarget.AllBuffered, bullet);
         }
     }
 
+    [PunRPC]
+    private void WarroirSpecial(GameObject bullet)
+    {
+        
+
+        if (!specialAttack.hasProjectile)
+        {
+            bullet.transform.SetParent(releasspical.transform);
+        }
+    }
     public void releasSpical()
     {
         releasspical.transform.position = new Vector3(this.transform.position.x, 1f, this.transform.position.z);

@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
     
     public class HealthSystem : MonoBehaviour
     {
@@ -23,37 +22,23 @@ using Photon.Pun;
             maxHealth = max;
         }*/
 
-        [PunRPC]
-        public void TakeDamage(int skillDmg,string hitEffectname)
+        public void TakeDamage(int amount)
         {
-            // if (IsDead())
-            // {
-            //     return;
-            // }
+            if (IsDead())
+            {
+                return;
+            }
             if (currentHealth > 0 )
             {
-                currentHealth -= skillDmg;
+                currentHealth -= amount;
                 
-                //this.OnTakeDamage?.Invoke(this);
-                GetComponent<PhotonView>().RPC("Health_OnTakeDamage",RpcTarget.AllBuffered,0);
-                
-                /*
-                GameObject fx = PhotonNetwork.Instantiate("FX/" + hitEffectname, coll.position, Quaternion.identity);
-                StartCoroutine(hidFx(fx));*/
+                this.OnTakeDamage?.Invoke(this);
+
                 if (currentHealth <= 0)
                 {
-                    // this.OnDead?.Invoke(this);
-                GetComponent<PhotonView>().RPC("Health_OnDead",RpcTarget.AllBuffered,null);
-                    
+                    this.OnDead?.Invoke(this);
                 }
             }
-            
-        }
-
-        IEnumerator hidFx(GameObject fx){
-
-            yield return new WaitForSeconds(1f);
-            PhotonNetwork.Destroy(fx.GetComponent<PhotonView>());
             
         }
 

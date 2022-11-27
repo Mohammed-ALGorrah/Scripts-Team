@@ -8,7 +8,7 @@ using Heros.Players;
 public class PlayerSetup : MonoBehaviourPunCallbacks
 {
     #region Variables
-    
+
     public GameObject PlayerCanvas;
     public GameObject PlayerCamera;
     public GameObject Player;
@@ -34,7 +34,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             HealthSystem.GetComponent<HealthSystem>().enabled = true;
             ChargeSystem.GetComponent<ChargeSystem>().enabled = true;
 
-           // PlayerCanvas.SetActive(true);
+            // PlayerCanvas.SetActive(true);
             PlayerCamera.SetActive(true);
         }
         else
@@ -49,11 +49,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             ChargeSystem.GetComponent<ChargeSystem>().enabled = false;
             //PlayerCanvas.SetActive(false);
             PlayerCamera.SetActive(false);
-
         }
-
-        
-
     }
     
     // Update is called once per frame

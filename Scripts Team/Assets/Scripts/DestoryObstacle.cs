@@ -17,7 +17,7 @@ public class DestoryObstacle : MonoBehaviour, IDamageable
 
     public void Damage(int dmg)
     {
-        //health.TakeDamage(dmg);
+        health.TakeDamage(dmg);
     }
     private void Health_OnDead(HealthSystem obj)
     {

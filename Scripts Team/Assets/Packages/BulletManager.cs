@@ -17,7 +17,7 @@ public class BulletManager : MonoBehaviour
         }
         Destroy(gameObject,skillData.ProjectileLifeTime);
     }
-/*
+
     private void OnTriggerEnter(Collider other)
     {
         //IDamageable damageable = other.GetComponent<IDamageable>();
@@ -33,6 +33,6 @@ public class BulletManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-*/
+
    
 }

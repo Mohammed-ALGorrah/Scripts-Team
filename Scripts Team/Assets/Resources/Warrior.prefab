@@ -166,7 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2036fbff797fc2940a52c90f01dec049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
 --- !u!1 &695119410074757044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1603,11 +1602,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCanvas: {fileID: 2253786298226176782}
   PlayerCamera: {fileID: 8017096756218102143}
-  Player: {fileID: 2340518639034874654}
+  Player: {fileID: 0}
   PlayerAttack: {fileID: 2340518639034874654}
   PlayerMove: {fileID: 2340518639034874654}
-  HealthSystem: {fileID: 2340518639034874654}
-  ChargeSystem: {fileID: 2340518639034874654}
+  HealthSystem: {fileID: 0}
+  ChargeSystem: {fileID: 0}
   numText: {fileID: 0}
 --- !u!136 &2340518639034874649
 CapsuleCollider:
@@ -1636,11 +1635,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 8e45b20fd56ff98438aee742710947aa, type: 2}
-  healthBar: {fileID: 1590774625531439230}
   CanSpecialAttack: 0
   fxSpecialAttack: {fileID: 5202496284492939684}
   numOfKills: 0
   numOfDead: 0
+  healthBar: {fileID: 1590774625531439230}
 --- !u!114 &2340518639034874653
 MonoBehaviour:
   m_ObjectHideFlags: 0
