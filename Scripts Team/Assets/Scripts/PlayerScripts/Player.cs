@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Heros.Players
 {
-    public class Player : MonoBehaviour
+    public class Player : MonoBehaviourPunCallbacks
     {
         int id;
         Animator animator;
@@ -126,15 +126,16 @@ namespace Heros.Players
                 if (coll.gameObject.GetComponent<BulletManager>() != null)
                 {
                     SkillData Sd = coll.gameObject.GetComponent<BulletManager>().skillData;
-
-                    if (Sd.skillType.ToString().Equals("NORMAL") && !Sd.player.gameObject.GetComponent<PhotonView>().IsMine)
+                    
+                    if (Sd.skillType.ToString().Equals("NORMAL"))
                     {
+                        
                         if (CheckFriend(Sd.player))
                         {
                             Debug.Log("friend");
                             return;
                         }
-
+                        Debug.Log("normal dmg");
                         health.TakeDamage(Sd.skillDmg);
                         chargeSystem.IncreaseCharge(+1);
 
@@ -148,25 +149,24 @@ namespace Heros.Players
                         {
                             if (CheckFriend(Sd.player))
                             {
-                                Debug.Log("HelaingSkill");
+                                Debug.Log("Helaing");
                                 health.Heal(Sd.skillDmg);
                             }
 
-                        }
-                        else if(!Sd.player.gameObject.GetComponent<PhotonView>().IsMine)
-                        {
+                        }else{
                             if (CheckFriend(Sd.player))
-                            {
-                                return;
-                            }
-                            health.TakeDamage(Sd.skillDmg);
-                            chargeSystem.IncreaseCharge(+2);
-                            if (Sd.skillName == "Spin Dash")
-                            {
-                                coll.gameObject.SetActive(false);
-                            }
+                                {
+                                    Debug.Log("Friend");
+                                    return;
+                                }
+                                Debug.Log("special");
+                                health.TakeDamage(Sd.skillDmg);
+                                chargeSystem.IncreaseCharge(+2);
+                                if (Sd.skillName == "Spin Dash")
+                                {
+                                    coll.gameObject.SetActive(false);
+                                }
                         }
-
                     }
                 }
             }

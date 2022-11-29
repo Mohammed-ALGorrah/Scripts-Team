@@ -79,12 +79,10 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         string roomName = roomNameText.text;
         if (string.IsNullOrEmpty(roomName))
         {
-            roomName = roomName + Random.Range(0,1000);
+            roomName += Random.Range(0,1000);
         }
 
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = (byte) int.Parse(maxPlayerNumberText.text);
-        PhotonNetwork.CreateRoom(roomName, roomOptions);
+        CreateRoom(roomName, int.Parse(maxPlayerNumberText.text));
     }
 
     public void OnCancelClick()
@@ -127,6 +125,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public void OnRandomBtnClick()
+    {
+        PhotonNetwork.JoinRandomRoom();
+    }
+
     #endregion
 
     #region PHOTON_CALLBACKS
@@ -136,9 +139,13 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         Debug.Log("Connected to server");
         // custome avatar
         avatar = Random.Range(1,3);
-        var hash = PhotonNetwork.LocalPlayer.CustomProperties;
-        hash.Add("avatar", avatar);
-        PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+        
+        if (PhotonNetwork.LocalPlayer.CustomProperties["avatar"] == null) {
+            var hash = PhotonNetwork.LocalPlayer.CustomProperties;
+            hash.Add("avatar", avatar);
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+        }
+        
         Debug.Log(PhotonNetwork.LocalPlayer.ToStringFull());
 
         ActivateMyPanel(LobbyPanel.name);
@@ -187,13 +194,19 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     }
 
-     public override void OnPlayerLeftRoom(Photon.Realtime.Player otherPlayer)
-     {
-         Destroy(playersList[otherPlayer.ActorNumber]);
-         playersList.Remove(otherPlayer.ActorNumber);
-     }
-
-
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        Destroy(playersList[otherPlayer.ActorNumber]);
+        playersList.Remove(otherPlayer.ActorNumber);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PlayButton.SetActive(true);
+        }
+        else
+        {
+            PlayButton.SetActive(false);
+        }
+    }
 
     public override void OnLeftRoom()
     {
@@ -265,9 +278,21 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             roomListGameobject.Add(roomItem.Name,roomListItemObject);
         }
     }
+
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        CreateRoom("random"+Random.Range(0,100000000)+Time.deltaTime, 6);
+    }
     #endregion
 
     #region Public_Methods
+
+    public void CreateRoom(string roomName,int maxPlayers)
+    {
+        RoomOptions roomOptions = new RoomOptions();
+        roomOptions.MaxPlayers = (byte)maxPlayers;
+        PhotonNetwork.CreateRoom(roomName, roomOptions);
+    }
 
     public void ActivateMyPanel(string panelName)
     {

@@ -108,37 +108,15 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
     public void shoot() {
         if (photonView.IsMine) {
             GameObject bullet = (GameObject)PhotonNetwork.Instantiate("BulletsPrefs/" + basicAttack.skillProjectile.name, firePoint.position, transform.rotation);
-            basicAttack.player = player;
-            GetComponent<PhotonView>().RPC("WarroirBasic", RpcTarget.AllBuffered , bullet);
+            bullet.GetComponent<BulletManager>().skillData.player = player;
         } 
-    }
-    [PunRPC]
-    private void WarroirBasic(PhotonView bullet)
-    {
-        
-        if (!basicAttack.hasProjectile)
-        {
-            bullet.transform.SetParent(firePoint);
-        }
     }
     public void special()
     {
         if (photonView.IsMine)
         {
             GameObject bullet = (GameObject)PhotonNetwork.Instantiate("BulletsPrefs/"+ specialAttack.skillProjectile.name, spicalPoint.position, Quaternion.Euler(specialAttack.skillRotation));
-            specialAttack.player = player;
-            GetComponent<PhotonView>().RPC("WarroirBasic", RpcTarget.AllBuffered, bullet);
-        }
-    }
-
-    [PunRPC]
-    private void WarroirSpecial(GameObject bullet)
-    {
-        
-
-        if (!specialAttack.hasProjectile)
-        {
-            bullet.transform.SetParent(releasspical.transform);
+            bullet.GetComponent<BulletManager>().skillData.player = player;
         }
     }
     public void releasSpical()
