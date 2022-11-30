@@ -19,10 +19,6 @@ namespace Heros.Players
         public ParticleSystem fxSpecialAttack;
         public int numOfKills;
         public int numOfDead;
-
-        [SerializeField]
-        Slider healthBar;
-
         private void Awake()
         {
             id = Random.Range(100, 1000000);

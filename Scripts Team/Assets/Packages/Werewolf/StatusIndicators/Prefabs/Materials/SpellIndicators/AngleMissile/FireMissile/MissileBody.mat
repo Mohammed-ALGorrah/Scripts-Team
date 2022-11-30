@@ -2,15 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 8
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MissileBody
-  m_Shader: {fileID: 4800000, guid: c0b3ae4855eca4d459ec1da719cc75c3, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_Shader: {fileID: 4800000, guid: e3b829a0ccaed0d4083a62e66ddb12d5, type: 3}
+  m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -21,11 +20,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _DistortTex:
-        m_Texture: {fileID: 2800000, guid: 001017bff094ea04c95b12a62ee3cc06, type: 3}
+        m_Texture: {fileID: 2800000, guid: 67df11e656e080948be3ca7e9b530fe4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b9b64fcd8baab9443b67cd8d35279651, type: 3}
+        m_Texture: {fileID: 2800000, guid: f2e58ffdf53a22c4ab35bb1b336908e1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Noise:
@@ -33,14 +32,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ProjectTex:
-        m_Texture: {fileID: 2800000, guid: 8b08cc7f6cbed5e429dd5836876975c9, type: 3}
+        m_Texture: {fileID: 2800000, guid: f2e58ffdf53a22c4ab35bb1b336908e1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShapeTex:
         m_Texture: {fileID: 2800000, guid: b0a4797216e7d2a4c913eac72670dfa8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Ints: []
     m_Floats:
     - _Blur: 0.01
     - _BlurAmount: 0.02
@@ -52,21 +50,18 @@ Material:
     - _BlurY2: 0.01
     - _ChargeAmount: 1
     - _Cutoff: 0
-    - _DistortX: 0.02
-    - _DistortY: 0.06
+    - _DistortX: 0.05
+    - _DistortY: 0.1
     - _ExpandAmount: 0.351
+    - _Fill: 0.6786971
     - _FillAmount: -0.0016666667
     - _Offset: 0.24422462
     - _OffsetX: 0
-<<<<<<< Updated upstream
-    - _OffsetY: 0.5357418
-=======
-    - _OffsetY: 0.47847986
->>>>>>> Stashed changes
+    - _OffsetY: 0.13280034
     - _Proportion: 0.448
     m_Colors:
     - _ChargeColor: {r: 0.11724138, g: 1, b: 0, a: 1}
-    - _FillColor: {r: 0, g: 0, b: 0, a: 0.95000017}
-    - _MainColor: {r: 1, g: 0.5568628, b: 0, a: 1}
-    - _SecondaryColor: {r: 1, g: 0.51724136, b: 0, a: 1}
+    - _FillColor: {r: 0, g: 1, b: 0.13103485, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SecondaryColor: {r: 1, g: 0.55862063, b: 0, a: 1}
   m_BuildTextureStacks: []
