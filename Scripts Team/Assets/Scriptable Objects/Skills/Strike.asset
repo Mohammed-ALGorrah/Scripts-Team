@@ -23,10 +23,9 @@ MonoBehaviour:
   hasProjectile: 0
   HelaingSkill: 0
   player: {fileID: 0}
-  parentPos: {fileID: 7916204161710007405, guid: f0cacc8e4fb957241809e695c4bfaaa7, type: 3}
   hitEffect: {fileID: 3882313981118254925, guid: 79e7fe2992c41294ca23c243e12fd708, type: 3}
   skillIndicator: {fileID: 125970, guid: a6c0e5342d76d9f4c9af2aa6c112f532, type: 3}
   skillProjectile: {fileID: 6993682249073927449, guid: 4fc635603ef1d1e4c8ae90daf1481b64, type: 3}
-  ProjectileLifeTime: 0.8
+  ProjectileLifeTime: 0.05
   ProjectiSpeed: 1
   skillRotation: {x: 0, y: 0, z: 0}

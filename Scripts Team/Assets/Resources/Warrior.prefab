@@ -1607,6 +1607,7 @@ MonoBehaviour:
   PlayerMove: {fileID: 2340518639034874654}
   HealthSystem: {fileID: 0}
   ChargeSystem: {fileID: 0}
+  FirePoint: {fileID: 0}
   numText: {fileID: 0}
 --- !u!136 &2340518639034874649
 CapsuleCollider:
@@ -1635,6 +1636,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 8e45b20fd56ff98438aee742710947aa, type: 2}
+  health: {fileID: 0}
+  chargeSystem: {fileID: 0}
   CanSpecialAttack: 0
   fxSpecialAttack: {fileID: 5202496284492939684}
   numOfKills: 0

@@ -31,8 +31,7 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
         chargeSystem = GetComponent<ChargeSystem>();
         animator = GetComponent<Animator>();
         playerControls = new PlayerControls();
-        releasspical = Instantiate(releasspical, transform.position, Quaternion.Euler(specialAttack.skillRotation));
-        releasspical.transform.SetParent(this.transform);
+        
     }
 
     
@@ -50,6 +49,9 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
     {
         
         mainCamera = FindObjectOfType<Camera>();
+
+        releasspical = Instantiate(releasspical, transform.position, Quaternion.Euler(specialAttack.skillRotation));
+        releasspical.transform.SetParent(this.transform);
 
         skillIndicator = Instantiate(basicAttack.skillIndicator,indicatorParent);
         skillIndicator.transform.position = transform.position;
@@ -78,7 +80,7 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
             }
             else if (Input.GetMouseButtonUp(1))
             {
-                if (player.playerData.name == "Warrior0")
+                if (player.playerData.name == "Warrior")
                 {
                     spicalPoint = GameObject.FindGameObjectWithTag("WarriorPoint").transform;
                 }
@@ -95,6 +97,25 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
             } 
         }
     }
+    public void shoot() {
+        
+        if (photonView.IsMine) 
+        {
+            GameObject basicbullet = (GameObject)PhotonNetwork.Instantiate(
+               "BulletsPrefs/" + basicAttack.skillProjectile.name, firePoint.position, transform.rotation);
+            basicAttack.player = player;
+        } 
+    }
+
+    public void special()
+    {
+        if (photonView.IsMine)
+        {
+            GameObject specialBullet = (GameObject)PhotonNetwork.Instantiate("BulletsPrefs/"+ specialAttack.skillProjectile.name
+                , spicalPoint.position, Quaternion.Euler(specialAttack.skillRotation));
+            specialAttack.player = player;
+        }
+    }
 
     [PunRPC]
     private void restChrages()
@@ -105,20 +126,6 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
     }
 
 
-    public void shoot() {
-        if (photonView.IsMine) {
-            GameObject bullet = (GameObject)PhotonNetwork.Instantiate("BulletsPrefs/" + basicAttack.skillProjectile.name, firePoint.position, transform.rotation);
-            bullet.GetComponent<BulletManager>().skillData.player = player;
-        } 
-    }
-    public void special()
-    {
-        if (photonView.IsMine)
-        {
-            GameObject bullet = (GameObject)PhotonNetwork.Instantiate("BulletsPrefs/"+ specialAttack.skillProjectile.name, spicalPoint.position, Quaternion.Euler(specialAttack.skillRotation));
-            bullet.GetComponent<BulletManager>().skillData.player = player;
-        }
-    }
     public void releasSpical()
     {
         releasspical.transform.position = new Vector3(this.transform.position.x, 1f, this.transform.position.z);
@@ -130,4 +137,5 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
        // releasspical.transform.position = new Vector3(this.transform.position.x, 1f, this.transform.position.z);
         releasspical.Stop();
     }
+
 }

@@ -1,6 +1,5 @@
 using Heros.Players;
 using UnityEngine;
-using Photon.Pun;
 
 [CreateAssetMenu(fileName = "Data", menuName = "Scriptable Objects/Skill", order = 2)]
 

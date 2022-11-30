@@ -1497,6 +1497,7 @@ MonoBehaviour:
   PlayerMove: {fileID: 8133879655770199400}
   HealthSystem: {fileID: 8133879655770199400}
   ChargeSystem: {fileID: 8133879655770199400}
+  FirePoint: {fileID: 2677656900558742716}
   numText: {fileID: 6670383711755589642, guid: fc15be676a5692e4c84dcf016faf83ec, type: 3}
 --- !u!114 &8133879655770199396
 MonoBehaviour:
@@ -1511,6 +1512,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 14c7137c71f499c4486bad4630d20bba, type: 2}
+  health: {fileID: 0}
+  chargeSystem: {fileID: 0}
   CanSpecialAttack: 0
   fxSpecialAttack: {fileID: 2429529716009670512}
   numOfKills: 0

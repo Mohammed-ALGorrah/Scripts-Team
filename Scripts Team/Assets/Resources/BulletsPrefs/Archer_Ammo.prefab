@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3808958590522250376}
   - component: {fileID: 3895079800206218936}
   - component: {fileID: 3893868091079630966}
-  - component: {fileID: 3844292556491783148}
   - component: {fileID: 8251400311750255313}
   - component: {fileID: -4323503410011069759}
+  - component: {fileID: 3844292556491783148}
   - component: {fileID: 3997400483186981915}
   - component: {fileID: 4955770346454812412}
   m_Layer: 0
@@ -4899,22 +4899,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &3844292556491783148
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3803413199744261712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aa5c1e37409a9344a344c0468db383d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabSound: {fileID: 1297775994297274, guid: f4f4196ba50470449ab9cd5bcc4828f7, type: 3}
-  destroyWhenDone: 1
-  soundPrefabIsChild: 0
-  pitchRandomMultiplier: 1.1
 --- !u!114 &8251400311750255313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4939,8 +4923,24 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.10043329, y: 0.081051864, z: 0.2956687}
-  m_Center: {x: -0.00024577975, y: -0.0015475899, z: 0.13216572}
+  m_Size: {x: 0.10043329, y: 0.13822347, z: 0.17693608}
+  m_Center: {x: -0.00024577975, y: -0.005608823, z: 0.20965026}
+--- !u!114 &3844292556491783148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3803413199744261712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa5c1e37409a9344a344c0468db383d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabSound: {fileID: 1297775994297274, guid: f4f4196ba50470449ab9cd5bcc4828f7, type: 3}
+  destroyWhenDone: 1
+  soundPrefabIsChild: 0
+  pitchRandomMultiplier: 1.1
 --- !u!114 &3997400483186981915
 MonoBehaviour:
   m_ObjectHideFlags: 0

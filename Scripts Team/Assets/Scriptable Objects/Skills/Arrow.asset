@@ -27,5 +27,5 @@ MonoBehaviour:
   skillIndicator: {fileID: 195872, guid: 681bd95467a254041bb423e8dd49fd4d, type: 3}
   skillProjectile: {fileID: 3803413199744261712, guid: 7b838436f44e59d4080f0e7947d5729c, type: 3}
   ProjectileLifeTime: 3
-  ProjectiSpeed: 18
+  ProjectiSpeed: 30
   skillRotation: {x: 0, y: 0, z: 0}

@@ -53,6 +53,11 @@ MonoBehaviour:
   - restChrages
   - WarroirBasic
   - WarroirSpecial
+  - OnPhotonInstantiate
+  - Health_OnTakeDamage_Pun
+  - Charge_Max_Pun
+  - Health_OnDead_Pun
+  - hidePlayerPun
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

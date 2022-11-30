@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 namespace Heros.Players
 {
-    public class Player : MonoBehaviourPunCallbacks
+    public class Player : MonoBehaviour
     {
         int id;
         Animator animator;
         public PlayerData playerData;
-        HealthSystem health;
-        ChargeSystem chargeSystem;
+        public HealthSystem health;
+        public ChargeSystem chargeSystem;
         GameManager gameManager;
 
         public bool CanSpecialAttack;
@@ -25,7 +25,6 @@ namespace Heros.Players
 
         private void Awake()
         {
-
             id = Random.Range(100, 1000000);
             animator = GetComponent<Animator>();
             health = GetComponent<HealthSystem>();
@@ -37,48 +36,37 @@ namespace Heros.Players
             health.maxHealth = playerData.maxHealth;
             health.currentHealth = playerData.maxHealth;
             chargeSystem.maxCharage = playerData.maxCharge;
-
         }
-
-
 
 
         private void OnEnable()
         {
-            chargeSystem.OnChargeMaxed += Charge_Max_Event;
-            health.OnDead += Deee;
-
-            health.OnTakeDamage += Health_OnTakeDamage;
+            chargeSystem.OnChargeMaxed += Charge_Max;
+            health.OnDead += Health_OnDead;
         }
         private void OnDisable()
         {
-            chargeSystem.OnChargeMaxed -= Charge_Max_Event;
-            health.OnDead -= Deee;
+            chargeSystem.OnChargeMaxed -= Charge_Max;
+            health.OnDead -= Health_OnDead;
         }
 
-        private void Charge_Max_Event(ChargeSystem obj)
+        private void Charge_Max(ChargeSystem obj)
         {
-            GetComponent<PhotonView>().RPC("Charge_Max", RpcTarget.AllBuffered);
+            GetComponent<PhotonView>().RPC("Charge_Max_Pun", RpcTarget.AllBuffered);
         }
         [PunRPC]
-        private void Charge_Max()
+        private void Charge_Max_Pun()
         {
             fxSpecialAttack.gameObject.SetActive(true);
             CanSpecialAttack = true;
         }
-
-        private void Health_OnTakeDamage(HealthSystem obj)
+        private void Health_OnDead(HealthSystem obj)
         {
-            healthBar.value = health.currentHealth / health.maxHealth;
-        }
-
-        private void Deee(HealthSystem obj)
-        {
-            GetComponent<PhotonView>().RPC("Health_OnDead", RpcTarget.AllBuffered);
+            GetComponent<PhotonView>().RPC("Health_OnDead_Pun", RpcTarget.AllBuffered);
         }
 
         [PunRPC]
-        private void Health_OnDead()
+        private void Health_OnDead_Pun()
         {
             animator.SetTrigger("isDead");
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
@@ -87,12 +75,14 @@ namespace Heros.Players
             gameObject.GetComponent<ChargeSystem>().enabled = false;
             gameObject.GetComponent<HealthSystem>().enabled = false;
             Destroy(Instantiate(Resources.Load("FireDeath"), new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity), 2f);
-            Invoke("hidePlayer2", 1.5f);
-
-            
+            Invoke("hidePlayer", 1.5f);            
+        }
+        void hidePlayer()
+        {
+            GetComponent<PhotonView>().RPC("hidePlayerPun", RpcTarget.AllBuffered);
         }
         [PunRPC]
-        void hidePlayer()
+        void hidePlayerPun()
         {
             gameObject.SetActive(false);
             gameObject.GetComponent<CapsuleCollider>().enabled = true;
@@ -100,79 +90,11 @@ namespace Heros.Players
             gameObject.GetComponent<PlayerMove>().enabled = true;
             gameObject.GetComponent<ChargeSystem>().enabled = true;
             gameObject.GetComponent<HealthSystem>().enabled = true;
-
         }
 
-        void hidePlayer2()
-        {
-            GetComponent<PhotonView>().RPC("hidePlayer", RpcTarget.AllBuffered);
-        }
+        
 
-            public void HandleOnDeadth()
-        {
-
-        }
-
-        public void ResponePlayer()
-        {
-
-        }
-
-        private void OnTriggerEnter(Collider coll)
-        {
-
-            if (gameObject != coll.gameObject)
-            {
-                if (coll.gameObject.GetComponent<BulletManager>() != null)
-                {
-                    SkillData Sd = coll.gameObject.GetComponent<BulletManager>().skillData;
-                    
-                    if (Sd.skillType.ToString().Equals("NORMAL"))
-                    {
-                        
-                        if (CheckFriend(Sd.player))
-                        {
-                            Debug.Log("friend");
-                            return;
-                        }
-                        Debug.Log("normal dmg");
-                        health.TakeDamage(Sd.skillDmg);
-                        chargeSystem.IncreaseCharge(+1);
-
-                        Destroy(Instantiate(Sd.hitEffect, coll.transform.position, Quaternion.identity), 2);
-                        Destroy(coll.gameObject);
-
-                    }
-                    else if(Sd.skillType.ToString().Equals("SPECIAL"))
-                    {
-                        if (Sd.HelaingSkill)
-                        {
-                            if (CheckFriend(Sd.player))
-                            {
-                                Debug.Log("Helaing");
-                                health.Heal(Sd.skillDmg);
-                            }
-
-                        }else{
-                            if (CheckFriend(Sd.player))
-                                {
-                                    Debug.Log("Friend");
-                                    return;
-                                }
-                                Debug.Log("special");
-                                health.TakeDamage(Sd.skillDmg);
-                                chargeSystem.IncreaseCharge(+2);
-                                if (Sd.skillName == "Spin Dash")
-                                {
-                                    coll.gameObject.SetActive(false);
-                                }
-                        }
-                    }
-                }
-            }
-        }
-
-        bool CheckFriend(Player player)
+        public bool CheckFriend(Player player)
         {
             if ((gameManager.FirstTeam.players.Contains(player) && gameManager.FirstTeam.players.Contains(this)) ||
                  (gameManager.SecondTeam.players.Contains(player) && gameManager.SecondTeam.players.Contains(this)))

@@ -16,6 +16,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     public GameObject PlayerMove;
     public GameObject HealthSystem;
     public GameObject ChargeSystem;
+    public GameObject FirePoint;
     [Header("Test data")]
     public Text numText;
     int num = 0;
@@ -33,6 +34,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             PlayerMove.GetComponent<PlayerMove>().enabled = true;
             HealthSystem.GetComponent<HealthSystem>().enabled = true;
             ChargeSystem.GetComponent<ChargeSystem>().enabled = true;
+            FirePoint.SetActive(true);
 
             // PlayerCanvas.SetActive(true);
             PlayerCamera.SetActive(true);
@@ -47,8 +49,10 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             PlayerMove.GetComponent<PlayerMove>().enabled = false;
             HealthSystem.GetComponent<HealthSystem>().enabled = false;
             ChargeSystem.GetComponent<ChargeSystem>().enabled = false;
+            FirePoint.SetActive(false);
             //PlayerCanvas.SetActive(false);
             PlayerCamera.SetActive(false);
+            
         }
     }
     
