@@ -78,13 +78,13 @@ public class BulletManager : MonoBehaviourPunCallbacks, IPunInstantiateMagicCall
     {
         if (!skillData.hasProjectile)
         {
-            if (photonView.IsMine)
+            if (photonView.IsMine && skillData.skillType.ToString().Equals("NORMAL"))
             {
                 Debug.Log("Bullet instansite IsMine");
                 transform.SetParent(GameObject.Find("FirePoint").transform);
                 this.transform.position = GameObject.Find("FirePoint").transform.position;
             }
-            else
+            else if (!skillData.skillType.ToString().Equals("SPECIAl"))
             {
                 Debug.Log("Bullet instansite NOT  IsMine");
                 Destroy(gameObject);
