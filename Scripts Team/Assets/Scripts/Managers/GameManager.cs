@@ -12,8 +12,7 @@ public class GameManager : MonoBehaviour
     public Team FirstTeam;
     public Team SecondTeam;
 
-    [SerializeField]
-    Transform [] SpwanPoints;
+
 
     GameObject newPlayer;
 
@@ -24,9 +23,9 @@ public class GameManager : MonoBehaviour
     {
         
 
-        FollowCamera cam =GameObject.Find("Follow Camera").GetComponent<FollowCamera>();
+        // FollowCamera cam =GameObject.Find("Follow Camera").GetComponent<FollowCamera>();
 
-        string playerName = PlayerPrefs.GetString("Player","Archer");
+        // string playerName = PlayerPrefs.GetString("Player","Archer");
         /*
         switch (playerName)
         {

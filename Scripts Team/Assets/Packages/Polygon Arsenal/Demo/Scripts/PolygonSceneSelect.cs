@@ -17,7 +17,7 @@ public class PolygonSceneSelect : MonoBehaviour
 	public bool GUIHide5 = false;
 	
 	//Combat Scenes
-	
+	/*
     public void CBLoadSceneMissiles()		{ SceneManager.LoadScene("PolyMissiles");	}
 	public void CBLoadSceneBeams()			{ SceneManager.LoadScene("PolyBeams"); 		}
 	public void CBLoadSceneBeams2()			{ SceneManager.LoadScene("PolyBeams2"); 	}
@@ -79,7 +79,7 @@ public class PolygonSceneSelect : MonoBehaviour
 	public void INTLoadSceneTreasure()		{ SceneManager.LoadScene("PolyTreasure"); 	}
 	public void INTLoadSceneTreasure2()		{ SceneManager.LoadScene("PolyTreasure2"); 	}
 	public void INTLoadSceneZones()			{ SceneManager.LoadScene("PolyZones"); 		}
-	
+	*/
 	 void Update ()
 	 {
  

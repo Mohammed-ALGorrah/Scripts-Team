@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
@@ -37,6 +38,9 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public GameObject PlayerListItemParent;
     private Dictionary<int, GameObject> playersList;
     private int avatar = 0;
+
+    private int redCount =0;
+    private int BlueCount=3;
     #endregion
 
     #region UnityMethods
@@ -146,7 +150,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
         }
         
-        Debug.Log(PhotonNetwork.LocalPlayer.ToStringFull());
+        //Debug.Log(PhotonNetwork.LocalPlayer.ToStringFull());
 
         ActivateMyPanel(LobbyPanel.name);
     }
@@ -159,6 +163,30 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log(PhotonNetwork.CurrentRoom.Name +" room Is created with max players Number is " + PhotonNetwork.CurrentRoom.MaxPlayers);
+        int teamNum = 0;
+
+        if (PhotonNetwork.CurrentRoom.PlayerCount <= (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
+        {
+            teamNum = 1;
+            if (PhotonNetwork.LocalPlayer.CustomProperties["team"] == null)
+            {
+                var hash = PhotonNetwork.LocalPlayer.CustomProperties;
+                hash.Add("team", teamNum);
+                PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+            }
+        }
+        else if (PhotonNetwork.CurrentRoom.PlayerCount > (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
+        { 
+            teamNum = 2;
+            if (PhotonNetwork.LocalPlayer.CustomProperties["team"] == null)
+            {
+                var hash = PhotonNetwork.LocalPlayer.CustomProperties;
+                hash.Add("team", teamNum);
+                PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+            }
+        }
+
+        
     }
 
     public override void OnJoinedRoom()
@@ -175,8 +203,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             PlayButton.SetActive(false);
         }
 
-        
-
         foreach (Player playerItem in PhotonNetwork.PlayerList)
         {
             Debug.Log(playerItem.NickName + " Room Joined !");
@@ -184,6 +210,72 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             AddCientToRoom(playerItem);
 
 
+        }
+
+        int teamNum = 0;
+
+        var hash2 = PhotonNetwork.LocalPlayer.CustomProperties;
+
+        if (PhotonNetwork.CurrentRoom.PlayerCount <= (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
+        {
+            teamNum = 1;
+            Debug.Log("position first "+redCount);
+            hash2.Add("position", redCount);
+        }
+        else if (PhotonNetwork.CurrentRoom.PlayerCount > (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
+        {
+
+            int team1 = 0;
+            int team2 = 0;
+
+            Debug.Log("position second "+BlueCount);
+            hash2.Add("position", BlueCount);
+
+            foreach (KeyValuePair<int, Player> kvp in PhotonNetwork.CurrentRoom.Players)
+            {
+                if (kvp.Value.CustomProperties["team"] != null)
+                {
+                    Debug.Log("__ "+(int)kvp.Value.CustomProperties["team"]);
+                    if ((int)kvp.Value.CustomProperties["team"] == 1)
+                    {
+                        team1++;
+                    }
+                    else if ((int)kvp.Value.CustomProperties["team"] == 2)
+                    {
+                        team2++;
+                    }
+                }
+                
+            }
+
+            if (team1 == (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
+            {
+                teamNum = 2;
+                redCount++;
+            }
+            else if(team2 == (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
+            {
+                teamNum = 1;
+                BlueCount++;
+            }
+        }
+
+
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hash2);
+
+
+
+
+
+
+
+        if (PhotonNetwork.LocalPlayer.CustomProperties["team"] == null)
+        {
+            var hash = PhotonNetwork.LocalPlayer.CustomProperties;
+            hash.Add("team", teamNum);
+            
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+            
         }
     }
 
