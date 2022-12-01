@@ -6,6 +6,7 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using System;
 
+
 public class SceneManager : MonoBehaviour
 {
 
@@ -25,41 +26,37 @@ public class SceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if (PhotonNetwork.IsConnectedAndReady)
         {
           if ((int)PhotonNetwork.LocalPlayer.CustomProperties["team"] == 1){
             Debug.Log(PhotonNetwork.LocalPlayer.CustomProperties["position"]);
-            PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/"+playerPrefab1.name, 
+            GameObject player = (GameObject)PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/"+playerPrefab1.name, 
             SpwanPoints[((int)PhotonNetwork.LocalPlayer.CustomProperties["position"])].position, Quaternion.identity);
-
+            GetComponent<PhotonView>().RPC("addToTeam",RpcTarget.AllBuffered,
+            player.GetComponentInChildren<PhotonView>().ViewID,true);
+        
           }else if((int)PhotonNetwork.LocalPlayer.CustomProperties["team"] == 2){
             Debug.Log(PhotonNetwork.LocalPlayer.CustomProperties["position"]);
-            PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/"+playerPrefab1.name,
+            GameObject player = (GameObject)PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/"+playerPrefab1.name,
             SpwanPoints[((int)PhotonNetwork.LocalPlayer.CustomProperties["position"])].position, Quaternion.identity);
+            GetComponent<PhotonView>().RPC("addToTeam",RpcTarget.AllBuffered,
+            player.GetComponentInChildren<PhotonView>().ViewID,false);
 
           }
 
         }
 
-/*
-            int prefab = (int)PhotonNetwork.LocalPlayer.CustomProperties["avatar"];
-            switch (prefab)
-            {
-                case 1:
-                    PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/"+playerPrefab1.name, new Vector3(randomNumber1, 5f, randomNumber2), Quaternion.identity);
-                    break;
-                case 2:
-                    PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/"+playerPrefab2.name, new Vector3(randomNumber1, 5f, randomNumber2), Quaternion.identity);
-                    break;
-                case 3:
-                    PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/"+playerPrefab3.name, new Vector3(randomNumber1, 5f, randomNumber2), Quaternion.identity);
-                    break;
-                default:
-                    PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/"+playerPrefab1.name, new Vector3(randomNumber1, 5f, randomNumber2), Quaternion.identity);
-                    break;
-            }
-            
-        }*/
+    }
+
+    [PunRPC]
+    private void addToTeam(int id,bool first){
+
+        if(first){
+            GameObject.Find("FirstTeam").GetComponent<Team>().players.Add(id);
+        }else{
+            GameObject.Find("SecondTeam").GetComponent<Team>().players.Add(id);
+        }
     }
 
     // Update is called once per frame

@@ -58,6 +58,7 @@ MonoBehaviour:
   - Charge_Max_Pun
   - Health_OnDead_Pun
   - hidePlayerPun
+  - addToTeam
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

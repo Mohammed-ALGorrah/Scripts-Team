@@ -90,10 +90,10 @@ namespace Heros.Players
 
         
 
-        public bool CheckFriend(Player player)
+        public bool CheckFriend(int player)
         {
-            if ((gameManager.FirstTeam.players.Contains(player) && gameManager.FirstTeam.players.Contains(this)) ||
-                 (gameManager.SecondTeam.players.Contains(player) && gameManager.SecondTeam.players.Contains(this)))
+            if ((gameManager.FirstTeam.players.Contains(player) && gameManager.FirstTeam.players.Contains(GetComponent<PhotonView>().ViewID)) ||
+                 (gameManager.SecondTeam.players.Contains(player) && gameManager.SecondTeam.players.Contains(GetComponent<PhotonView>().ViewID)))
             {
                 return true;
             }

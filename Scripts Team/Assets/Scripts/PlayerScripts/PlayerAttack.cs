@@ -103,7 +103,7 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
         {
             GameObject basicbullet = (GameObject)PhotonNetwork.Instantiate(
                "Prefab/BulletsPrefabs/" + basicAttack.skillProjectile.name, firePoint.position, transform.rotation);
-            basicAttack.player = player;
+                basicAttack.playerID = GetComponent<PhotonView>().ViewID;
         } 
     }
 
@@ -113,7 +113,7 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
         {
             GameObject specialBullet = (GameObject)PhotonNetwork.Instantiate("Prefab/BulletsPrefabs/"+ specialAttack.skillProjectile.name
                 , spicalPoint.position, Quaternion.Euler(specialAttack.skillRotation));
-            specialAttack.player = player;
+            specialAttack.playerID = GetComponent<PhotonView>().ViewID;
           /*  if (!specialAttack.hasProjectile)
             {
                 specialBullet.transform.SetParent(releasspical.transform);

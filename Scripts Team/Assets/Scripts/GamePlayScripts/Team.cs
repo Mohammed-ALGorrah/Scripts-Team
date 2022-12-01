@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Team : MonoBehaviour
 {
-    public List <Player> players;
+    public List <int> players;
     public int currentScore;
     
     void Start()
