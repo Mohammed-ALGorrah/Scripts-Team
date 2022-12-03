@@ -19,6 +19,7 @@ namespace Heros.Players
         public ParticleSystem fxSpecialAttack;
         public int numOfKills;
         public int numOfDead;
+
         private void Awake()
         {
             id = Random.Range(100, 1000000);
@@ -29,6 +30,8 @@ namespace Heros.Players
         }
         void Start()
         {
+            
+
             health.maxHealth = playerData.maxHealth;
             health.currentHealth = playerData.maxHealth;
             chargeSystem.maxCharage = playerData.maxCharge;
@@ -86,19 +89,6 @@ namespace Heros.Players
             gameObject.GetComponent<PlayerMove>().enabled = true;
             gameObject.GetComponent<ChargeSystem>().enabled = true;
             gameObject.GetComponent<HealthSystem>().enabled = true;
-        }
-
-        
-
-        public bool CheckFriend(int player)
-        {
-            if ((gameManager.FirstTeam.players.Contains(player) && gameManager.FirstTeam.players.Contains(GetComponent<PhotonView>().ViewID)) ||
-                 (gameManager.SecondTeam.players.Contains(player) && gameManager.SecondTeam.players.Contains(GetComponent<PhotonView>().ViewID)))
-            {
-                return true;
-            }
-            return false;
-
         }
     }
 

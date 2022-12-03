@@ -26,15 +26,15 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
-        
+
         player = GetComponent<Player>();
         chargeSystem = GetComponent<ChargeSystem>();
         animator = GetComponent<Animator>();
         playerControls = new PlayerControls();
-        
+
     }
 
-    
+
     private void OnEnable()
     {
         playerControls.Enable();
@@ -47,16 +47,16 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        
+
         mainCamera = FindObjectOfType<Camera>();
 
         releasspical = Instantiate(releasspical, transform.position, Quaternion.Euler(specialAttack.skillRotation));
         releasspical.transform.SetParent(this.transform);
 
-        skillIndicator = Instantiate(basicAttack.skillIndicator,indicatorParent);
+        skillIndicator = Instantiate(basicAttack.skillIndicator, indicatorParent);
         skillIndicator.transform.position = transform.position;
-        
-        skillSpecialIndicator= Instantiate(specialAttack.skillIndicator,indicatorParent);
+
+        skillSpecialIndicator = Instantiate(specialAttack.skillIndicator, indicatorParent);
         skillSpecialIndicator.transform.position = transform.position;
     }
 
@@ -69,13 +69,14 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
             skillIndicator.SetActive(true);
         }
         else if (Input.GetMouseButtonUp(0))
-        {            
+        {
             animator.SetTrigger("isAttack");
             skillIndicator.SetActive(false);
         }
-        if (player.CanSpecialAttack) 
+        if (player.CanSpecialAttack)
         {
-            if (Input.GetMouseButton(1)) {
+            if (Input.GetMouseButton(1))
+            {
                 skillSpecialIndicator.SetActive(true);
             }
             else if (Input.GetMouseButtonUp(1))
@@ -88,37 +89,47 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
                 {
                     spicalPoint = GameObject.FindGameObjectWithTag("Point").transform;
                 }
-                
+
                 spicalPoint.position = new Vector3(spicalPoint.position.x, 0.5f, spicalPoint.position.z);
                 animator.SetTrigger("isPowr"); // Change it            
                 skillSpecialIndicator.SetActive(false);
                 GetComponent<PhotonView>().RPC("restChrages", RpcTarget.AllBuffered);
 
-            } 
+            }
         }
     }
-    public void shoot() {
-        
-        if (photonView.IsMine) 
+
+    public void shoot()
+    {
+
+        if (photonView.IsMine)
         {
             GameObject basicbullet = (GameObject)PhotonNetwork.Instantiate(
                "Prefab/BulletsPrefabs/" + basicAttack.skillProjectile.name, firePoint.position, transform.rotation);
-                basicAttack.playerID = GetComponent<PhotonView>().ViewID;
-        } 
+            GetComponent<PhotonView>().RPC("SyncBasicDamage", RpcTarget.AllBuffered);
+        }
+    }
+
+    [PunRPC]
+    private void SyncBasicDamage()
+    {
+        basicAttack.playerID = this.GetComponentInParent<CheckPhoton>().team;
     }
 
     public void special()
     {
         if (photonView.IsMine)
         {
-            GameObject specialBullet = (GameObject)PhotonNetwork.Instantiate("Prefab/BulletsPrefabs/"+ specialAttack.skillProjectile.name
+            GameObject specialBullet = (GameObject)PhotonNetwork.Instantiate("Prefab/BulletsPrefabs/" + specialAttack.skillProjectile.name
                 , spicalPoint.position, Quaternion.Euler(specialAttack.skillRotation));
-            specialAttack.playerID = GetComponent<PhotonView>().ViewID;
-          /*  if (!specialAttack.hasProjectile)
-            {
-                specialBullet.transform.SetParent(releasspical.transform);
-            }*/
+            GetComponent<PhotonView>().RPC("SyncSpecialDamage", RpcTarget.AllBuffered);
         }
+    }
+
+    [PunRPC]
+    private void SyncSpecialDamage()
+    {
+        specialAttack.playerID = this.GetComponentInParent<CheckPhoton>().team;
     }
 
     [PunRPC]
@@ -138,7 +149,7 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
 
     public void stopSpical()
     {
-       // releasspical.transform.position = new Vector3(this.transform.position.x, 1f, this.transform.position.z);
+        // releasspical.transform.position = new Vector3(this.transform.position.x, 1f, this.transform.position.z);
         releasspical.Stop();
     }
 

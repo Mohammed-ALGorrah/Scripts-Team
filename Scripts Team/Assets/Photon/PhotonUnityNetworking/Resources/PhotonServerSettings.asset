@@ -59,6 +59,20 @@ MonoBehaviour:
   - Health_OnDead_Pun
   - hidePlayerPun
   - addToTeam
+  - Teams
+  - check
+  - CheckPlayerID
+  - CheckPlayerID2
+  - CheckThisPlayer
+  - TestPlayerTeams
+  - SyncDamage
+  - SyncBasicDamage
+  - SyncSpecialDamage
+  - SyncSpical
+  - GivePlayerPositions
+  - SetPlayerPos
+  - SetPlayerPos2
+  - PlayerPosTest
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

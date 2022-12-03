@@ -17,11 +17,18 @@ public class HealthBar : MonoBehaviour
     private void OnEnable()
     {
         health.OnTakeDamage += Health_OnTakeDamage;
+        health.OnHeal += Health_OnHeal;
     }
 
     private void OnDisable()
     {
         health.OnTakeDamage -= Health_OnTakeDamage;
+        health.OnHeal -= Health_OnHeal;
+    }
+
+    private void Health_OnHeal(HealthSystem obj)
+    {
+        healthBar.value = health.currentHealth / health.maxHealth;
     }
 
     private void Health_OnTakeDamage(HealthSystem obj)

@@ -20,10 +20,6 @@ public class SceneManager : MonoBehaviour
     [SerializeField]
     Transform [] SpwanPoints;
 
-    #endregion
-
-    #region UnityMethods
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -31,35 +27,15 @@ public class SceneManager : MonoBehaviour
         {
           if ((int)PhotonNetwork.LocalPlayer.CustomProperties["team"] == 1){
             Debug.Log(PhotonNetwork.LocalPlayer.CustomProperties["position"]);
-            GameObject player = (GameObject)PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/"+playerPrefab1.name, 
-            SpwanPoints[((int)PhotonNetwork.LocalPlayer.CustomProperties["position"])].position, Quaternion.identity);
-            GetComponent<PhotonView>().RPC("addToTeam",RpcTarget.AllBuffered,
-            player.GetComponentInChildren<PhotonView>().ViewID,true);
-        
-          }else if((int)PhotonNetwork.LocalPlayer.CustomProperties["team"] == 2){
+            GameObject player = (GameObject)PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/"+playerPrefab1.name, Vector3.zero, Quaternion.identity);
+            }
+            else if((int)PhotonNetwork.LocalPlayer.CustomProperties["team"] == 2){
             Debug.Log(PhotonNetwork.LocalPlayer.CustomProperties["position"]);
-            GameObject player = (GameObject)PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/"+playerPrefab1.name,
-            SpwanPoints[((int)PhotonNetwork.LocalPlayer.CustomProperties["position"])].position, Quaternion.identity);
-            GetComponent<PhotonView>().RPC("addToTeam",RpcTarget.AllBuffered,
-            player.GetComponentInChildren<PhotonView>().ViewID,false);
-
-          }
-
-        }
-
-    }
-
-    [PunRPC]
-    private void addToTeam(int id,bool first){
-
-        if(first){
-            GameObject.Find("FirstTeam").GetComponent<Team>().players.Add(id);
-        }else{
-            GameObject.Find("SecondTeam").GetComponent<Team>().players.Add(id);
+            GameObject player = (GameObject)PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/"+playerPrefab1.name, Vector3.zero, Quaternion.identity);
+            }
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))

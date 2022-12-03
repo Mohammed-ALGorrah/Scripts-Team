@@ -2,60 +2,65 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-    
-    public class HealthSystem : MonoBehaviour
+
+public class HealthSystem : MonoBehaviour
+{
+    public float currentHealth;
+    public float maxHealth;
+
+    public event Action<HealthSystem> OnTakeDamage;
+    public event Action<HealthSystem> OnDead;
+    public event Action<HealthSystem> OnHeal;
+
+    public void Start()
     {
-        public float currentHealth;
-        public float maxHealth ;
+        currentHealth = maxHealth;
+    }
 
-        public event Action <HealthSystem> OnTakeDamage;
-        public event Action <HealthSystem> OnDead;
-        public event Action <HealthSystem> OnHeal;
+    /* public HealthSystem(int max)
+     {
+         maxHealth = max;
+     }*/
 
-        public void Start()
+    public void TakeDamage(int amount)
+    {
+        if (IsDead())
         {
-            currentHealth = maxHealth;
+            return;
         }
-
-       /* public HealthSystem(int max)
+        if (currentHealth > 0)
         {
-            maxHealth = max;
-        }*/
+            currentHealth -= amount;
 
-        public void TakeDamage(int amount)
-        {
-            if (IsDead())
+            this.OnTakeDamage?.Invoke(this);
+
+            if (currentHealth <= 0)
             {
-                return;
+                this.OnDead?.Invoke(this);
             }
-            if (currentHealth > 0 )
-            {
-                currentHealth -= amount;
-                
-                this.OnTakeDamage?.Invoke(this);
-
-                if (currentHealth <= 0)
-                {
-                    this.OnDead?.Invoke(this);
-                }
-            }
-            
-        }
-
-
-        public void Heal(int amount)
-        {
-            if(currentHealth + amount > maxHealth){
-                currentHealth = maxHealth;
-            }else{
-                currentHealth += amount;
-            }
-            
-        }
-
-        public bool IsDead()
-        {
-            return currentHealth <= 0;
         }
 
     }
+
+
+    public void Heal(int amount)
+    {
+        if (currentHealth + amount > maxHealth)
+        {
+            currentHealth = maxHealth;
+            this.OnHeal?.Invoke(this);
+        }
+        else
+        {
+            currentHealth += amount;
+            this.OnHeal?.Invoke(this);
+        }
+
+    }
+
+    public bool IsDead()
+    {
+        return currentHealth <= 0;
+    }
+
+}

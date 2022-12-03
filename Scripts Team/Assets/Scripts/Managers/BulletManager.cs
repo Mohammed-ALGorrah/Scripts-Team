@@ -22,12 +22,15 @@ public class BulletManager : MonoBehaviourPunCallbacks, IPunInstantiateMagicCall
     {
         if (other.gameObject.GetComponent<PlayerSetup>() != null)
         {
+
             Player player = other.gameObject.GetComponent<Player>();
+            int PlayerDmg = other.gameObject.GetComponent<PhotonView>().ViewID;
+            CheckPhoton playerCheckPhoton = other.gameObject.GetComponentInParent<CheckPhoton>();
             if (skillData.skillType.ToString().Equals("NORMAL"))
             {
-                if (player.CheckFriend(skillData.playerID))
+                if (playerCheckPhoton.CheckFriend2(skillData.playerID))
                 {
-                    Debug.Log("friend");
+                    //Debug.Log("friend");
                     return;
                 }
 
@@ -41,7 +44,7 @@ public class BulletManager : MonoBehaviourPunCallbacks, IPunInstantiateMagicCall
             {
                 if (skillData.HelaingSkill)
                 {
-                    if (player.CheckFriend(skillData.playerID))
+                    if (playerCheckPhoton.CheckFriend2(skillData.playerID ))
                     {
                         Debug.Log("HelaingSkill");
                         player.health.Heal(skillData.skillDmg);
@@ -49,7 +52,7 @@ public class BulletManager : MonoBehaviourPunCallbacks, IPunInstantiateMagicCall
                 }
                 else
                 {
-                    if (player.CheckFriend(skillData.playerID))
+                    if (playerCheckPhoton.CheckFriend2(skillData.playerID ))
                     {
                         return;
                     }

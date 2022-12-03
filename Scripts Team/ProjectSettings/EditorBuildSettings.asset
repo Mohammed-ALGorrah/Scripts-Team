@@ -5,15 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Start Game.unity
-    guid: c0de0eb30be1520418ca20670e679e4b
   - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/Env Snow.unity
-    guid: f655291736e472f40b575d8440eaed4b
   - enabled: 1
     path: Assets/Scenes/spring.unity
     guid: 99c9720ab356a0642a771bea13969a05
