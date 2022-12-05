@@ -11,6 +11,7 @@ TagManager:
   - eq
   - Weapon
   - WarriorPoint
+  - DiePanel
   layers:
   - Default
   - TransparentFX

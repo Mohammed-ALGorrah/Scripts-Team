@@ -7,12 +7,16 @@ public class HealthBar : MonoBehaviour
 {
     private Camera cam;
     private HealthSystem health;
-    [SerializeField]
-    Slider healthBar;
+    public Slider healthBar;
+    CheckPhoton checkPhoton;
     private void Awake()
     {
+        checkPhoton = FindObjectOfType<CheckPhoton>();
         health = this.gameObject.transform.GetComponentInParent<HealthSystem>();
+        
+        
     }
+    
 
     private void OnEnable()
     {
@@ -38,6 +42,15 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //healthBar.value = health.currentHealth;
+        if (checkPhoton.team == 1)
+        {
+            healthBar.GetComponentsInChildren<Image>()[1].color = Color.blue;
+        }
+        else if (checkPhoton.team == 2)
+        {
+            healthBar.GetComponentsInChildren<Image>()[1].color = Color.red;
+        }
         cam = Camera.main;
     }
 

@@ -1,9 +1,10 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : MonoBehaviourPunCallbacks
 {
     public float moveSpeed = 5;
     private Rigidbody rB;
@@ -59,16 +60,19 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        moveInput = new Vector3(playerControls.Player.Move.ReadValue<Vector2>().x, 0, playerControls.Player.Move.ReadValue<Vector2>().y);
-        moveVelocity = moveInput * moveSpeed;
-        animator.SetFloat("walk" , moveVelocity.magnitude);
-        LookAtMousePostion();
-        rB.velocity = moveVelocity;
+        if (PhotonNetwork.IsConnected) {
+            if (photonView.IsMine) {
+                moveInput = new Vector3(playerControls.Player.Move.ReadValue<Vector2>().x, 0, playerControls.Player.Move.ReadValue<Vector2>().y);
+                moveVelocity = moveInput * moveSpeed;
+                animator.SetFloat("walk", moveVelocity.magnitude);
+                LookAtMousePostion();
+                rB.velocity = moveVelocity;
+            } 
+        }
     }
 
     private void FixedUpdate()
-    {
-        
+    { 
         rB.AddForce(Vector3.down*10000);
     }
 

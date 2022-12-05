@@ -41,6 +41,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     private int redCount =0;
     private int BlueCount=3;
+
+
     #endregion
 
     #region UnityMethods
@@ -172,7 +174,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             {
                 var hash = PhotonNetwork.LocalPlayer.CustomProperties;
                 hash.Add("team", teamNum);
+              
+                hash.Add("postion", 0);
+               
                 PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+                
             }
         }
         else if (PhotonNetwork.CurrentRoom.PlayerCount > (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
@@ -182,11 +188,13 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             {
                 var hash = PhotonNetwork.LocalPlayer.CustomProperties;
                 hash.Add("team", teamNum);
+                hash.Add("postion", 1);
                 PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
             }
         }
-
         
+
+
     }
 
     public override void OnJoinedRoom()
@@ -205,7 +213,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
         foreach (Player playerItem in PhotonNetwork.PlayerList)
         {
-            Debug.Log(playerItem.NickName + " Room Joined !");
 
             AddCientToRoom(playerItem);
 
@@ -219,8 +226,29 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.CurrentRoom.PlayerCount <= (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
         {
             teamNum = 1;
-            Debug.Log("position first "+redCount);
-            hash2.Add("position", redCount);
+            int team1 = 0;
+            foreach (KeyValuePair<int, Player> kvp in PhotonNetwork.CurrentRoom.Players)
+            {
+                if (kvp.Value.CustomProperties["team"] != null)
+                {
+                    Debug.Log("__ " + (int)kvp.Value.CustomProperties["team"]);
+                    if ((int)kvp.Value.CustomProperties["team"] == 1)
+                    {
+                        team1++;
+                    }
+                    
+                }
+
+            }
+            if(PhotonNetwork.LocalPlayer.CustomProperties["postion"] == null)
+            {
+                PhotonNetwork.LocalPlayer.CustomProperties["postion"] = team1;
+            }
+            
+            
+            //Debug.Log("position first "+redCount);
+            //hash2.Add("position", redCount);
+            //redCount++;
         }
         else if (PhotonNetwork.CurrentRoom.PlayerCount > (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
         {
@@ -228,9 +256,9 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             int team1 = 0;
             int team2 = 0;
 
-            Debug.Log("position second "+BlueCount);
-            hash2.Add("position", BlueCount);
-
+            //Debug.Log("position second "+BlueCount);
+           // hash2.Add("position", BlueCount);
+            //BlueCount++;
             foreach (KeyValuePair<int, Player> kvp in PhotonNetwork.CurrentRoom.Players)
             {
                 if (kvp.Value.CustomProperties["team"] != null)
@@ -251,13 +279,39 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             if (team1 == (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
             {
                 teamNum = 2;
+                if (PhotonNetwork.LocalPlayer.CustomProperties["postion"] == null)
+                {
+                    var hash = PhotonNetwork.LocalPlayer.CustomProperties;
+                    hash.Add("postion", team2);
+                    PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+                }
+                /*else if (PhotonNetwork.LocalPlayer.CustomProperties["postion"] != null)
+                {
+                    PhotonNetwork.LocalPlayer.CustomProperties["postion"] = team2;
+                }*/
+                
+
                 redCount++;
             }
             else if(team2 == (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
             {
                 teamNum = 1;
+
+                if (PhotonNetwork.LocalPlayer.CustomProperties["postion"] == null)
+                {
+                    var hash = PhotonNetwork.LocalPlayer.CustomProperties;
+                    hash.Add("postion", team1);
+                    PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+                }
+               /* else if (PhotonNetwork.LocalPlayer.CustomProperties["postion"] != null)
+                {
+                    PhotonNetwork.LocalPlayer.CustomProperties["postion"] = team1;
+                }*/
+
                 BlueCount++;
             }
+
+            
         }
 
 
@@ -277,6 +331,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
             
         }
+        
+
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -288,8 +344,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
+        
         Destroy(playersList[otherPlayer.ActorNumber]);
         playersList.Remove(otherPlayer.ActorNumber);
+
+
         if (PhotonNetwork.IsMasterClient)
         {
             PlayButton.SetActive(true);
@@ -298,11 +357,13 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         {
             PlayButton.SetActive(false);
         }
+        
     }
 
     public override void OnLeftRoom()
     {
         ActivateMyPanel(LobbyPanel.name);
+
 
         foreach (GameObject obj in playersList.Values)
         {

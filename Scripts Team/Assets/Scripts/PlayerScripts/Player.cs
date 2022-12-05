@@ -20,6 +20,10 @@ namespace Heros.Players
         public int numOfKills;
         public int numOfDead;
 
+        public GameObject diePanel;
+
+        
+
         private void Awake()
         {
             id = Random.Range(100, 1000000);
@@ -30,8 +34,6 @@ namespace Heros.Players
         }
         void Start()
         {
-            
-
             health.maxHealth = playerData.maxHealth;
             health.currentHealth = playerData.maxHealth;
             chargeSystem.maxCharage = playerData.maxCharge;
@@ -62,34 +64,43 @@ namespace Heros.Players
         private void Health_OnDead(HealthSystem obj)
         {
             GetComponent<PhotonView>().RPC("Health_OnDead_Pun", RpcTarget.AllBuffered);
+            diePanel.SetActive(true);
         }
 
         [PunRPC]
         private void Health_OnDead_Pun()
         {
-            animator.SetTrigger("isDead");
-            gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            animator.SetTrigger("isDead");            
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;  
             gameObject.GetComponent<PlayerAttack>().enabled = false;
             gameObject.GetComponent<PlayerMove>().enabled = false;
             gameObject.GetComponent<ChargeSystem>().enabled = false;
             gameObject.GetComponent<HealthSystem>().enabled = false;
-            Destroy(Instantiate(Resources.Load("FireDeath"), new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity), 2f);
-            Invoke("hidePlayer", 1.5f);            
+            StartCoroutine("DestroyDieFx");
+            StartCoroutine("ViewPlayer");         
         }
-        void hidePlayer()
+
+        IEnumerator DestroyDieFx()
         {
-            GetComponent<PhotonView>().RPC("hidePlayerPun", RpcTarget.AllBuffered);
+            GameObject DieFx = PhotonNetwork.Instantiate("Prefab/GameEffectsPrefabs/FireDeath", 
+                new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity);
+            yield return new WaitForSeconds(1.5f);
+            PhotonNetwork.Destroy(DieFx);
         }
-        [PunRPC]
-        void hidePlayerPun()
+
+
+        IEnumerator ViewPlayer()
         {
+            yield return new WaitForSeconds(1.5f);
+            GetComponentInParent<CheckPhoton>().GetComponent<PhotonView>().RPC("showPlayer", RpcTarget.All);
             gameObject.SetActive(false);
-            gameObject.GetComponent<CapsuleCollider>().enabled = true;
-            gameObject.GetComponent<PlayerAttack>().enabled = true;
-            gameObject.GetComponent<PlayerMove>().enabled = true;
-            gameObject.GetComponent<ChargeSystem>().enabled = true;
-            gameObject.GetComponent<HealthSystem>().enabled = true;
+            
         }
+        
+    }
+            
+
     }
 
-}
+
