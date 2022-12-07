@@ -23918,7 +23918,7 @@ GameObject:
   - component: {fileID: 1482824809}
   - component: {fileID: 1482824811}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: RedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27101,7 +27101,7 @@ GameObject:
   - component: {fileID: 1628758542}
   - component: {fileID: 1628758544}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: BlueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31011,8 +31011,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersRed: []
   playersBlue: []
-  txtCounterRed: {fileID: 1628758542}
-  txtCounterBlue: {fileID: 1482824809}
+  txtCounterRed: {fileID: 1482824809}
+  txtCounterBlue: {fileID: 1628758542}
   currentScoreRed: 0
   currentScoreBlue: 0
 --- !u!1 &1825856118
