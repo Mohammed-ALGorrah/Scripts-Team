@@ -35,8 +35,7 @@ public class BulletManager : MonoBehaviourPunCallbacks, IPunInstantiateMagicCall
                 }
                 
                 Player playerKill = skillData.playerOfBullet;
-
-                player.health.TakeDamage(skillData.skillDmg,playerKill,player);
+                player.health.TakeDamage(skillData.skillDmg, playerKill.GetComponent<PhotonView>().ViewID, playerKill);
                 player.chargeSystem.IncreaseCharge(+1);
 
                 Destroy(Instantiate(skillData.hitEffect, gameObject.transform.position, Quaternion.identity), 2);

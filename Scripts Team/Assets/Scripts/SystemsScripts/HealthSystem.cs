@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Heros.Players;
-
-public class HealthSystem : MonoBehaviour
+using Photon.Pun;
+public class HealthSystem : MonoBehaviourPunCallbacks
 {
     public float currentHealth;
     public float maxHealth;
@@ -12,6 +12,8 @@ public class HealthSystem : MonoBehaviour
     public event Action<HealthSystem> OnTakeDamage;
     public event Action<HealthSystem> OnDead;
     public event Action<HealthSystem> OnHeal;
+
+    Player playerKill;
 
     public void Start()
     {
@@ -23,7 +25,28 @@ public class HealthSystem : MonoBehaviour
          maxHealth = max;
      }*/
 
-    public void TakeDamage(int amount,Player playerKill = null,Player playerDead = null)
+    [PunRPC]
+    private void AddKillNum(int id)
+    {
+        //  foreach (KeyValuePair<int, Photon.Realtime.Player> kvp in PhotonNetwork.CurrentRoom.Players)
+        //{
+        //     Debug.Log("IDDDDDDDwww :" + kvp.Value.ActorNumber);
+        //   }
+
+
+            Debug.Log("IDDDDDDDwww :" + id);
+            Debug.Log("IDDDDDDD www:" + GetComponent<PhotonView>().ViewID);
+
+
+            
+            playerKill.GetComponent<Player>().numOfKills++;
+            Debug.Log("TXXXXXXXXXXXXeam :" + id + ": ");
+        
+        
+    }
+
+
+    public void TakeDamage(int amount, int attackID = 0 , Player p = null)
     {
         if (IsDead())
         {
@@ -38,16 +61,23 @@ public class HealthSystem : MonoBehaviour
             if (currentHealth <= 0)
             {
                 this.OnDead?.Invoke(this);
-                if (playerKill != null && playerDead)
+                if (attackID != 0)
                 {
-                    playerKill.numOfKills++;
-                    playerDead.numOfDead++;
+                    //Debug.Log("IDDDDDDD :" + attackID);
+                    //Debug.Log("IDDDDDDD :" + GetComponent<PhotonView>().ViewID);
+                    p.GetComponent<Player>().icreasse(attackID);
+                    //p.GetComponent<PhotonView>().RPC("AddKillNum", RpcTarget.AllBuffered, attackID);
                 }
             }
         }
 
     }
 
+    [PunRPC]
+    private void AA()
+    {
+
+    }
 
     public void Heal(int amount)
     {

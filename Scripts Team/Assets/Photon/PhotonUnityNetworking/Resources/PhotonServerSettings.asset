@@ -79,6 +79,10 @@ MonoBehaviour:
   - setCounter
   - setCounterBlue
   - setCounterRed
+  - AddKillNum
+  - AA
+  - aaa
+  - addHitPlayer
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

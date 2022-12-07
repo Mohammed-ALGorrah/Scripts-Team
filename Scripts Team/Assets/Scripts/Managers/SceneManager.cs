@@ -52,9 +52,9 @@ public class SceneManager : MonoBehaviourPunCallbacks
     public void addTOTeam(bool first){
         if (first)
         {
-            GameObject.Find("Teams").GetComponent<Team>().playersRed.Add(GameObject.FindObjectOfType<Heros.Players.Player>().gameObject);
-        }else{
             GameObject.Find("Teams").GetComponent<Team>().playersBlue.Add(GameObject.FindObjectOfType<Heros.Players.Player>().gameObject);
+        }else{
+            GameObject.Find("Teams").GetComponent<Team>().playersRed.Add(GameObject.FindObjectOfType<Heros.Players.Player>().gameObject);
         }
     }
         void Update()

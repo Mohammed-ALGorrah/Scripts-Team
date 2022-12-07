@@ -17,6 +17,10 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     public GameObject HealthSystem;
     public GameObject ChargeSystem;
     public GameObject FirePoint;
+
+    public int numberOfKills;
+    public int numberOfDeads;
+
     [Header("Test data")]
     public Text numText;
     int num = 0;
@@ -66,6 +70,18 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             numText.text = "Number = " + num;
             photonView.RPC("changeText",RpcTarget.All, num);
         }
+    }
+
+    private void LateUpdate()
+    {
+        //GetComponent<PhotonView>().Owner.CustomProperties["dead"];
+
+       // PhotonNetwork.LocalPlayer.CustomProperties["kills"] = numberOfKills;
+        //PhotonNetwork.LocalPlayer.CustomProperties["dead"] = numberOfDeads;
+
+
+
+
     }
 
     #endregion

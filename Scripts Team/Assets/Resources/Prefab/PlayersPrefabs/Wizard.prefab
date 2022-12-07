@@ -2066,6 +2066,8 @@ MonoBehaviour:
   HealthSystem: {fileID: 8133879655770199400}
   ChargeSystem: {fileID: 8133879655770199400}
   FirePoint: {fileID: 2677656900558742716}
+  numberOfKills: 0
+  numberOfDeads: 0
   numText: {fileID: 6670383711755589642, guid: fc15be676a5692e4c84dcf016faf83ec, type: 3}
 --- !u!114 &8133879655770199396
 MonoBehaviour:
