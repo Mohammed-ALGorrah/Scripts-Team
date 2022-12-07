@@ -115,6 +115,7 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
     {
         basicAttack.playerID = this.GetComponentInParent<CheckPhoton>().team;
         basicAttack.playerOfBullet = player;
+        basicAttack.playerSetupOfBullet = GetComponent<PlayerSetup>();
     }
 
     public void special()

@@ -13,40 +13,13 @@ public class HealthSystem : MonoBehaviourPunCallbacks
     public event Action<HealthSystem> OnDead;
     public event Action<HealthSystem> OnHeal;
 
-    Player playerKill;
-
     public void Start()
     {
         currentHealth = maxHealth;
     }
 
-    /* public HealthSystem(int max)
-     {
-         maxHealth = max;
-     }*/
 
-    [PunRPC]
-    private void AddKillNum(int id)
-    {
-        //  foreach (KeyValuePair<int, Photon.Realtime.Player> kvp in PhotonNetwork.CurrentRoom.Players)
-        //{
-        //     Debug.Log("IDDDDDDDwww :" + kvp.Value.ActorNumber);
-        //   }
-
-
-            Debug.Log("IDDDDDDDwww :" + id);
-            Debug.Log("IDDDDDDD www:" + GetComponent<PhotonView>().ViewID);
-
-
-            
-            playerKill.GetComponent<Player>().numOfKills++;
-            Debug.Log("TXXXXXXXXXXXXeam :" + id + ": ");
-        
-        
-    }
-
-
-    public void TakeDamage(int amount, int attackID = 0 , Player p = null)
+    public void TakeDamage(int amount, int attackID = 0 , PlayerSetup p = null)
     {
         if (IsDead())
         {
@@ -63,19 +36,10 @@ public class HealthSystem : MonoBehaviourPunCallbacks
                 this.OnDead?.Invoke(this);
                 if (attackID != 0)
                 {
-                    //Debug.Log("IDDDDDDD :" + attackID);
-                    //Debug.Log("IDDDDDDD :" + GetComponent<PhotonView>().ViewID);
-                    p.GetComponent<Player>().icreasse(attackID);
-                    //p.GetComponent<PhotonView>().RPC("AddKillNum", RpcTarget.AllBuffered, attackID);
+                     p.GetComponent<Player>().icreasse(attackID);
                 }
             }
         }
-
-    }
-
-    [PunRPC]
-    private void AA()
-    {
 
     }
 

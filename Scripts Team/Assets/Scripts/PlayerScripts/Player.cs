@@ -39,23 +39,21 @@ namespace Heros.Players
             chargeSystem.maxCharage = playerData.maxCharge;
         }
 
-        private void Update()
-        {
-            GetComponent<PlayerSetup>().numberOfKills = numOfKills;
-            GetComponent<PlayerSetup>().numberOfDeads = numOfDead;
-
-        }
-
         public void icreasse(int id)
         {
-            if (id == GetComponent<PhotonView>().ViewID)
+            numOfKills++;
+            GetComponent<PhotonView>().RPC("addHitPlayer",RpcTarget.All,id);
+        }
+
+        [PunRPC]
+        void addHitPlayer(int HitID)
+        {
+            if (GetComponent<PhotonView>().ViewID == id)
             {
                 numOfKills++;
             }
         }
 
-
-        
         private void OnEnable()
         {
             chargeSystem.OnChargeMaxed += Charge_Max;
@@ -79,26 +77,19 @@ namespace Heros.Players
         }
         private void Health_OnDead(HealthSystem obj)
         {
-            GetComponent<PhotonView>().RPC("Health_OnDead_Pun", RpcTarget.AllBuffered , photonView.ViewID , photonView.ViewID, (int)PhotonNetwork.LocalPlayer.CustomProperties["team"]);
+            GetComponent<PhotonView>().RPC("Health_OnDead_Pun", RpcTarget.AllBuffered , photonView.ViewID , (int)PhotonNetwork.LocalPlayer.CustomProperties["team"]);
             diePanel.SetActive(true);
         }
 
         [PunRPC]
-        private void Health_OnDead_Pun(int DieID ,int HitID  , int team)
+        private void Health_OnDead_Pun(int DieID  , int team)
         {
-            if (DieID == GetComponent<PhotonView>().ViewID)
+           if (DieID == GetComponent<PhotonView>().ViewID)
             {              
                 numOfDead++;
                 Debug.Log("Team Die:" + team + ": "+numOfDead);
             }
-            
-            /*
-            if(DieID != GetComponent<PhotonView>().ViewID)
-            {
-                numOfKills++;
-                Debug.Log("Team Kill:" + team + ": " + numOfKills);
-            }
-            */
+           
 
             animator.SetTrigger("isDead");            
             gameObject.GetComponent<Rigidbody>().useGravity = false;
@@ -115,11 +106,7 @@ namespace Heros.Players
         }
 
 
-        [PunRPC]
-        void addHitPlayer(int HitID)
-        { 
-
-        }
+        
         IEnumerator DestroyDieFx()
         {
             GameObject DieFx = PhotonNetwork.Instantiate("Prefab/GameEffectsPrefabs/FireDeath", 

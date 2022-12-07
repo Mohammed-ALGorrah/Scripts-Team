@@ -17,6 +17,7 @@ public class SkillData : ScriptableObject
     public bool HelaingSkill;
     public int playerID;
     public Player playerOfBullet;
+    public PlayerSetup playerSetupOfBullet;
     public GameObject hitEffect;
     public GameObject skillIndicator;
     public GameObject skillProjectile;
