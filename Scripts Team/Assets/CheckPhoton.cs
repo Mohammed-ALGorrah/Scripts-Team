@@ -17,6 +17,8 @@ public class CheckPhoton : MonoBehaviourPunCallbacks
     public GameObject playerBody;
     public HealthBar playerHealthBar;
     HealthSystem health;
+    [SerializeField]
+    Text KillsTxt,DeathTxt;
     private void Awake()
     {
         health = playerBody.GetComponent<HealthSystem>();
@@ -68,8 +70,13 @@ public class CheckPhoton : MonoBehaviourPunCallbacks
             if (currentTime <= 1)
             {
                 count.text = "";
-            }
+            }         
         }
+            //    KillsTxt.text = "K " + playerBody.GetComponent<Heros.Players.Player>().numOfKills;
+               
+            DeathTxt.text = "D " + PhotonNetwork.LocalPlayer.CustomProperties["dead"];
+
+
     }
 
 
@@ -103,6 +110,7 @@ public class CheckPhoton : MonoBehaviourPunCallbacks
         playerBody.GetComponent<Heros.Players.Player>().CanSpecialAttack = false;
         playerBody.GetComponent<Heros.Players.Player>().fxSpecialAttack.gameObject.SetActive(false);
         playerHealthBar.healthBar.value = 1;
+
         if (photonView.IsMine)
         {
             playerBody.GetComponent<PlayerAttack>().enabled = true;
@@ -112,7 +120,5 @@ public class CheckPhoton : MonoBehaviourPunCallbacks
             playerBody.GetComponent<Heros.Players.Player>().diePanel.SetActive(false);
 
         }
-
-
     }
 }

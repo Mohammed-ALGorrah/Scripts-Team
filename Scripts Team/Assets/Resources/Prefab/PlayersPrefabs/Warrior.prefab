@@ -56,6 +56,8 @@ MonoBehaviour:
   tt: {fileID: 0}
   playerBody: {fileID: 0}
   playerHealthBar: {fileID: 0}
+  DeathTxt: {fileID: 0}
+  count: {fileID: 0}
 --- !u!114 &7678408722736108778
 MonoBehaviour:
   m_ObjectHideFlags: 0

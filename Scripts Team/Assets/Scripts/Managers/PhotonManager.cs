@@ -174,7 +174,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             {
                 var hash = PhotonNetwork.LocalPlayer.CustomProperties;
                 hash.Add("team", teamNum);
-              
                 hash.Add("postion", 0);
                
                 PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
@@ -199,6 +198,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+
+        var hash_ = PhotonNetwork.LocalPlayer.CustomProperties;
+            hash_.Add("kills", 0);
+            hash_.Add("dead", 0);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(hash_);
         
         ActivateMyPanel(InsideRoomPanel.name);
 
@@ -215,7 +219,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         {
 
             AddCientToRoom(playerItem);
-
 
         }
 
@@ -255,6 +258,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
             int team1 = 0;
             int team2 = 0;
+            
 
             //Debug.Log("position second "+BlueCount);
            // hash2.Add("position", BlueCount);

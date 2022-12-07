@@ -39,6 +39,13 @@ namespace Heros.Players
             chargeSystem.maxCharage = playerData.maxCharge;
         }
 
+        private void LateUpdate() {
+
+           PhotonNetwork.LocalPlayer.CustomProperties["kills"] = numOfKills;
+           PhotonNetwork.LocalPlayer.CustomProperties["dead"] = numOfDead;
+           
+        }
+
 
         private void OnEnable()
         {
@@ -77,6 +84,7 @@ namespace Heros.Players
             gameObject.GetComponent<PlayerMove>().enabled = false;
             gameObject.GetComponent<ChargeSystem>().enabled = false;
             gameObject.GetComponent<HealthSystem>().enabled = false;
+            // PhotonNetwork.LocalPlayer.CustomProperties["dead"] = (int)PhotonNetwork.LocalPlayer.CustomProperties["dead"] + 1;
             StartCoroutine("DestroyDieFx");
             StartCoroutine("ViewPlayer");         
         }

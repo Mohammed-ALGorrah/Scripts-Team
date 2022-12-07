@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Heros.Players;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class HealthSystem : MonoBehaviour
          maxHealth = max;
      }*/
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount,Player playerKill = null,Player playerDead = null)
     {
         if (IsDead())
         {
@@ -37,6 +38,11 @@ public class HealthSystem : MonoBehaviour
             if (currentHealth <= 0)
             {
                 this.OnDead?.Invoke(this);
+                if (playerKill != null && playerDead)
+                {
+                    playerKill.numOfKills++;
+                    playerDead.numOfDead++;
+                }
             }
         }
 

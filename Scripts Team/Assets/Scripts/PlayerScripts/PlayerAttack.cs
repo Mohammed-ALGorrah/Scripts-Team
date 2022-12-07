@@ -114,6 +114,7 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
     private void SyncBasicDamage()
     {
         basicAttack.playerID = this.GetComponentInParent<CheckPhoton>().team;
+        basicAttack.playerOfBullet = player;
     }
 
     public void special()
@@ -130,6 +131,7 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
     private void SyncSpecialDamage()
     {
         specialAttack.playerID = this.GetComponentInParent<CheckPhoton>().team;
+        specialAttack.playerOfBullet = player;
     }
 
     [PunRPC]

@@ -22,6 +22,8 @@ public class SceneManager : MonoBehaviourPunCallbacks
     public Transform [] SpwanPointsTeam2;
     GameObject thisPlayer;
     Photon.Realtime.Player thisPlayerPun;
+     
+     
 
     void Start()
     {
@@ -35,30 +37,38 @@ public class SceneManager : MonoBehaviourPunCallbacks
         {
             player.transform.position = SpwanPointsTeam1[(int)thisPlayerPun.CustomProperties["postion"]].position;
             player.GetComponent<CheckPhoton>().respawnPos = SpwanPointsTeam1[(int)thisPlayerPun.CustomProperties["postion"]].position;
+            GetComponent<PhotonView>().RPC("addTOTeam", RpcTarget.AllBuffered,true);
+
         }
         else if ((int)thisPlayerPun.CustomProperties["team"] == 2)
         {
             player.transform.position = SpwanPointsTeam2[(int)thisPlayerPun.CustomProperties["postion"]].position;
             player.GetComponent<CheckPhoton>().respawnPos = SpwanPointsTeam2[(int)thisPlayerPun.CustomProperties["postion"]].position;
+            GetComponent<PhotonView>().RPC("addTOTeam", RpcTarget.AllBuffered,false);
         }
+    }
 
-
-        
-        
-        
-
+    [PunRPC]
+    public void addTOTeam(bool first){
+        if (first)
+        {
+            GameObject.Find("Teams").GetComponent<Team>().playersRed.Add(GameObject.FindObjectOfType<Heros.Players.Player>().gameObject);
+        }else{
+            GameObject.Find("Teams").GetComponent<Team>().playersBlue.Add(GameObject.FindObjectOfType<Heros.Players.Player>().gameObject);
+        }
     }
         void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            Debug.Log("XXXXXXXXXXXXXXXXX " + thisPlayerPun.ActorNumber);
             foreach (KeyValuePair<int, Player> kvp in PhotonNetwork.CurrentRoom.Players)
             {
-                /*Debug.Log(string.Format("Key = {0}, Value = {1}", kvp.Key, kvp.Value));
+                Debug.Log(string.Format("Key = {0}, Value = {1}", kvp.Key, kvp.Value));
                 Debug.Log("avatar = " + kvp.Value.CustomProperties["avatar"]);
                 Debug.Log("team = " + kvp.Value.CustomProperties["team"]);
-                Debug.Log("position = " + kvp.Value.CustomProperties["team"]);*/
+                Debug.Log("position = " + kvp.Value.CustomProperties["team"]);
+                Debug.Log("kills = " + kvp.Value.CustomProperties["kills"]);
+                Debug.Log("dead = " + kvp.Value.CustomProperties["dead"]);
             }
         }
     }

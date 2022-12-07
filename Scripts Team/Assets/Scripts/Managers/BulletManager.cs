@@ -33,8 +33,10 @@ public class BulletManager : MonoBehaviourPunCallbacks, IPunInstantiateMagicCall
                     //Debug.Log("friend");
                     return;
                 }
+                
+                Player playerKill = skillData.playerOfBullet;
 
-                player.health.TakeDamage(skillData.skillDmg);
+                player.health.TakeDamage(skillData.skillDmg,playerKill,player);
                 player.chargeSystem.IncreaseCharge(+1);
 
                 Destroy(Instantiate(skillData.hitEffect, gameObject.transform.position, Quaternion.identity), 2);
