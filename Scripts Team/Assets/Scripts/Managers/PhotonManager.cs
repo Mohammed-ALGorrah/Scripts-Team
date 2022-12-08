@@ -198,11 +198,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-
-        var hash_ = PhotonNetwork.LocalPlayer.CustomProperties;
-            hash_.Add("kills", 0);
-            hash_.Add("dead", 0);
-        PhotonNetwork.LocalPlayer.SetCustomProperties(hash_);
         
         ActivateMyPanel(InsideRoomPanel.name);
 
@@ -503,10 +498,9 @@ public class PhotonManager : MonoBehaviourPunCallbacks
                 break;
         }
 
-        //playerListItemObject = Instantiate(playerListItemPrefab1);
         playerListItemObject.transform.SetParent(PlayerListItemParent.transform);
         playerListItemObject.transform.localScale = Vector3.one;
-        //playerListItemObject.transform.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 1f);
+
         playerListItemObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = player.NickName;
 
         if (player.ActorNumber == PhotonNetwork.LocalPlayer.ActorNumber)

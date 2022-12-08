@@ -7,23 +7,18 @@ using UnityEngine.UI;
 public class CheckPhoton : MonoBehaviourPunCallbacks
 {
     public Vector3 respawnPos;
-    
-
 
     public int team;
     public int playerPos;
-    public Text test;
     public TeamSyncAll tt;
     public GameObject playerBody;
     public HealthBar playerHealthBar;
     HealthSystem health;
-    [SerializeField]
-    Text KillsTxt,DeathTxt;
+    
     private void Awake()
     {
         health = playerBody.GetComponent<HealthSystem>();
         tt = GameObject.FindObjectOfType<TeamSyncAll>();
-        test = GameObject.Find("TextTest").GetComponent<Text>();
     }
 
     
@@ -33,15 +28,11 @@ public class CheckPhoton : MonoBehaviourPunCallbacks
         
         if (team == 1)
         {
-            //transform.position = tt.SpwanPoints[playerPos].position;
             transform.SetParent(GameObject.Find("FirstTeam").transform);
-            test.text = PhotonNetwork.LocalPlayer.CustomProperties["postion"].ToString();
         }
         else if (team == 2)
         {
-            //transform.position = tt.SpwanPoints[playerPos].position;
             transform.SetParent(GameObject.Find("SecondTeam").transform);
-            test.text = PhotonNetwork.LocalPlayer.CustomProperties["postion"].ToString();
         }
     }
     private void OnEnable()
@@ -72,11 +63,7 @@ public class CheckPhoton : MonoBehaviourPunCallbacks
                 count.text = "";
             }         
         }
-            //    KillsTxt.text = "K " + playerBody.GetComponent<Heros.Players.Player>().numOfKills;
-               
-            DeathTxt.text = "D " + PhotonNetwork.LocalPlayer.CustomProperties["dead"];
-
-
+        
     }
 
 

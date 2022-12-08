@@ -24,6 +24,7 @@ public class PlayerMove : MonoBehaviourPunCallbacks
         playerControls = new PlayerControls();
         footStep = Instantiate(footStep, transform.position, transform.rotation);
         footStep.transform.SetParent(this.transform);
+        //transform.LookAt(new Vector3(mainCamera.transform.position.x , transform.position.y , mainCamera.transform.position.z));
     }
 
     void Start()
@@ -52,9 +53,10 @@ public class PlayerMove : MonoBehaviourPunCallbacks
         if (groundPlane.Raycast(cameraRay , out rayLength))
         {
             Vector3 pointToLook = cameraRay.GetPoint(rayLength);
-            Debug.DrawLine(cameraRay.origin ,pointToLook , Color.blue);
+            Debug.DrawLine(mainCamera.transform.position ,pointToLook , Color.blue);
 
             transform.LookAt(new Vector3(pointToLook.x , transform.position.y , pointToLook.z));
+
         }
     }
 
