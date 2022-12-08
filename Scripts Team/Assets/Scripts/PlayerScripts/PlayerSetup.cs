@@ -18,13 +18,8 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     public GameObject ChargeSystem;
     public GameObject FirePoint;
 
-    [Header("Test data")]
-    public Text numText;
-    int num = 0;
-
     #endregion
 
-    #region UnityMethods
     // Start is called before the first frame update
     void Start()
     {
@@ -57,29 +52,5 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
         }
     }
     
-    // Update is called once per frame
-    void Update()
-    {
-        // change value on all clients
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            num++;
-            numText.text = "Number = " + num;
-            photonView.RPC("changeText",RpcTarget.All, num);
-        }
-    }
 
-    #endregion
-
-    #region Public_Methods
-
-    [PunRPC]
-    public void changeText(int x)
-    {
-        num = x;
-        numText.text = "Number = " + num;
-
-    }
-
-    #endregion
 }

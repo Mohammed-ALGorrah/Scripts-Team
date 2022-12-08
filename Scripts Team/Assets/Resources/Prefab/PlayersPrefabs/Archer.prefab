@@ -1495,10 +1495,9 @@ MonoBehaviour:
   respawnPos: {x: 0, y: 0, z: 0}
   team: 0
   playerPos: 0
-  test: {fileID: 0}
   tt: {fileID: 0}
-  playerBody: {fileID: 0}
-  playerHealthBar: {fileID: 0}
+  playerBody: {fileID: 6736810792136868896}
+  playerHealthBar: {fileID: 8138415995795275329}
   count: {fileID: 4380812837626904883}
 --- !u!114 &8109171327050052085
 MonoBehaviour:
@@ -1820,7 +1819,6 @@ MonoBehaviour:
   HealthSystem: {fileID: 6736810792136868896}
   ChargeSystem: {fileID: 6736810792136868896}
   FirePoint: {fileID: 481103763857307262}
-  numText: {fileID: 6670383711755589642, guid: fc15be676a5692e4c84dcf016faf83ec, type: 3}
 --- !u!136 &6736810792136868891
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1867,7 +1865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa9ff0e3083615458fa8bc1d3f9503f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 8
   footStep: {fileID: 198006683868144142, guid: 2e2e07699f67d524a9c1cacb203f276e, type: 3}
 --- !u!114 &1856960227319075921
 MonoBehaviour:

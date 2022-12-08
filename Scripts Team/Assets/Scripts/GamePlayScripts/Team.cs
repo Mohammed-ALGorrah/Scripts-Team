@@ -101,6 +101,11 @@ public class Team : MonoBehaviour
 
     [PunRPC]
     public void Win(string txt){
+        Invoke("Winn",1.5f);
+            
+    }
+
+    void Winn(string txt){
             winMenu.SetActive(true);
             winMenu.transform.GetChild(0).gameObject.GetComponent<Text>().text = txt;
             Time.timeScale = 0;
