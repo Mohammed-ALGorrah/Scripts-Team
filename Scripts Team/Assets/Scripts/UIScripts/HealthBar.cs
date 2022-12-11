@@ -2,19 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class HealthBar : MonoBehaviour
+public class HealthBar : MonoBehaviourPunCallbacks
 {
     private Camera cam;
     private HealthSystem health;
     public Slider healthBar;
     CheckPhoton checkPhoton;
+    public Slider TopHealthBar;
     private void Awake()
     {
         checkPhoton = FindObjectOfType<CheckPhoton>();
         health = this.gameObject.transform.GetComponentInParent<HealthSystem>();
-        
-        
+        TopHealthBar = FindObjectOfType<SyncTopHealthBar>().GetComponent<Slider>();
+
+        if (photonView.IsMine)
+        {
+            TopHealthBar.value = healthBar.value;
+        }
     }
     
 
@@ -33,11 +39,21 @@ public class HealthBar : MonoBehaviour
     private void Health_OnHeal(HealthSystem obj)
     {
         healthBar.value = health.currentHealth / health.maxHealth;
+        if (photonView.IsMine)
+        {
+            TopHealthBar.value = healthBar.value;
+        }
+        
     }
 
     private void Health_OnTakeDamage(HealthSystem obj)
     {
         healthBar.value = health.currentHealth / health.maxHealth;
+        if (photonView.IsMine)
+        {
+            TopHealthBar.value = healthBar.value;
+        }
+        
     }
     // Start is called before the first frame update
     void Start()

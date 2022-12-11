@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -361,6 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 12453744}
   - component: {fileID: 12453745}
+  - component: {fileID: 12453746}
   m_Layer: 5
   m_Name: Slider Health
   m_TagString: Untagged
@@ -429,7 +430,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 459661422}
   m_HandleRect: {fileID: 0}
@@ -441,6 +442,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &12453746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12453743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035bd6fc96fce6a4c971c53f781a6acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &14409452
 GameObject:
   m_ObjectHideFlags: 0
@@ -4052,6 +4065,7 @@ MonoBehaviour:
   - {fileID: 359996782}
   - {fileID: 1804376650}
   - {fileID: 395818282}
+  playerName: {fileID: 706779935}
 --- !u!4 &191607197
 Transform:
   m_ObjectHideFlags: 0
@@ -29345,6 +29359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1412080360}
   - component: {fileID: 1412080361}
+  - component: {fileID: 1412080362}
   m_Layer: 5
   m_Name: Slider Power
   m_TagString: Untagged
@@ -29413,7 +29428,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 2013720776}
   m_HandleRect: {fileID: 0}
@@ -29425,6 +29440,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1412080362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412080359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec25078235596840b603c20db5fe703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1413084046
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     public GameObject HealthSystem;
     public GameObject ChargeSystem;
     public GameObject FirePoint;
+    public GameObject SpecialPoint;
 
     #endregion
 
@@ -31,6 +32,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             HealthSystem.GetComponent<HealthSystem>().enabled = true;
             ChargeSystem.GetComponent<ChargeSystem>().enabled = true;
             FirePoint.SetActive(true);
+            //SpecialPoint.SetActive(true);
 
             // PlayerCanvas.SetActive(true);
             PlayerCamera.SetActive(true);
@@ -46,8 +48,10 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             HealthSystem.GetComponent<HealthSystem>().enabled = false;
             ChargeSystem.GetComponent<ChargeSystem>().enabled = false;
             FirePoint.SetActive(false);
+            //SpecialPoint.SetActive(false);
             //PlayerCanvas.SetActive(false);
             PlayerCamera.SetActive(false);
+
             
         }
     }

@@ -19,6 +19,7 @@ namespace Heros.Players
         public ParticleSystem fxSpecialAttack;
         public int numOfKills;
         public int numOfDead;
+        public Slider TopPowrBar;
 
         public GameObject diePanel;
 
@@ -26,6 +27,8 @@ namespace Heros.Players
 
         private void Awake()
         {
+            TopPowrBar = FindObjectOfType<SyncTopChatgePowrBar>().GetComponent<Slider>();
+            TopPowrBar.value = 0;
             id = Random.Range(100, 1000000);
             animator = GetComponent<Animator>();
             health = GetComponent<HealthSystem>();
@@ -66,7 +69,7 @@ namespace Heros.Players
         }
 
         private void Charge_Max(ChargeSystem obj)
-        {
+        {            
             GetComponent<PhotonView>().RPC("Charge_Max_Pun", RpcTarget.AllBuffered);
         }
         [PunRPC]

@@ -7,7 +7,7 @@ using UnityEngine;
 public class BulletManager : MonoBehaviourPunCallbacks, IPunInstantiateMagicCallback
 {
     public SkillData skillData;
-    void LateUpdate()
+    void Update()
     {
         if (skillData.skillType.ToString().Equals("NORMAL") && skillData.hasProjectile)
         {
@@ -38,6 +38,11 @@ public class BulletManager : MonoBehaviourPunCallbacks, IPunInstantiateMagicCall
                 PlayerSetup playerSetupKill = skillData.playerSetupOfBullet;
                 player.health.TakeDamage(skillData.skillDmg, playerKill.GetComponent<PhotonView>().ViewID, playerSetupKill);
                 player.chargeSystem.IncreaseCharge(+1);
+                if (player.photonView.IsMine)
+                {
+                    player.TopPowrBar.value = player.TopPowrBar.value + (1f/ (float)player.playerData.maxCharge);
+                }
+                
 
                 Destroy(Instantiate(skillData.hitEffect, gameObject.transform.position, Quaternion.identity), 2);
                 Destroy(gameObject);
@@ -83,21 +88,10 @@ public class BulletManager : MonoBehaviourPunCallbacks, IPunInstantiateMagicCall
     {
         if (!skillData.hasProjectile)
         {
-            if (photonView.IsMine && skillData.skillType.ToString().Equals("NORMAL"))
-            {
-                Debug.Log("Bullet instansite IsMine");
-                transform.SetParent(GameObject.Find("FirePoint").transform);
-                this.transform.position = GameObject.Find("FirePoint").transform.position;
-            }
-            else if (photonView.IsMine && skillData.skillType.ToString().Equals("SPECIAl"))
+            if (photonView.IsMine && skillData.skillType.ToString().Equals("SPECIAl"))
             {
                 transform.SetParent(GameObject.Find("special Point").transform);
                 this.transform.position = GameObject.Find("special Point").transform.position;
-            }
-            else
-            {
-                Debug.Log("Bullet instansite NOT  IsMine");
-                Destroy(gameObject);
             }
         }
     }

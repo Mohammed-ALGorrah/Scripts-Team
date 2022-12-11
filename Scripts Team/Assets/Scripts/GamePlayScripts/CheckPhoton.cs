@@ -94,9 +94,11 @@ public class CheckPhoton : MonoBehaviourPunCallbacks
         playerBody.GetComponent<Rigidbody>().useGravity = true;
         playerBody.GetComponent<Heros.Players.Player>().health.currentHealth = playerBody.GetComponent<Heros.Players.Player>().playerData.maxHealth;
         playerBody.GetComponent<Heros.Players.Player>().chargeSystem.currentCharge = 0;
+        playerBody.GetComponent<Heros.Players.Player>().TopPowrBar.value = 0;
         playerBody.GetComponent<Heros.Players.Player>().CanSpecialAttack = false;
         playerBody.GetComponent<Heros.Players.Player>().fxSpecialAttack.gameObject.SetActive(false);
         playerHealthBar.healthBar.value = 1;
+        playerHealthBar.TopHealthBar.value = 1;
 
         if (photonView.IsMine)
         {

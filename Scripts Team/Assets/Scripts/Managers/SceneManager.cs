@@ -6,7 +6,7 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using System;
 using Photon.Pun.UtilityScripts;
-
+using TMPro;
 public class SceneManager : MonoBehaviourPunCallbacks
 {
 
@@ -22,6 +22,7 @@ public class SceneManager : MonoBehaviourPunCallbacks
     public Transform [] SpwanPointsTeam2;
     GameObject thisPlayer;
     Photon.Realtime.Player thisPlayerPun;
+    public TextMeshProUGUI playerName; 
      
      
 
@@ -32,6 +33,8 @@ public class SceneManager : MonoBehaviourPunCallbacks
 
         thisPlayer = GameObject.FindObjectOfType<Heros.Players.Player>().gameObject;
         thisPlayerPun = thisPlayer.GetComponent<PhotonView>().Owner;
+
+        playerName.text= thisPlayerPun.NickName;
 
         if ((int)thisPlayerPun.CustomProperties["team"] == 1)
         {

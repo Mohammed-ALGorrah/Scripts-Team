@@ -53,9 +53,9 @@ MonoBehaviour:
   team: 0
   playerPos: 0
   tt: {fileID: 0}
-  playerBody: {fileID: 0}
-  playerHealthBar: {fileID: 0}
-  count: {fileID: 0}
+  playerBody: {fileID: 1012310617011343939}
+  playerHealthBar: {fileID: 2793018248253292555}
+  count: {fileID: 1281854548775727653}
 --- !u!114 &7678408722736108778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +356,7 @@ MonoBehaviour:
   HealthSystem: {fileID: 1012310617011343939}
   ChargeSystem: {fileID: 1012310617011343939}
   FirePoint: {fileID: 3149904898193679422}
+  SpecialPoint: {fileID: 3348217868931731934}
 --- !u!136 &1012310617011343940
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -389,7 +390,7 @@ MonoBehaviour:
   fxSpecialAttack: {fileID: 7369499393649944825}
   numOfKills: 0
   numOfDead: 0
-  diePanel: {fileID: 0}
+  diePanel: {fileID: 5021307375268737382}
 --- !u!114 &1012310617011343936
 MonoBehaviour:
   m_ObjectHideFlags: 0

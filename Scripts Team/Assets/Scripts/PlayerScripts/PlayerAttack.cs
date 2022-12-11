@@ -93,6 +93,7 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
                 spicalPoint.position = new Vector3(spicalPoint.position.x, 0.5f, spicalPoint.position.z);
                 animator.SetTrigger("isPowr"); // Change it            
                 skillSpecialIndicator.SetActive(false);
+                player.TopPowrBar.value = 0f;
                 GetComponent<PhotonView>().RPC("restChrages", RpcTarget.AllBuffered);
 
             }
@@ -140,6 +141,7 @@ public class PlayerAttack : MonoBehaviourPunCallbacks
     {
         chargeSystem.ResetCharge();
         player.CanSpecialAttack = false;
+        
         player.fxSpecialAttack.gameObject.SetActive(false);
     }
 
