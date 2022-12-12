@@ -31,6 +31,10 @@ public class RoomPanel : MonoBehaviour
     }
     public void closePanel()
     {
+        createPanel.SetActive(false);
+    }
+    public void closeCreatePanel()
+    {
         Panel.SetActive(false);
     }
     public void opencreatePanel()

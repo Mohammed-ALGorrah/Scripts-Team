@@ -10,11 +10,13 @@ using Heros.Backend.PlayfabData;
 public class PhotonManager : MonoBehaviourPunCallbacks
 {
     #region Variables
+    #region Input Fields
     [Header("Input Fields")]
     public InputField userNameText;
     public TMP_InputField roomNameText;
     public InputField maxPlayerNumberText;
-
+    #endregion
+    #region Ui Panels
     [Header("Ui Panels")]
     public GameObject PlayerNamePanel;
     public GameObject LobbyPanel;
@@ -22,16 +24,19 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public GameObject ConnectingPanel;
     public GameObject RoomListPanel;
     public GameObject InsideRoomPanel;
-
+    #endregion
+    #region Ui Buttons
     [Header("Ui Buttons")]
     public GameObject PlayButton;
-
+    #endregion
+    #region Room List Variables
     [Header("Room List Variables")]
     public GameObject roomListPrefab;
     public GameObject roomListParent;
     private Dictionary<string, RoomInfo> roomListData;
     private Dictionary<string, GameObject> roomListGameobject;
-
+    #endregion
+    #region Players List Variables
     [Header("Players List Variables")]
     public GameObject playerListItemPrefab1;
     public GameObject playerListItemPrefab2;
@@ -39,7 +44,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public GameObject PlayerListItemParent;
     private Dictionary<int, GameObject> playersList;
     private int avatar = 0;
-
+    #endregion
     private int redCount =0;
     private int BlueCount=3;
 
@@ -47,7 +52,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     #endregion
 
     #region UnityMethods
-    // Start is called before the first frame update
+
     void Start()
     {
         //ActivateMyPanel(PlayerNamePanel.name);
@@ -63,7 +68,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Debug.Log("Network state : " + PhotonNetwork.NetworkClientState);
@@ -74,6 +78,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void OnLoginClick()
     {
+        ActivateMyPanel(LobbyPanel.name);
         /*string name = userNameText.text;
         if (!string.IsNullOrEmpty(name))
         {
@@ -109,7 +114,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.JoinLobby();
         }
-        //ActivateMyPanel(RoomListPanel.name);
+        ActivateMyPanel(RoomListPanel.name);
     }
 
     public void BackFromRoomList()
@@ -132,7 +137,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void OnClickPlayButton()
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
         {
             PhotonNetwork.LoadLevel(3);
         }
@@ -200,16 +205,16 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         }
 
 
-        OnClickPlayButton();
+        
     }
 
     public override void OnJoinedRoom()
     {
         Debug.Log(PhotonNetwork.CurrentRoom.Name + " room Is created with max players Number is " + PhotonNetwork.CurrentRoom.MaxPlayers);
-        //ActivateMyPanel(InsideRoomPanel.name);
+        ActivateMyPanel(InsideRoomPanel.name);
 
 
-        /*
+        
         if (PhotonNetwork.IsMasterClient)
         {
             PlayButton.SetActive(true);
@@ -226,7 +231,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             AddCientToRoom(playerItem);
 
         }
-        */
+        
         int teamNum = 0;
 
         var hash2 = PhotonNetwork.LocalPlayer.CustomProperties;
@@ -415,7 +420,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             GameObject roomListItemObject = Instantiate(roomListPrefab, roomListParent.transform);
             roomListItemObject.SetActive(true);
             //roomListItemObject.transform.SetParent(roomListParent.transform);
-            roomListItemObject.GetComponent<RectTransform>().rect.Set(0,0,900,70);
+            //roomListItemObject.GetComponent<RectTransform>().rect.Set(0,0,900,70);
             roomListItemObject.transform.localScale = Vector3.one;
             roomListItemObject.GetComponent<RectTransform>().localPosition.Set(0,0,1);
             //roomListItemObject.transform.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 1f);
@@ -459,9 +464,9 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public void ActivateMyPanel(string panelName)
     {
         LobbyPanel.SetActive(panelName.Equals(LobbyPanel.name));
-        PlayerNamePanel.SetActive(panelName.Equals(PlayerNamePanel.name));
+        //PlayerNamePanel.SetActive(panelName.Equals(PlayerNamePanel.name));
         RoomCreatePanel.SetActive(panelName.Equals(RoomCreatePanel.name));
-        ConnectingPanel.SetActive(panelName.Equals(ConnectingPanel.name));
+        //ConnectingPanel.SetActive(panelName.Equals(ConnectingPanel.name));
         RoomListPanel.SetActive(panelName.Equals(RoomListPanel.name));
         InsideRoomPanel.SetActive(panelName.Equals(InsideRoomPanel.name));
     }
@@ -490,8 +495,10 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void AddCientToRoom(Player player)
     {
-        GameObject playerListItemObject;
+
+        /*
         int prefab = (int)player.CustomProperties["avatar"];
+        
         switch (prefab)
         {
             case 1:
@@ -507,20 +514,14 @@ public class PhotonManager : MonoBehaviourPunCallbacks
                 playerListItemObject = Instantiate(playerListItemPrefab1);
                 break;
         }
-
-        playerListItemObject.transform.SetParent(PlayerListItemParent.transform);
+        */
+        GameObject playerListItemObject;
+        playerListItemObject = Instantiate(playerListItemPrefab1, PlayerListItemParent.transform);
+        //playerListItemObject.transform.SetParent();
         playerListItemObject.transform.localScale = Vector3.one;
 
-        playerListItemObject.transform.GetChild(0).gameObject.GetComponent<Text>().text = player.NickName;
-
-        if (player.ActorNumber == PhotonNetwork.LocalPlayer.ActorNumber)
-        {
-            playerListItemObject.transform.GetChild(1).gameObject.SetActive(true);
-        }
-        else
-        {
-            playerListItemObject.transform.GetChild(1).gameObject.SetActive(false);
-        }
+        playerListItemObject.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = player.NickName;
+        playerListItemObject.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = player.ActorNumber.ToString();
 
         if (playersList.ContainsKey(player.ActorNumber))
         {

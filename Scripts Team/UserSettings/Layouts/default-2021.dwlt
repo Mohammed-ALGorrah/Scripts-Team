@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 76
+  controlID: 18
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 85
+  controlID: 19
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 86
+  controlID: 20
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 440.8
     height: 318.4
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -216,8 +216,8 @@ MonoBehaviour:
     y: 0
     width: 676.8
     height: 318.4
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -251,7 +251,7 @@ MonoBehaviour:
   - {fileID: 12}
   - {fileID: 18}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -780,9 +780,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 10.536845, y: 6.7027273, z: 87.667534}
+    m_Target: {x: -14.827375, y: 5.753985, z: 104.21918}
     speed: 2
-    m_Value: {x: 10.536845, y: 6.7027273, z: 87.667534}
+    m_Value: {x: -14.827375, y: 5.753985, z: 104.21918}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -833,9 +833,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 28.790136
+    m_Target: 58.376
     speed: 2
-    m_Value: 28.790136
+    m_Value: 58.376
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -901,22 +901,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Scenes_
+    - Assets
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/_Scenes_
+  - Assets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\ASUS\Desktop\Scripts-Team\Scripts Team
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 31}
-    m_SelectedIDs: fe670000
-    m_LastClickedID: 26622
-    m_ExpandedIDs: 00000000aa670000ac670000ae670000b0670000b2670000b4670000b6670000b8670000ba670000bc670000be670000c0670000c2670000c4670000c6670000c8670000ca670000cc670000ce670000d0670000d2670000d4670000d6670000d8670000da670000dc670000de670000e0670000e2670000e4670000e6670000e8670000ea670000ec670000ee670000f0670000f2670000f4670000f6670000f8670000fa670000fc670000fe6700000068000002680000
+    m_SelectedIDs: aa670000
+    m_LastClickedID: 26538
+    m_ExpandedIDs: 00000000aa670000ac670000ae670000b0670000b2670000b4670000b6670000b8670000ba670000bc670000be670000c0670000c2670000c4670000c6670000c8670000ca670000cc670000ce670000d0670000d2670000d4670000d6670000d8670000da670000dc670000de670000e0670000e2670000e4670000e6670000e8670000ea670000ec670000ee670000f0670000f2670000f4670000f6670000f8670000fa670000fc670000fe6700000068000002680000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -971,7 +971,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000465c0000c06e0000c05c0000c2ab00009ef900001cff0000186000007c650000a6640000c86400007e7f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1021,9 +1021,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 400
+    y: 392
     width: 1116.6
-    height: 375.4
+    height: 383.4
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
