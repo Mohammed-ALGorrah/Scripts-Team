@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0ebcffdf2a0f04191022791372606e, type: 3}
+  m_Name: PlayerCurrencyServiceSO
+  m_EditorClassIdentifier: 
+  _playFabConstants: {fileID: 11400000, guid: eb833f5ff9403d04f955294e30aa42ed, type: 2}
+  coins: {fileID: 11400000, guid: 9817fc25f5348684ebe9ec2dbaff7ff9, type: 2}
+  gems: {fileID: 11400000, guid: 413e4ca033e24fc47ab05dfe69109dc5, type: 2}
+  coninsKey: CN
+  gemsKey: GM
+  OnAddCurrencyError: {fileID: 11400000, guid: 342a6b206819b0346a9f0e5f17afda3d, type: 2}
+  OnSubtractCurrencyError: {fileID: 11400000, guid: d349ef1539261254e95a8d69d251c275, type: 2}

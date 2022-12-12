@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6430,7 +6430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userNameText: {fileID: 649853867}
-  roomNameText: {fileID: 288299390}
+  roomNameText: {fileID: 0}
   maxPlayerNumberText: {fileID: 1571122665}
   PlayerNamePanel: {fileID: 1631053971}
   LobbyPanel: {fileID: 351492794}
@@ -6445,6 +6445,7 @@ MonoBehaviour:
   playerListItemPrefab2: {fileID: 3373580010113747033, guid: a37b1aac34ee42545956fb480396857e, type: 3}
   playerListItemPrefab3: {fileID: 3373580010113747033, guid: 8865d6ed04863ed46b6e7e5b6edf917a, type: 3}
   PlayerListItemParent: {fileID: 1545849920}
+  userPlayfab: {fileID: 11400000, guid: eb833f5ff9403d04f955294e30aa42ed, type: 2}
 --- !u!1 &1293378042
 GameObject:
   m_ObjectHideFlags: 0

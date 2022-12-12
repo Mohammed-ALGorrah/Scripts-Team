@@ -165,12 +165,17 @@ ModelImporter:
   - first:
       137: 13700000
     second: masterHuman
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: _masterHumandefault
+    second: {fileID: 2100000, guid: 0e259aa241d82f44ab28be98e0154d3b, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

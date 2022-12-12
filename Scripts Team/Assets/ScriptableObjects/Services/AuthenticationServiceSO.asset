@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b9722a4b664d3428beaa6d3c6df1ac, type: 3}
+  m_Name: AuthenticationServiceSO
+  m_EditorClassIdentifier: 
+  _playFabConstants: {fileID: 11400000, guid: eb833f5ff9403d04f955294e30aa42ed, type: 2}
+  OnRegisterSuccessEvent: {fileID: 11400000, guid: 863dfc8eaa5efbf4fb6c60739b59980f, type: 2}
+  OnRegisterFailedEvent: {fileID: 11400000, guid: 39ff6245a0bba474abf4c081eca8522d, type: 2}
+  OnLogoutEvent: {fileID: 11400000, guid: 5097f7f4194d08c4b9f17027571df500, type: 2}
+  OnLoginSuccessEvent: {fileID: 11400000, guid: 76ad3a951b74c7e42b9644d5753deb1e, type: 2}
+  OnLoginFailedEvent: {fileID: 11400000, guid: c7d3a9f1d162b5442b4cb66305cd5167, type: 2}

@@ -9,7 +9,7 @@ public class DestroyByTime : MonoBehaviour {
 
 		lifetime -= Time.deltaTime;
 
-		//if (lifetime <= 0)
-		//	Destroy(gameObject);	
+		if (lifetime <= 0)
+			Destroy(gameObject);	
 	}
 }
