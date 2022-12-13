@@ -28,6 +28,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     #region Ui Buttons
     [Header("Ui Buttons")]
     public GameObject PlayButton;
+    public GameObject springButton;
+    public GameObject snowButton;
     #endregion
     #region Room List Variables
     [Header("Room List Variables")]
@@ -218,10 +220,14 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             PlayButton.SetActive(true);
+            springButton.SetActive(true);
+            snowButton.SetActive(true);
         }
         else
         {
             PlayButton.SetActive(false);
+            springButton.SetActive(false);
+            snowButton.SetActive(false);
         }
         
 
@@ -359,10 +365,14 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             PlayButton.SetActive(true);
+            springButton.SetActive(true);
+            snowButton.SetActive(true);
         }
         else
         {
             PlayButton.SetActive(false);
+            springButton.SetActive(false);
+            snowButton.SetActive(false);
         }
         
     }

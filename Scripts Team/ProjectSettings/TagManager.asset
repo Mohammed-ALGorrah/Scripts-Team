@@ -12,6 +12,16 @@ TagManager:
   - Weapon
   - WarriorPoint
   - DiePanel
+  - targets
+  - rycle
+  - body
+  - blood
+  - wood
+  - petrol
+  - fireball
+  - stone
+  - Env Snow
+  - Env Spring
   layers:
   - Default
   - TransparentFX

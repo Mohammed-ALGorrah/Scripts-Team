@@ -9,14 +9,14 @@ using Photon.Pun;
 public class Team : MonoBehaviour
 {
     [Header("Players Arrays")]
-    public List <GameObject> playersRed,playersBlue;
+    public List<GameObject> playersRed, playersBlue;
 
     [Header("Counters texts")]
-    public Text txtCounterRed,txtCounterBlue;
-    public int currentScoreRed,currentScoreBlue;  
+    public Text txtCounterRed, txtCounterBlue;
+    public int currentScoreRed, currentScoreBlue;
 
     [Header("Players Data Panel")]
-    public GameObject PlayersDataPanel,playersRedParent,playersBlueParent,playerDataPref;
+    public GameObject PlayersDataPanel, playersRedParent, playersBlueParent, playerDataPref;
     List<GameObject> PlayersData;
 
     [Header("End Game Panel")]
@@ -24,35 +24,39 @@ public class Team : MonoBehaviour
     GameObject endGamePanel;
 
     [SerializeField]
-    TextMeshProUGUI redLabel,blueLable,AllKillsRed,AllKillsBlue;
+    TextMeshProUGUI redLabel, blueLable, AllKillsRed, AllKillsBlue;
 
     [SerializeField]
-    GameObject [] playersRedArr,playersBlueArr;
+    GameObject[] playersRedArr, playersBlueArr;
 
 
     public int target = 3;
 
-    private void Awake() {
+    private void Awake()
+    {
         PlayersData = new List<GameObject>();
     }
 
     void LateUpdate()
     {
-        
+
         if (txtCounterRed != null)
         {
             currentScoreRed = 0;
             for (int i = 0; i < playersRed.Count; i++)
             {
-                if (playersRed[i].GetComponent<Player>() != null)
+                if (playersRed[i].gameObject != null)
                 {
-                    currentScoreRed += playersRed[i].GetComponent<Player>().numOfKills;
+                    if (playersRed[i].GetComponent<Player>() != null)
+                    {
+                        currentScoreRed += playersRed[i].GetComponent<Player>().numOfKills;
+                    }
                 }
             }
             txtCounterRed.text = currentScoreRed + "";
             if (currentScoreRed == target)
             {
-                GetComponent<PhotonView>().RPC("Win",RpcTarget.AllBuffered,true);
+                GetComponent<PhotonView>().RPC("Win", RpcTarget.AllBuffered, true);
             }
 
         }
@@ -62,15 +66,18 @@ public class Team : MonoBehaviour
             currentScoreBlue = 0;
             for (int i = 0; i < playersBlue.Count; i++)
             {
-                if (playersBlue[i].GetComponent<Player>()!= null)
+                if (playersBlue[i].gameObject != null)
                 {
-                    currentScoreBlue += playersBlue[i].GetComponent<Player>().numOfKills;
+                    if (playersBlue[i].GetComponent<Player>() != null)
+                    {
+                        currentScoreBlue += playersBlue[i].GetComponent<Player>().numOfKills;
+                    }
                 }
             }
             txtCounterBlue.text = currentScoreBlue + "";
             if (currentScoreBlue == target)
             {
-                GetComponent<PhotonView>().RPC("Win",RpcTarget.AllBuffered,false);
+                GetComponent<PhotonView>().RPC("Win", RpcTarget.AllBuffered, false);
             }
         }
 
@@ -80,26 +87,32 @@ public class Team : MonoBehaviour
 
             for (int i = 0; i < playersRed.Count; i++)
             {
-                GameObject playerData = Instantiate(playerDataPref);
-                playerData.transform.SetParent(playersRedParent.transform);
-                playerData.transform.localScale = Vector3.one;
-                playerData.transform.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 1f);
-                playerData.GetComponent<TextMeshProUGUI>().text = playersRed[i].GetComponent<PhotonView>().Owner.NickName;
-                playerData.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = playersRed[i].GetComponent<Player>().numOfKills+"";
-                playerData.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = playersRed[i].GetComponent<Player>().numOfDead+"";
-                PlayersData.Add(playerData);
+                if (playersRed[i].gameObject != null)
+                {
+                    GameObject playerData = Instantiate(playerDataPref);
+                    playerData.transform.SetParent(playersRedParent.transform);
+                    playerData.transform.localScale = Vector3.one;
+                    playerData.transform.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 1f);
+                    playerData.GetComponent<TextMeshProUGUI>().text = playersRed[i].GetComponent<PhotonView>().Owner.NickName;
+                    playerData.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = playersRed[i].GetComponent<Player>().numOfKills + "";
+                    playerData.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = playersRed[i].GetComponent<Player>().numOfDead + "";
+                    PlayersData.Add(playerData);
+                }
             }
 
             for (int i = 0; i < playersBlue.Count; i++)
             {
-                GameObject playerData = Instantiate(playerDataPref);
-                playerData.transform.SetParent(playersBlueParent.transform);
-                playerData.transform.localScale = Vector3.one;
-                playerData.transform.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 1f);
-                playerData.GetComponent<TextMeshProUGUI>().text = playersBlue[i].GetComponent<PhotonView>().Owner.NickName;
-                playerData.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = playersBlue[i].GetComponent<Player>().numOfKills+"";
-                playerData.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = playersBlue[i].GetComponent<Player>().numOfDead+"";
-                PlayersData.Add(playerData);
+                if (playersBlue[i].gameObject != null)
+                {
+                    GameObject playerData = Instantiate(playerDataPref);
+                    playerData.transform.SetParent(playersBlueParent.transform);
+                    playerData.transform.localScale = Vector3.one;
+                    playerData.transform.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, 1f);
+                    playerData.GetComponent<TextMeshProUGUI>().text = playersBlue[i].GetComponent<PhotonView>().Owner.NickName;
+                    playerData.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = playersBlue[i].GetComponent<Player>().numOfKills + "";
+                    playerData.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = playersBlue[i].GetComponent<Player>().numOfDead + "";
+                    PlayersData.Add(playerData);
+                }
             }
 
         }
@@ -112,18 +125,19 @@ public class Team : MonoBehaviour
                 Destroy(p);
             }
         }
-        
+
     }
 
 
     [PunRPC]
-    public void Win(bool isRed){
+    public void Win(bool isRed)
+    {
         StartCoroutine(finishGame(isRed));
     }
 
 
- 
-    IEnumerator  finishGame(bool isRed)
+
+    IEnumerator finishGame(bool isRed)
     {
         yield return new WaitForSeconds(1.5f);
 
@@ -133,7 +147,9 @@ public class Team : MonoBehaviour
         {
             redLabel.text = "Winner";
             blueLable.text = "Loooser";
-        }else{
+        }
+        else
+        {
 
             redLabel.text = "Loooser";
             blueLable.text = "Winner";
@@ -143,14 +159,14 @@ public class Team : MonoBehaviour
         {
             playersBlueArr[i].SetActive(true);
             playersBlueArr[i].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = playersBlue[i].GetComponent<PhotonView>().Owner.NickName;
-            playersBlueArr[i].transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = playersBlue[i].GetComponent<Player>().numOfKills+"";
+            playersBlueArr[i].transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = playersBlue[i].GetComponent<Player>().numOfKills + "";
         }
 
         for (int i = 0; i < playersRed.Count; i++)
         {
             playersRedArr[i].SetActive(true);
             playersRedArr[i].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = playersRed[i].GetComponent<PhotonView>().Owner.NickName;
-            playersRedArr[i].transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = playersRed[i].GetComponent<Player>().numOfKills+"";
+            playersRedArr[i].transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = playersRed[i].GetComponent<Player>().numOfKills + "";
         }
 
         AllKillsRed.text = currentScoreRed + "/" + target;
@@ -159,6 +175,6 @@ public class Team : MonoBehaviour
 
         Time.timeScale = 0;
     }
- 
+
 
 }
