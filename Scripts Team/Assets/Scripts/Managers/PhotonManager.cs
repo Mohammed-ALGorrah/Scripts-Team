@@ -139,10 +139,10 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void OnClickPlayButton()
     {
-        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
-        {
+        // if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
+        // {
             PhotonNetwork.LoadLevel(3);
-        }
+        // }
     }
 
     public void OnRandomBtnClick()

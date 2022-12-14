@@ -7,8 +7,7 @@ using UnityEngine.UI;
 
 public class DontDestroyDataForEnv : MonoBehaviour
 {
-    bool isSpring = false;
-    bool isSnow = false;
+    bool isSpring = true;
 
     public TMP_Text envTypeText;
 
@@ -16,7 +15,6 @@ public class DontDestroyDataForEnv : MonoBehaviour
     public Sprite snowImage;
 
     public Image envImageSelected;
-
 
     public Image snowImageSelectedTrue;
     public Image springImageSelectedTrue;
@@ -43,23 +41,25 @@ public class DontDestroyDataForEnv : MonoBehaviour
                 if (envSpring != null)
                 {
                     envSnow.SetActive(false);
+                    envSpring.SetActive(true);
                 }
-            }
-
-            if (isSnow)
-            {
+            }else{
                 if (envSnow != null)
                 {
+                    envSnow.SetActive(true);
                     envSpring.SetActive(false);
                 }
             }
-        }   
+        }
+           
     }
+
 
     [PunRPC]
     private void IsSpringRpc()
     {
         isSpring = true;
+        
         envImageSelected.sprite = springImage;
         springImageSelectedTrue.gameObject.SetActive(true);
         snowImageSelectedTrue.gameObject.SetActive(false);
@@ -71,11 +71,12 @@ public class DontDestroyDataForEnv : MonoBehaviour
     private void IsSnowgRpc()
     {
 
-        isSnow = true;
+        isSpring = false;
+        
+        envImageSelected.sprite = snowImage;
         snowImageSelectedTrue.gameObject.SetActive(true);
         springImageSelectedTrue.gameObject.SetActive(false);
 
-        envImageSelected.sprite = snowImage;
         envTypeText.text = "Snow";
         Debug.Log("Snowwwwwwwww");
     }
