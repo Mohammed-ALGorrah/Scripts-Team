@@ -18,8 +18,8 @@ public class SelectCharacter : MonoBehaviour
 
 
     private void Awake() {
-        Debug.Log(characters.Length);
-        Debug.Log(selectedCharacter);
+        Debug.Log(characters.Length + this.gameObject.name);
+        Debug.Log(selectedCharacter + this.gameObject.name);
         if (PlayerPrefs.GetString("CH","Wizard") == characters[selectedCharacter].gameObject.name)
         {
             btnTxt.text = "Selected";

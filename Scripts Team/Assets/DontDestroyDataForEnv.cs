@@ -28,14 +28,11 @@ public class DontDestroyDataForEnv : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        Debug.Log("lvvvvvvvvvvvvvvvvl :  " + level);
         if (level == 3)
         {
             Debug.Log("lvvvvvvvvlllllllllvvvvvvvvl :  " + level);
             GameObject envSnow = GameObject.FindWithTag("Env Snow");
             GameObject envSpring = GameObject.FindWithTag("Env Spring");
-
-            Debug.Log("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDONNNNNNNNNNNNT2222");
             if (isSpring)
             {
                 if (envSpring != null)
