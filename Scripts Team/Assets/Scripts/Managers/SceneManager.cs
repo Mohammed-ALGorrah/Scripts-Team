@@ -15,8 +15,8 @@ namespace Heros.Manager
         #region Variables
 
         [Header("Player Resources")]
-        public GameObject playerPrefab1;
-        public GameObject playerPrefab2;
+        public GameObject Wizard;
+        public GameObject Archer;
         public GameObject playerPrefab3;
         int playerNum = 0;
         [SerializeField]
@@ -25,13 +25,21 @@ namespace Heros.Manager
         GameObject thisPlayer;
         Photon.Realtime.Player thisPlayerPun;
         public TextMeshProUGUI playerName;
-
+        GameObject player;
 
 
         void Start()
         {
-            GameObject player = (GameObject)PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/" + playerPrefab1.name,
-            Vector3.zero, Quaternion.identity);
+             
+            if (PlayerPrefs.GetString("CH","Wizard") == "Wizard")
+            {
+                player = (GameObject)PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/" + Wizard.name,Vector3.zero, Quaternion.identity);
+
+            }else if (PlayerPrefs.GetString("CH","Wizard") == "Archer")
+            {
+                player = (GameObject)PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/" + Archer.name,Vector3.zero, Quaternion.identity);
+            }
+            
 
             thisPlayer = GameObject.FindObjectOfType<Heros.Players.Player>().gameObject;
             thisPlayerPun = thisPlayer.GetComponent<PhotonView>().Owner;

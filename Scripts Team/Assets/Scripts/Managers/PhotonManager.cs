@@ -164,15 +164,13 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public override void OnConnected()
     {
         Debug.Log("Connected to server");
-        // custome avatar
-        avatar = Random.Range(1,3);
         
-        if (PhotonNetwork.LocalPlayer.CustomProperties["avatar"] == null) {
-            var hash = PhotonNetwork.LocalPlayer.CustomProperties;
-            hash.Add("avatar", avatar);
-            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
-        }
-        
+        // if (PhotonNetwork.LocalPlayer.CustomProperties["avatar"] == null) {
+        //     var hash = PhotonNetwork.LocalPlayer.CustomProperties;
+        //     hash.Add("avatar", "Wizard");
+        //     PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+        // }
+            
         //Debug.Log(PhotonNetwork.LocalPlayer.ToStringFull());
 
         //ActivateMyPanel(LobbyPanel.name);
