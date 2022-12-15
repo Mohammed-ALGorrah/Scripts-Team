@@ -43,9 +43,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public GameObject playerListItemPrefab1;
     public GameObject playerListItemPrefab2;
     public GameObject playerListItemPrefab3;
-    public GameObject PlayerListItemParent;
+    public GameObject PlayerListItemParentTeam1;
+    public GameObject PlayerListItemParentTeam2;
     private Dictionary<int, GameObject> playersList;
     private int avatar = 0;
+    public TMP_Text roomName;
     #endregion
     private int redCount =0;
     private int BlueCount=3;
@@ -221,9 +223,10 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     {
         Debug.Log(PhotonNetwork.CurrentRoom.Name + " room Is created with max players Number is " + PhotonNetwork.CurrentRoom.MaxPlayers);
         ActivateMyPanel(InsideRoomPanel.name);
+        roomName.text = PhotonNetwork.CurrentRoom.Name;
 
 
-        
+
         if (PhotonNetwork.IsMasterClient)
         {
             PlayButton.SetActive(true);
@@ -238,12 +241,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         }
         
 
-        foreach (Player playerItem in PhotonNetwork.PlayerList)
-        {
-
-            AddCientToRoom(playerItem);
-
-        }
+        
         
         int teamNum = 0;
 
@@ -347,19 +345,25 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         {
             var hash = PhotonNetwork.LocalPlayer.CustomProperties;
             hash.Add("team", teamNum);
-            
             PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
-            
         }
 
-        
+        foreach (Player playerItem in PhotonNetwork.PlayerList)
+        {
+            AddCientToRoom(playerItem);
+        }
+
+
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
+        StartCoroutine(addClient(newPlayer));
+    }
 
+    IEnumerator addClient(Player newPlayer) {
+        yield return new WaitForSeconds(0.2f);
         AddCientToRoom(newPlayer);
-
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -512,42 +516,39 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void AddCientToRoom(Player player)
     {
-
-        /*
-        int prefab = (int)player.CustomProperties["avatar"];
         
-        switch (prefab)
-        {
-            case 1:
-                playerListItemObject = Instantiate(playerListItemPrefab1);
-                break;
-            case 2:
-                playerListItemObject = Instantiate(playerListItemPrefab2);
-                break;
-            case 3:
-                playerListItemObject = Instantiate(playerListItemPrefab3);
-                break;
-            default:
-                playerListItemObject = Instantiate(playerListItemPrefab1);
-                break;
-        }
-        */
-        GameObject playerListItemObject;
-        playerListItemObject = Instantiate(playerListItemPrefab1, PlayerListItemParent.transform);
-        //playerListItemObject.transform.SetParent();
-        playerListItemObject.transform.localScale = Vector3.one;
+        if ((int)player.CustomProperties["team"] == 1) {
+            GameObject playerListItemObject;
+            playerListItemObject = Instantiate(playerListItemPrefab2, PlayerListItemParentTeam1.transform);
+            playerListItemObject.transform.localScale = Vector3.one;
+            playerListItemObject.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = player.NickName;
 
-        playerListItemObject.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = player.NickName;
-        playerListItemObject.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = player.ActorNumber.ToString();
+            if (playersList.ContainsKey(player.ActorNumber))
+            {
+                playersList[player.ActorNumber] = playerListItemObject;
+            }
+            else
+            {
+                playersList.Add(player.ActorNumber, playerListItemObject);
+            }
+        } 
+        else if ((int)player.CustomProperties["team"] == 2)
+        {
+            GameObject playerListItemObject;
+            playerListItemObject = Instantiate(playerListItemPrefab2, PlayerListItemParentTeam2.transform);
+            playerListItemObject.transform.localScale = Vector3.one;
+            playerListItemObject.transform.GetChild(0).gameObject.GetComponent<TMP_Text>().text = player.NickName;
 
-        if (playersList.ContainsKey(player.ActorNumber))
-        {
-            playersList[player.ActorNumber] = playerListItemObject;
+            if (playersList.ContainsKey(player.ActorNumber))
+            {
+                playersList[player.ActorNumber] = playerListItemObject;
+            }
+            else
+            {
+                playersList.Add(player.ActorNumber, playerListItemObject);
+            }
         }
-        else
-        {
-            playersList.Add(player.ActorNumber, playerListItemObject);
-        }
+        
     }
 
     #endregion
