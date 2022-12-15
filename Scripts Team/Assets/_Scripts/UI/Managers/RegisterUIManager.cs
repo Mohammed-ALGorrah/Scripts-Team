@@ -1,6 +1,7 @@
 using Heros.Backend.Authentication;
 using Heros.Backend.PlayerData;
 using Heros.UI.Components;
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -52,8 +53,8 @@ namespace Heros.UI.Managers
 
         private void _playerDataServiceSO_OnGetPlayerDataSuccess(PlayerDataInfo obj)
         {
-            Debug.Log("Registerd successfully !");
-            SceneManager.LoadScene(1);
+            
+            //SceneManager.LoadScene(1);
         }
 
         private void _authenticationServiceSO_OnRegisterFailedEvent(string error)

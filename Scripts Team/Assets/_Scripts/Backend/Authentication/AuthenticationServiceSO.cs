@@ -6,6 +6,7 @@ using PlayFab.ClientModels;
 using System;
 using System.IO;
 using Heros.Backend.PlayfabData;
+using Photon.Pun;
 
 namespace Heros.Backend.Authentication
 {
@@ -89,7 +90,9 @@ namespace Heros.Backend.Authentication
             //    Debug.Log(error.GenerateErrorReport());
 
             //});
-
+            PhotonNetwork.ConnectUsingSettings();
+            PhotonNetwork.LocalPlayer.NickName = result.Username;
+            PhotonNetwork.AutomaticallySyncScene = true;
 
         }
 
@@ -159,7 +162,9 @@ namespace Heros.Backend.Authentication
                 Debug.Log($"{result.PlayFabId} has logged in using custom id");
 
                 OnLoginSuccessEvent?.Invoke(result.PlayFabId, result.InfoResultPayload.AccountInfo.Username);
-
+                PhotonNetwork.ConnectUsingSettings();
+                PhotonNetwork.LocalPlayer.NickName = result.InfoResultPayload.AccountInfo.Username;
+                PhotonNetwork.AutomaticallySyncScene = true;
             }, (err) =>
             {
                 OnLoginFailedEvent?.Invoke(err.ErrorMessage);

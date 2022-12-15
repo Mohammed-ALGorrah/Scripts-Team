@@ -20,7 +20,6 @@ namespace Heros.Backend.PlayerData
 
         public void GetAllPlayerData()
         {
-            Debug.Log("@@@@@@@@@@@@@@@@@@@@@");
             PlayFabClientAPI.GetUserData(new GetUserDataRequest(), (res) =>
             {
                 PlayerDataInfo info = new PlayerDataInfo();

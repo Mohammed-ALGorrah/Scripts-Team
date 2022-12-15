@@ -28,7 +28,8 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     string privateReceiver;
     string currentChat;
     public InputField chatField,receiverField;
-    public Text chatDisplay;
+    public GameObject chatDisplay;
+    public GameObject parentList;
     #endregion
 
     #endregion
@@ -76,8 +77,13 @@ public class ChatManager : MonoBehaviour, IChatClientListener
 
     public void OnDisconnected()
     {
-        chatDisplay.text = "";
-        chatDisplay.text = "";
+        
+        foreach (var item in parentList.GetComponentsInChildren<GameObject>())
+        {
+            Destroy(item);
+        }
+        receiverField.text = "";
+        chatField.text = "";
     }
 
     public void OnGetMessages(string channelName, string[] senders, object[] messages)
@@ -85,18 +91,25 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         string msgs = "";
         for (int i = 0; i < senders.Length; i++)
         {
+            GameObject msg = Instantiate(chatDisplay,parentList.transform);
+            msg.GetComponent<Text>().text = senders[i]+" : " +messages[i];
+            /*
             msgs = string.Format("{0}:{1}", senders[i], messages[i]);
             chatDisplay.text += msgs + "\n";
             Debug.Log(msgs);
+            */
         }
     }
 
     public void OnPrivateMessage(string sender, object message, string channelName)
     {
+        GameObject msg = Instantiate(chatDisplay, parentList.transform);
+        msg.GetComponent<Text>().text = sender + " : " + message;
+        /*
         string msg = "";
         msg = string.Format("{0}:{1}", sender, message);
         chatDisplay.text += "\n" + msg;
-   
+   */
     }
 
     public void OnStatusUpdate(string user, int status, bool gotMessage, object message)

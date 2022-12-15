@@ -25,7 +25,7 @@ public class LoadingBar : MonoBehaviour
        
         loadingText.text = "Loading...";
        
-        StartCoroutine(LoadNewScene(LoadingSceneName));
+       StartCoroutine(LoadNewScene(LoadingSceneName));
 
     
 

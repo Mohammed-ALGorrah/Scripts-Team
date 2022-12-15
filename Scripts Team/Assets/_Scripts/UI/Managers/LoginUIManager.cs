@@ -7,6 +7,7 @@ using Heros.Backend.Authentication;
 using System;
 using Heros.UI.Components;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
 namespace Heros.UI.Managers
 {
@@ -77,9 +78,8 @@ namespace Heros.UI.Managers
 
         private void _authenticationServiceSO_OnLoginSuccessEvent(string id, string username)
         {
-
             Debug.Log($"Login Success for {id} - {username}");
-            SceneManager.LoadScene(1);
+            //SceneManager.LoadScene(1);
         }
 
 

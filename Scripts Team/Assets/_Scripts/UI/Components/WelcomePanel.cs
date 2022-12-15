@@ -1,4 +1,5 @@
 using Heros.Backend.Authentication;
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -43,7 +44,8 @@ namespace Heros.UI.Components
         private void _authenticationServiceSO_OnLoginSuccessEvent(string arg1, string arg2)
         {
             Debug.Log("Logging using saved custom id");
-            SceneManager.LoadScene(1);
+            
+           // SceneManager.LoadScene(1);
         }
 
         private void OnRegisterButtonClick()

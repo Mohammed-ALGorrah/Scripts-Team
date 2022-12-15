@@ -65,7 +65,8 @@ public class PlayerMove : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsConnected) {
             if (photonView.IsMine) {
                 moveInput = new Vector3(playerControls.Player.Move.ReadValue<Vector2>().x, 0, playerControls.Player.Move.ReadValue<Vector2>().y);
-                moveVelocity = moveInput * moveSpeed;
+                //moveVelocity = moveInput * moveSpeed;
+                moveVelocity = new Vector3(moveInput.x, moveInput.y, moveInput.z) * moveSpeed;
                 animator.SetFloat("walk", moveVelocity.magnitude);
                 LookAtMousePostion();
                 rB.velocity = moveVelocity;

@@ -58,7 +58,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     void Start()
     {
         //ActivateMyPanel(PlayerNamePanel.name);
-        PhotonNetwork.ConnectUsingSettings();
+        //PhotonNetwork.ConnectUsingSettings();
 
         PhotonNetwork.LocalPlayer.NickName = userPlayfab.savedUsername;
         
@@ -67,7 +67,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         roomListData = new Dictionary<string, RoomInfo>();
         roomListGameobject = new Dictionary<string, GameObject>();
         playersList = new Dictionary<int, GameObject>();
-        PhotonNetwork.AutomaticallySyncScene = true;
+        //PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     void Update()
@@ -108,6 +108,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public void OnCancelClick()
     {
         ActivateMyPanel(LobbyPanel.name);
+    }
+    
+    public void OnClosePanel()
+    {
+        LobbyPanel.SetActive(false);
     }
 
     public void RoomListBtnClicked()
@@ -171,9 +176,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         //ActivateMyPanel(LobbyPanel.name);
     }
 
+    public GameObject loadPanel;
     public override void OnConnectedToMaster()
     {
         Debug.Log(PhotonNetwork.LocalPlayer.NickName + " is connected to photon...");
+        loadPanel.SetActive(false);
     }
 
     public override void OnCreatedRoom()

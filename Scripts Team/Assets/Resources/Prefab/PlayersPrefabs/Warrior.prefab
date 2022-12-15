@@ -390,6 +390,7 @@ MonoBehaviour:
   fxSpecialAttack: {fileID: 7369499393649944825}
   numOfKills: 0
   numOfDead: 0
+  TopPowrBar: {fileID: 0}
   diePanel: {fileID: 5021307375268737382}
 --- !u!114 &1012310617011343936
 MonoBehaviour:
@@ -1860,6 +1861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 4063605303055892771}
+  TopHealthBar: {fileID: 0}
 --- !u!1 &3348217868931731934
 GameObject:
   m_ObjectHideFlags: 0
