@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 public class SelectCharacter : MonoBehaviour
 {
@@ -11,6 +12,21 @@ public class SelectCharacter : MonoBehaviour
     [Header("Array of Characters")]
     public GameObject[] characters;
     public int selectedCharacter = 0;
+
+    [SerializeField]
+    TextMeshProUGUI btnTxt;
+
+
+    private void Awake() {
+        Debug.Log(characters.Length);
+        Debug.Log(selectedCharacter);
+        if (PlayerPrefs.GetString("CH","Wizard") == characters[selectedCharacter].gameObject.name)
+        {
+            btnTxt.text = "Selected";
+        }else{
+            btnTxt.text = "Select";
+        }
+    }
    
     public void OpenPanel()
     {
@@ -28,18 +44,50 @@ public class SelectCharacter : MonoBehaviour
     }
     public void NextCharacter()
     {
+        
         characters[selectedCharacter].SetActive(false);
-        selectedCharacter = (selectedCharacter + 1) % characters.Length;
-        characters[selectedCharacter].SetActive(true);
+        if (selectedCharacter + 1 >= characters.Length)
+        {
+            selectedCharacter = 0;
+            characters[selectedCharacter].SetActive(true);
+
+        }else{
+            selectedCharacter += 1;
+            characters[selectedCharacter].SetActive(true);
+        }
+
+        if (PlayerPrefs.GetString("CH","Wizard") == characters[selectedCharacter].gameObject.name)
+        {
+            btnTxt.text = "Selected";
+        }else{
+            btnTxt.text = "Select";
+        }
+
     }
+
     public void PreviousCharater()
     {
         characters[selectedCharacter].SetActive(false);
-        selectedCharacter--;
-        if (selectedCharacter < 0)
+        if (selectedCharacter - 1 < 0 )
         {
-            selectedCharacter += characters.Length;
+            selectedCharacter = characters.Length - 1;
+            characters[selectedCharacter].SetActive(true);
+
+        }else{
+            selectedCharacter -= 1;
+            characters[selectedCharacter].SetActive(true);
         }
-        characters[selectedCharacter].SetActive(true);
+
+        if (PlayerPrefs.GetString("CH","Wizard") == characters[selectedCharacter].gameObject.name)
+        {
+            btnTxt.text = "Selected";
+        }else{
+            btnTxt.text = "Select";
+        }
+    }
+
+    public void SelectCharachter(){
+        PlayerPrefs.SetString("CH",characters[selectedCharacter].gameObject.name);
+        btnTxt.text = "Selected";
     }   
 }

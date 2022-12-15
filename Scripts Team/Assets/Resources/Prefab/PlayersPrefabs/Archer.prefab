@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 3523274864580927760}
+  TopHealthBar: {fileID: 0}
 --- !u!1 &481103763857247676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1820,7 @@ MonoBehaviour:
   HealthSystem: {fileID: 6736810792136868896}
   ChargeSystem: {fileID: 6736810792136868896}
   FirePoint: {fileID: 481103763857307262}
+  SpecialPoint: {fileID: 0}
 --- !u!136 &6736810792136868891
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1852,6 +1854,7 @@ MonoBehaviour:
   fxSpecialAttack: {fileID: 9156522311937740632}
   numOfKills: 0
   numOfDead: 0
+  TopPowrBar: {fileID: 0}
   diePanel: {fileID: 1873976874271817889}
 --- !u!114 &6736810792136868894
 MonoBehaviour:

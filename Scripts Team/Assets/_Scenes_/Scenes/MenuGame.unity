@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8457,7 +8457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1057f896644ab4e43ada930b238d64a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11522,7 +11522,7 @@ RectTransform:
   - {fileID: 1166204525}
   - {fileID: 338356003}
   m_Father: {fileID: 1795363698}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16282,6 +16282,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1465575820}
+        m_TargetAssemblyTypeName: SelectCharacter, Assembly-CSharp
+        m_MethodName: SelectCharachter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1146694377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18744,7 +18756,7 @@ RectTransform:
   - {fileID: 390981610}
   - {fileID: 430365465}
   m_Father: {fileID: 1795363698}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20062,10 +20074,10 @@ MonoBehaviour:
   Panel: {fileID: 469548744}
   mainPanel: {fileID: 4077810211458119798}
   characters:
-  - {fileID: 57749792}
-  - {fileID: 757246410}
   - {fileID: 1361078518}
+  - {fileID: 757246410}
   selectedCharacter: 0
+  btnTxt: {fileID: 6631803}
 --- !u!4 &1465575821
 Transform:
   m_ObjectHideFlags: 0
@@ -24507,6 +24519,7 @@ MonoBehaviour:
   mainPanel: {fileID: 0}
   characters: []
   selectedCharacter: 0
+  btnTxt: {fileID: 0}
 --- !u!1 &1795363697
 GameObject:
   m_ObjectHideFlags: 0
@@ -24516,7 +24529,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1795363698}
-  - component: {fileID: 1795363699}
   m_Layer: 5
   m_Name: player_List
   m_TagString: Untagged
@@ -24537,8 +24549,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 57749793}
-  - {fileID: 757246411}
   - {fileID: 1361078519}
+  - {fileID: 757246411}
   m_Father: {fileID: 1797629581}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24547,25 +24559,6 @@ RectTransform:
   m_AnchoredPosition: {x: 61.66504, y: -58.87494}
   m_SizeDelta: {x: 92.53015, y: -35.74994}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1795363699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795363697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 629159a6f62835d438d74ad83ae0ad16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Panel: {fileID: 0}
-  mainPanel: {fileID: 0}
-  characters:
-  - {fileID: 57749792}
-  - {fileID: 0}
-  - {fileID: 0}
-  selectedCharacter: 0
 --- !u!1 &1797629580
 GameObject:
   m_ObjectHideFlags: 0
@@ -26925,7 +26918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2011955441
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27056,6 +27049,7 @@ MonoBehaviour:
   mainPanel: {fileID: 4077810211458119798}
   characters: []
   selectedCharacter: 0
+  btnTxt: {fileID: 0}
 --- !u!1 &2014385828
 GameObject:
   m_ObjectHideFlags: 0
@@ -28405,6 +28399,14 @@ PrefabInstance:
     - target: {fileID: 124102962753580873, guid: d780fd7f42b03384fa909d97f8380ace, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 244762127501102233, guid: d780fd7f42b03384fa909d97f8380ace, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 280830894826840024, guid: d780fd7f42b03384fa909d97f8380ace, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4540299064823552266, guid: d780fd7f42b03384fa909d97f8380ace, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

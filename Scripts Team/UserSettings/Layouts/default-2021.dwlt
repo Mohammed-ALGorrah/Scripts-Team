@@ -119,7 +119,11 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 41
+=======
+  controlID: 3638
+>>>>>>> Stashed changes
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +148,11 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 42
+=======
+  controlID: 3639
+>>>>>>> Stashed changes
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +177,11 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 43
+=======
+  controlID: 3640
+>>>>>>> Stashed changes
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -300,9 +312,15 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< Updated upstream
     y: 275.2
     width: 1116.6
     height: 500.19995
+=======
+    y: 369
+    width: 993
+    height: 274
+>>>>>>> Stashed changes
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -402,9 +420,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< Updated upstream
       m_SelectedIDs: 00270100
       m_LastClickedID: 0
       m_ExpandedIDs: 8073ffff66abfffff8b4ffffe8b5ffffa4eaffff26fbffff6a650000ae650000586a0000146b00001c6b000004b90000deb9000044bb0000a6c30000
+=======
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 0c84feff5a84feff1ab9feff22b9feff28befeff62befeffecbefeff26c1feff74c1feffc8f9feffd0f9feffd2fefeff10fffeffda01ffff2208ffff0e15ffff5c15ffffb44dffffc04dffffe852ffff2453ffffc853ffffce5affff6c67ffff5669ffffa469fffff8a1ffff00a2ffff02a7ffff42a7ffff24adffffdcb9ffff76bbffffc4bbffffa0f0ffffa8f0ffffaef5ffffeaf5ffff28fbfffff4ffffff04df00001c9f0100889f0100e00c0200a40d0200b20d020006570200fe57020010580200
+>>>>>>> Stashed changes
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -780,9 +804,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< Updated upstream
     m_Target: {x: -3.702768, y: 24.3938, z: -15.777836}
     speed: 2
     m_Value: {x: -3.702768, y: 24.3938, z: -15.777836}
+=======
+    m_Target: {x: 227.4245, y: -426.2264, z: 2321.9573}
+    speed: 2
+    m_Value: {x: 227.4245, y: -426.2264, z: 2321.9573}
+>>>>>>> Stashed changes
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -829,6 +859,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< Updated upstream
     m_Target: {x: -0.4306289, y: -0.1803977, z: 0.08823813, w: -0.8799476}
     speed: 2
     m_Value: {x: -0.43061206, y: -0.18039066, z: 0.08823468, w: -0.8799132}
@@ -836,6 +867,15 @@ MonoBehaviour:
     m_Target: 10.92025
     speed: 2
     m_Value: 10.92025
+=======
+    m_Target: {x: -0.090144746, y: -0.0370261, z: 0.0033924077, w: -0.9952733}
+    speed: 2
+    m_Value: {x: -0.090144746, y: -0.0370261, z: 0.0033924077, w: -0.9952733}
+  m_Size:
+    m_Target: 1179.9408
+    speed: 2
+    m_Value: 1179.9408
+>>>>>>> Stashed changes
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -913,10 +953,17 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
+<<<<<<< Updated upstream
     scrollPos: {x: 0, y: 31}
     m_SelectedIDs: b47a0000
     m_LastClickedID: 31412
     m_ExpandedIDs: 00000000607a0000627a0000647a0000667a0000687a00006a7a00006c7a00006e7a0000707a0000727a0000747a0000767a0000787a00007a7a00007c7a00007e7a0000807a0000827a0000847a0000867a0000887a00008a7a00008c7a00008e7a0000907a0000927a0000947a0000967a0000987a00009a7a00009c7a00009e7a0000a07a0000a27a0000a47a0000a67a0000a87a0000aa7a0000ac7a0000ae7a0000b07a0000b27a0000b47a0000b67a0000b87a0000ffffff7f
+=======
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 1c680000
+    m_LastClickedID: 26652
+    m_ExpandedIDs: 00000000d8670000da670000dc670000de670000e0670000e2670000e467000000ca9a3b
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -944,7 +991,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< Updated upstream
     m_ExpandedIDs: 00000000607a0000627a0000647a0000667a0000687a00006a7a00006c7a00006e7a0000707a0000727a0000747a0000767a0000787a00007a7a00007c7a00007e7a0000807a0000827a0000847a0000867a0000887a00008a7a00008c7a00008e7a0000907a0000927a0000947a0000967a0000987a00009a7a00009c7a00009e7a0000a07a0000a27a0000a47a0000a67a0000a87a0000aa7a0000ac7a0000ae7a0000b07a0000b27a0000b47a0000b67a0000b87a0000
+=======
+    m_ExpandedIDs: 00000000d8670000da670000dc670000de670000e0670000e2670000e467000000ca9a3b
+>>>>>>> Stashed changes
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1021,9 +1072,15 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< Updated upstream
     y: 275.2
     width: 1116.6
     height: 500.19995
+=======
+    y: 423
+    width: 993
+    height: 274
+>>>>>>> Stashed changes
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
