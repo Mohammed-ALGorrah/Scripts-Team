@@ -392,6 +392,7 @@ MonoBehaviour:
   numOfDead: 0
   TopPowrBar: {fileID: 0}
   diePanel: {fileID: 5021307375268737382}
+  redAndBlueTeam: {fileID: 0}
 --- !u!114 &1012310617011343936
 MonoBehaviour:
   m_ObjectHideFlags: 0

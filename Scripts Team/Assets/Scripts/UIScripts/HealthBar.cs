@@ -67,6 +67,11 @@ public class HealthBar : MonoBehaviourPunCallbacks
         {
             healthBar.GetComponentsInChildren<Image>()[1].color = Color.red;
         }
+
+        if (photonView.IsMine)
+        {
+            healthBar.GetComponentsInChildren<Image>()[1].color = Color.green;
+        }
         cam = Camera.main;
     }
 

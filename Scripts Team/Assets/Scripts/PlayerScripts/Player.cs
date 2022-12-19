@@ -23,8 +23,6 @@ namespace Heros.Players
 
         public GameObject diePanel;
 
-        
-
         private void Awake()
         {
             TopPowrBar = FindObjectOfType<SyncTopChatgePowrBar>().GetComponent<Slider>();
@@ -44,8 +42,16 @@ namespace Heros.Players
 
         public void icreasse(int id)
         {
+            if ((int)GetComponent<PhotonView>().Owner.CustomProperties["team"] == 1)
+            {
+                GameObject.Find("Teams").GetComponent<Team>().redAndBlueTeam.redTeam++;
+            }
+            else
+            {
+                GameObject.Find("Teams").GetComponent<Team>().redAndBlueTeam.blueTeam++;
+            }
             numOfKills++;
-            GetComponent<PhotonView>().RPC("addHitPlayer",RpcTarget.All,id);
+            GetComponent<PhotonView>().RPC("addHitPlayer", RpcTarget.All, id);
         }
 
         [PunRPC]
@@ -53,7 +59,7 @@ namespace Heros.Players
         {
             if (GetComponent<PhotonView>().ViewID == id)
             {
-                numOfKills++;
+                numOfKills++;              
             }
         }
 
@@ -69,7 +75,7 @@ namespace Heros.Players
         }
 
         private void Charge_Max(ChargeSystem obj)
-        {            
+        {
             GetComponent<PhotonView>().RPC("Charge_Max_Pun", RpcTarget.AllBuffered);
         }
         [PunRPC]
@@ -80,39 +86,39 @@ namespace Heros.Players
         }
         private void Health_OnDead(HealthSystem obj)
         {
-            GetComponent<PhotonView>().RPC("Health_OnDead_Pun", RpcTarget.AllBuffered , photonView.ViewID , (int)PhotonNetwork.LocalPlayer.CustomProperties["team"]);
+            GetComponent<PhotonView>().RPC("Health_OnDead_Pun", RpcTarget.AllBuffered, photonView.ViewID, (int)PhotonNetwork.LocalPlayer.CustomProperties["team"]);
             diePanel.SetActive(true);
         }
 
         [PunRPC]
-        private void Health_OnDead_Pun(int DieID  , int team)
+        private void Health_OnDead_Pun(int DieID, int team)
         {
-           if (DieID == GetComponent<PhotonView>().ViewID)
-            {              
+            if (DieID == GetComponent<PhotonView>().ViewID)
+            {
                 numOfDead++;
-                Debug.Log("Team Die:" + team + ": "+numOfDead);
+                Debug.Log("Team Die:" + team + ": " + numOfDead);
             }
-           
 
-            animator.SetTrigger("isDead");            
+
+            animator.SetTrigger("isDead");
             gameObject.GetComponent<Rigidbody>().useGravity = false;
-            gameObject.GetComponent<CapsuleCollider>().enabled = false;  
+            gameObject.GetComponent<CapsuleCollider>().enabled = false;
             gameObject.GetComponent<PlayerAttack>().enabled = false;
             gameObject.GetComponent<PlayerMove>().enabled = false;
             gameObject.GetComponent<ChargeSystem>().enabled = false;
             gameObject.GetComponent<HealthSystem>().enabled = false;
 
-            
+
 
             StartCoroutine("DestroyDieFx");
-            StartCoroutine("ViewPlayer");         
+            StartCoroutine("ViewPlayer");
         }
 
 
-        
+
         IEnumerator DestroyDieFx()
         {
-            GameObject DieFx = PhotonNetwork.Instantiate("Prefab/GameEffectsPrefabs/FireDeath", 
+            GameObject DieFx = PhotonNetwork.Instantiate("Prefab/GameEffectsPrefabs/FireDeath",
                 new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.identity);
             yield return new WaitForSeconds(1.5f);
             PhotonNetwork.Destroy(DieFx);
@@ -124,12 +130,12 @@ namespace Heros.Players
             yield return new WaitForSeconds(1.5f);
             GetComponentInParent<CheckPhoton>().GetComponent<PhotonView>().RPC("showPlayer", RpcTarget.All);
             gameObject.SetActive(false);
-            
+
         }
-        
-    }
-            
 
     }
+
+
+}
 
 

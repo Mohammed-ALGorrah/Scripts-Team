@@ -2703,7 +2703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4f8e653bf1c0b054680c13a05741c202, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 596f7ac4f38481b4596bbaed90aa0e68, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3345,8 +3345,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 173.41354, y: 0}
-  m_SizeDelta: {x: 346.8271, y: 96.7661}
+  m_AnchoredPosition: {x: 173.41354, y: -0.20645}
+  m_SizeDelta: {x: 346.8271, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &155710575
 MonoBehaviour:
@@ -3368,7 +3368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 596f7ac4f38481b4596bbaed90aa0e68, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f8e653bf1c0b054680c13a05741c202, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6006,6 +6006,7 @@ MonoBehaviour:
   AllKillsBlue: {fileID: 0}
   playersRedArr: []
   playersBlueArr: []
+  redAndBlueTeam: {fileID: 0}
   target: 3
 --- !u!1 &264721661
 GameObject:
@@ -30598,6 +30599,7 @@ MonoBehaviour:
   AllKillsBlue: {fileID: 0}
   playersRedArr: []
   playersBlueArr: []
+  redAndBlueTeam: {fileID: 0}
   target: 3
 --- !u!4 &1384048201
 Transform:
@@ -41214,7 +41216,8 @@ MonoBehaviour:
   - {fileID: 1968707922}
   - {fileID: 1802337190}
   - {fileID: 2047411048}
-  target: 2
+  redAndBlueTeam: {fileID: 11400000, guid: 59c5b1a8585e872498702dcc7915f759, type: 2}
+  target: 5
 --- !u!1 &1825856118
 GameObject:
   m_ObjectHideFlags: 0

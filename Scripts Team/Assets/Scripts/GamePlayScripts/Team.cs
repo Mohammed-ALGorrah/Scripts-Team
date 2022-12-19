@@ -30,67 +30,26 @@ public class Team : MonoBehaviour
     GameObject[] playersRedArr, playersBlueArr;
 
 
-    public int target = 3;
+    public RedAndBlueTeamScore redAndBlueTeam;
+
+    public int target = 5;
 
     private void Awake()
     {
         PlayersData = new List<GameObject>();
     }
 
-    int killTeamRed;
-    int killTeamBlue;
     void LateUpdate()
     {
-
-        if (txtCounterRed != null)
+        txtCounterRed.text = redAndBlueTeam.redTeam + ""; 
+        if (redAndBlueTeam.blueTeam == target)
         {
-            killTeamRed = 0;
-            int player11;
-            for (int i = 0; i < playersRed.Count; i++)
-            {
-                if (playersRed[i].gameObject != null)
-                {
-                    if (playersRed[i].GetComponent<Player>() != null)
-                    {
-                        // currentScoreRed += playersRed[i].GetComponent<Player>().numOfKills;
-                        killTeamRed += playersRed[i].GetComponent<Player>().numOfKills;                       
-                        if (killTeamRed > currentScoreRed)
-                        {
-                            currentScoreRed = killTeamRed;
-                        }
-                    }
-                }
-                txtCounterRed.text = currentScoreRed + "";
-                if (currentScoreRed == target)
-                {
-                    GetComponent<PhotonView>().RPC("Win", RpcTarget.AllBuffered, true);
-                }
-
-            }
+            GetComponent<PhotonView>().RPC("Win", RpcTarget.AllBuffered, true);
         }
-
-        if (txtCounterBlue != null)
+        txtCounterBlue.text = redAndBlueTeam.blueTeam + "";
+        if (redAndBlueTeam.redTeam == target)
         {
-            killTeamBlue = 0;
-            for (int i = 0; i < playersBlue.Count; i++)
-            {
-                if (playersBlue[i].gameObject != null)
-                {
-                    if (playersBlue[i].GetComponent<Player>() != null)
-                    {
-                        killTeamBlue += playersBlue[i].GetComponent<Player>().numOfKills;
-                        if (killTeamBlue > currentScoreBlue)
-                        {
-                            currentScoreBlue = killTeamBlue;
-                        }
-                    }
-                }
-            }
-            txtCounterBlue.text = currentScoreBlue + "";
-            if (currentScoreBlue == target)
-            {
-                GetComponent<PhotonView>().RPC("Win", RpcTarget.AllBuffered, false);
-            }
+            GetComponent<PhotonView>().RPC("Win", RpcTarget.AllBuffered, false);
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -146,15 +105,10 @@ public class Team : MonoBehaviour
     {
         StartCoroutine(finishGame(isRed));
     }
-
-
-
     IEnumerator finishGame(bool isRed)
     {
-        yield return new WaitForSeconds(1.5f);
-
+        yield return new WaitForSeconds(2f);
         endGamePanel.SetActive(true);
-
         if (isRed)
         {
             redLabel.text = "Winner";
@@ -186,12 +140,15 @@ public class Team : MonoBehaviour
             }
         }
 
-        AllKillsRed.text = currentScoreRed + "/" + target;
-        AllKillsBlue.text = currentScoreBlue + "/" + target;
+        AllKillsRed.text = redAndBlueTeam.blueTeam + "/" + target;
+        AllKillsBlue.text = redAndBlueTeam.redTeam + "/" + target;
         // Time.timeScale = 0;
+        PhotonNetwork.LocalPlayer.CustomProperties.Remove("team");
+        PhotonNetwork.LocalPlayer.CustomProperties.Remove("postion");
+        PhotonNetwork.Disconnect();
         Destroy(GameObject.Find("Room"));
         Destroy(GameObject.Find("SaveDataDontDestroy"));
-        PhotonNetwork.Disconnect();
+
 
         Destroy(this.gameObject);
 
