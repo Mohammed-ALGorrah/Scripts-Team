@@ -37,40 +37,52 @@ public class Team : MonoBehaviour
         PlayersData = new List<GameObject>();
     }
 
+    int killTeamRed;
+    int killTeamBlue;
     void LateUpdate()
     {
 
         if (txtCounterRed != null)
         {
-            currentScoreRed = 0;
+            killTeamRed = 0;
+            int player11;
             for (int i = 0; i < playersRed.Count; i++)
             {
                 if (playersRed[i].gameObject != null)
                 {
                     if (playersRed[i].GetComponent<Player>() != null)
                     {
-                        currentScoreRed += playersRed[i].GetComponent<Player>().numOfKills;
+                        // currentScoreRed += playersRed[i].GetComponent<Player>().numOfKills;
+                        killTeamRed += playersRed[i].GetComponent<Player>().numOfKills;                       
+                        if (killTeamRed > currentScoreRed)
+                        {
+                            currentScoreRed = killTeamRed;
+                        }
                     }
                 }
-            }
-            txtCounterRed.text = currentScoreRed + "";
-            if (currentScoreRed == target)
-            {
-                GetComponent<PhotonView>().RPC("Win", RpcTarget.AllBuffered, true);
-            }
+                txtCounterRed.text = currentScoreRed + "";
+                if (currentScoreRed == target)
+                {
+                    GetComponent<PhotonView>().RPC("Win", RpcTarget.AllBuffered, true);
+                }
 
+            }
         }
 
         if (txtCounterBlue != null)
         {
-            currentScoreBlue = 0;
+            killTeamBlue = 0;
             for (int i = 0; i < playersBlue.Count; i++)
             {
                 if (playersBlue[i].gameObject != null)
                 {
                     if (playersBlue[i].GetComponent<Player>() != null)
                     {
-                        currentScoreBlue += playersBlue[i].GetComponent<Player>().numOfKills;
+                        killTeamBlue += playersBlue[i].GetComponent<Player>().numOfKills;
+                        if (killTeamBlue > currentScoreBlue)
+                        {
+                            currentScoreBlue = killTeamBlue;
+                        }
                     }
                 }
             }
@@ -182,7 +194,7 @@ public class Team : MonoBehaviour
         PhotonNetwork.Disconnect();
 
         Destroy(this.gameObject);
-        
+
     }
 
 
