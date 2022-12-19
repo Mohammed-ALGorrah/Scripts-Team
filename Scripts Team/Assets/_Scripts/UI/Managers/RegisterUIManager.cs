@@ -42,47 +42,26 @@ namespace Heros.UI.Managers
             loginLinkButton.onClick.AddListener(OnClickLoginLink);
             _authenticationServiceSO.OnRegisterSuccessEvent += _authenticationServiceSO_OnRegisterSuccessEvent;
             _authenticationServiceSO.OnRegisterFailedEvent += _authenticationServiceSO_OnRegisterFailedEvent;
-            _playerDataServiceSO.OnGetPlayerDataSuccess += _playerDataServiceSO_OnGetPlayerDataSuccess;
-            _playerDataServiceSO.OnGetPlayerDataError += _playerDataServiceSO_OnGetPlayerDataError;
-        }
-
-        private void _playerDataServiceSO_OnGetPlayerDataError(string obj)
-        {
-            Debug.Log("Registerd Error!" + obj);
-        }
-
-        private void _playerDataServiceSO_OnGetPlayerDataSuccess(PlayerDataInfo obj)
-        {
-            
-            //SceneManager.LoadScene(1);
         }
 
         private void _authenticationServiceSO_OnRegisterFailedEvent(string error)
         {
-            messagePanel.SetMessageText(error);
             messagePanel.gameObject.SetActive(true);
+            messagePanel.SetMessageText(error);
+            
         }
 
         private void _authenticationServiceSO_OnRegisterSuccessEvent(string arg1, string arg2)
         {
-            _playerDataServiceSO.GetAllPlayerData();
-           // SceneManager.LoadScene(1);
+         //  _playerDataServiceSO.GetAllPlayerData();
             Debug.Log("Registerd successfully !");
-            //SceneManager.LoadScene(1);
-            //StartCoroutine("enumerator");
-            
+            SceneManager.LoadScene(1);              
         }
 
         private void OnClickLoginLink()
         {
             loginPanel.SetActive(true);
             registerPanel.SetActive(false);
-        }
-
-        IEnumerator enumerator()
-        {
-            yield return new WaitForSeconds(20f);
-            
         }
 
         private void OnClickRegisterButton()
@@ -108,10 +87,6 @@ namespace Heros.UI.Managers
             signUpButton.onClick.RemoveListener(OnClickRegisterButton);
             loginLinkButton.onClick.RemoveListener(OnClickLoginLink);
             _authenticationServiceSO.OnRegisterSuccessEvent -= _authenticationServiceSO_OnRegisterSuccessEvent;
-            _playerDataServiceSO.OnGetPlayerDataSuccess -= _playerDataServiceSO_OnGetPlayerDataSuccess;
-            _playerDataServiceSO.OnGetPlayerDataError -= _playerDataServiceSO_OnGetPlayerDataError;
-
-
         }
     }
 

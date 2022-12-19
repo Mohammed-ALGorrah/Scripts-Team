@@ -12,7 +12,7 @@ public class ConnectToPhoton : MonoBehaviourPunCallbacks
     public override void OnConnected()
     {
         Debug.Log("Connected");
-        SceneManager.LoadScene(1);
+     //   SceneManager.LoadScene(1);
     }
 
     

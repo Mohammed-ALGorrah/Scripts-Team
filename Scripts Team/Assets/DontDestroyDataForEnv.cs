@@ -28,6 +28,12 @@ public class DontDestroyDataForEnv : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
+        if (level == 0)
+        {
+            Destroy(this.gameObject);
+        }
+        
+
         if (level == 3)
         {
             Debug.Log("lvvvvvvvvlllllllllvvvvvvvvl :  " + level);

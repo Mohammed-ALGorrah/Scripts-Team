@@ -157,23 +157,32 @@ public class Team : MonoBehaviour
 
         for (int i = 0; i < playersBlue.Count; i++)
         {
-            playersBlueArr[i].SetActive(true);
-            playersBlueArr[i].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = playersBlue[i].GetComponent<PhotonView>().Owner.NickName;
-            playersBlueArr[i].transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = playersBlue[i].GetComponent<Player>().numOfKills + "";
+            if (playersBlue[i].gameObject != null)
+            {
+                playersBlueArr[i].SetActive(true);
+                playersBlueArr[i].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = playersBlue[i].GetComponent<PhotonView>().Owner.NickName;
+                playersBlueArr[i].transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = playersBlue[i].GetComponent<Player>().numOfKills + "";
+            }
         }
-
         for (int i = 0; i < playersRed.Count; i++)
         {
-            playersRedArr[i].SetActive(true);
-            playersRedArr[i].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = playersRed[i].GetComponent<PhotonView>().Owner.NickName;
-            playersRedArr[i].transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = playersRed[i].GetComponent<Player>().numOfKills + "";
+            if (playersRed[i].gameObject != null)
+            {
+                playersRedArr[i].SetActive(true);
+                playersRedArr[i].transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = playersRed[i].GetComponent<PhotonView>().Owner.NickName;
+                playersRedArr[i].transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = playersRed[i].GetComponent<Player>().numOfKills + "";
+            }
         }
 
         AllKillsRed.text = currentScoreRed + "/" + target;
         AllKillsBlue.text = currentScoreBlue + "/" + target;
+        // Time.timeScale = 0;
+        Destroy(GameObject.Find("Room"));
+        Destroy(GameObject.Find("SaveDataDontDestroy"));
+        PhotonNetwork.Disconnect();
 
-
-        Time.timeScale = 0;
+        Destroy(this.gameObject);
+        
     }
 
 

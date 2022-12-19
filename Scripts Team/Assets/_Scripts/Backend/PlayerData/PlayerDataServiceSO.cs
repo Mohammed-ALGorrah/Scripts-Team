@@ -23,8 +23,16 @@ namespace Heros.Backend.PlayerData
             PlayFabClientAPI.GetUserData(new GetUserDataRequest(), (res) =>
             {
                 PlayerDataInfo info = new PlayerDataInfo();
-                info.selectedCharacter = res.Data["selected_character"].Value;
-                info.rank = res.Data["rank"].Value;
+                Debug.Log("Ouuuuuuuuuuut" + res.Data.Count);
+
+                if (res.Data.Count > 0 ) 
+                {
+                    Debug.Log("Insideeeeeeeee" + res.Data.Count);
+                    info.selectedCharacter = res.Data["selected_character"].Value;
+                    info.rank = res.Data["rank"]?.Value;
+                    info.level = res.Data["level"]?.Value;
+
+                }
                 Debug.Log(res.ToJson());
                 OnGetPlayerDataSuccess?.Invoke(info);
 
@@ -63,6 +71,7 @@ namespace Heros.Backend.PlayerData
     public struct PlayerDataInfo
     {
         public string rank;
+        public string level;
         public string selectedCharacter;
 
     }

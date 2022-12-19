@@ -45,7 +45,7 @@ namespace Heros.UI.Components
         {
             Debug.Log("Logging using saved custom id");
             
-           // SceneManager.LoadScene(1);
+            SceneManager.LoadScene(1);
         }
 
         private void OnRegisterButtonClick()

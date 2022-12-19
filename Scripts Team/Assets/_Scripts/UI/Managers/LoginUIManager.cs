@@ -8,6 +8,7 @@ using System;
 using Heros.UI.Components;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using Heros.Backend.PlayerData;
 
 namespace Heros.UI.Managers
 {
@@ -33,6 +34,9 @@ namespace Heros.UI.Managers
         [Header("Authentication Services")]
         [SerializeField] private AuthenticationServiceSO _authenticationServiceSO;
 
+        [Header("Services")]
+        [SerializeField] PlayerDataServiceSO _playerDataServiceSO;
+
         private void OnEnable()
         {
             signUpLinkButton.onClick.AddListener(OnClickRegisterButton);
@@ -40,8 +44,6 @@ namespace Heros.UI.Managers
             _authenticationServiceSO.OnLoginSuccessEvent += _authenticationServiceSO_OnLoginSuccessEvent;
             _authenticationServiceSO.OnLoginFailedEvent += _authenticationServiceSO_OnLoginFailedEvent;
         }
-
-       
 
         private void OnDisable()
         {
@@ -78,8 +80,9 @@ namespace Heros.UI.Managers
 
         private void _authenticationServiceSO_OnLoginSuccessEvent(string id, string username)
         {
+           // _playerDataServiceSO.GetAllPlayerData();
             Debug.Log($"Login Success for {id} - {username}");
-            //SceneManager.LoadScene(1);
+            SceneManager.LoadScene(1);
         }
 
 

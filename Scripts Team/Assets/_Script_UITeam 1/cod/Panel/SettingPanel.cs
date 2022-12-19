@@ -9,6 +9,7 @@ public class SettingPanel : MonoBehaviour
     [Header("Setting Panel")]
     public GameObject Panel;
 
+    
 
     [SerializeField]
     AuthenticationServiceSO authenticationServiceSO;
@@ -38,6 +39,7 @@ public class SettingPanel : MonoBehaviour
     }
     public void LogOut()
     {
+        
         authenticationServiceSO.Logout();
     }
 
