@@ -90,6 +90,7 @@ MonoBehaviour:
   - IsSpringRpc
   - UpdateScoreGame
   - UpdateScoreTeam
+  - SyncName
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

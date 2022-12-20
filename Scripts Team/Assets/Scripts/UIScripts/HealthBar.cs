@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using TMPro;
 
 public class HealthBar : MonoBehaviourPunCallbacks
 {
@@ -16,13 +17,12 @@ public class HealthBar : MonoBehaviourPunCallbacks
         checkPhoton = FindObjectOfType<CheckPhoton>();
         health = this.gameObject.transform.GetComponentInParent<HealthSystem>();
         TopHealthBar = FindObjectOfType<SyncTopHealthBar>().GetComponent<Slider>();
-
         if (photonView.IsMine)
         {
-            TopHealthBar.value = healthBar.value;
+            TopHealthBar.value = healthBar.value;           
         }
+            
     }
-    
 
     private void OnEnable()
     {
@@ -73,6 +73,7 @@ public class HealthBar : MonoBehaviourPunCallbacks
             healthBar.GetComponentsInChildren<Image>()[1].color = Color.green;
         }
         cam = Camera.main;
+
     }
 
     // Update is called once per frame

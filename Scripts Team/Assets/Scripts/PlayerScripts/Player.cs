@@ -22,7 +22,6 @@ namespace Heros.Players
         public Slider TopPowrBar;
 
         public GameObject diePanel;
-
         private void Awake()
         {
             TopPowrBar = FindObjectOfType<SyncTopChatgePowrBar>().GetComponent<Slider>();
@@ -38,6 +37,7 @@ namespace Heros.Players
             health.maxHealth = playerData.maxHealth;
             health.currentHealth = playerData.maxHealth;
             chargeSystem.maxCharage = playerData.maxCharge;
+
         }
 
         public void icreasse(int id)
@@ -59,7 +59,7 @@ namespace Heros.Players
         {
             if (GetComponent<PhotonView>().ViewID == id)
             {
-                numOfKills++;              
+                numOfKills++;
             }
         }
 

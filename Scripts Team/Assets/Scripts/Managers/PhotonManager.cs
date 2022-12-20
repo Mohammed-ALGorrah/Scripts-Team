@@ -768,11 +768,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         if (Time.time - lastClickTime > clickTimer)
         {
             lastClickTime = Time.time;
-            if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
-            {
+           // if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount == PhotonNetwork.CurrentRoom.MaxPlayers)
+            //{
                 PhotonNetwork.LoadLevel(3);
                 PhotonNetwork.CurrentRoom.IsOpen = false;
-            }
+            //}
         }
     }
 
