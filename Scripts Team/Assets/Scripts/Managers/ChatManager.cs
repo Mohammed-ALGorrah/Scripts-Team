@@ -78,10 +78,12 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     public void OnDisconnected()
     {
         
-        foreach (var item in parentList.GetComponentsInChildren<GameObject>())
-        {
-            Destroy(item);
-        }
+        //foreach (var item in parentList.GetComponentsInChildren<Transform>())
+        //{
+
+        //        Destroy(item.gameObject);
+            
+        //}
         receiverField.text = "";
         chatField.text = "";
     }

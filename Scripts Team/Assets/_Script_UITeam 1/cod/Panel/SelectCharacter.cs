@@ -16,7 +16,7 @@ public class SelectCharacter : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI btnTxt;
 
-
+    //we have to save hero on backend
     private void Awake() {
         Debug.Log(characters.Length + this.gameObject.name);
         Debug.Log(selectedCharacter + this.gameObject.name);

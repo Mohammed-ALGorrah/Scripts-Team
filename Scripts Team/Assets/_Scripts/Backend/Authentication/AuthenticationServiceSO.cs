@@ -56,6 +56,7 @@ namespace Heros.Backend.Authentication
             };
 
             PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, OnRegisterFailed);
+        
 
 
         }

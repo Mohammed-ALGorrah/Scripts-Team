@@ -86,6 +86,7 @@ public class CheckPhoton : MonoBehaviourPunCallbacks
 
     IEnumerator ViewPlayer()
     {
+        //cache Get Components
 
         yield return new WaitForSeconds(3f);
         playerBody.transform.position = respawnPos;

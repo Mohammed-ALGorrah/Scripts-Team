@@ -17,7 +17,7 @@ namespace Heros.Manager
         [Header("Player Resources")]
         public GameObject Wizard;
         public GameObject Archer;
-        public GameObject playerPrefab3;
+
         int playerNum = 0;
         [SerializeField]
         public Transform[] SpwanPointsTeam1;
@@ -26,6 +26,7 @@ namespace Heros.Manager
         Photon.Realtime.Player thisPlayerPun;
         public TextMeshProUGUI playerName;
         GameObject player;
+        #endregion
 
 
         void Start()
@@ -89,7 +90,6 @@ namespace Heros.Manager
             }
         }
 
-        #endregion
 
     }
 }

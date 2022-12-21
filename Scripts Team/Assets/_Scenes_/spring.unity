@@ -4046,7 +4046,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &191607198
 MonoBehaviour:
@@ -5954,7 +5954,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 263269976}
-  - component: {fileID: 263269977}
   m_Layer: 0
   m_Name: FirstTeam
   m_TagString: Untagged
@@ -5977,37 +5976,6 @@ Transform:
   m_Father: {fileID: 1822836543}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &263269977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 263269975}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5852138be89aea47806327a39b1b73b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playersRed: []
-  playersBlue: []
-  txtCounterRed: {fileID: 0}
-  txtCounterBlue: {fileID: 0}
-  currentScoreRed: 0
-  currentScoreBlue: 0
-  PlayersDataPanel: {fileID: 0}
-  playersRedParent: {fileID: 0}
-  playersBlueParent: {fileID: 0}
-  playerDataPref: {fileID: 0}
-  endGamePanel: {fileID: 0}
-  redLabel: {fileID: 0}
-  blueLable: {fileID: 0}
-  AllKillsRed: {fileID: 0}
-  AllKillsBlue: {fileID: 0}
-  playersRedArr: []
-  playersBlueArr: []
-  redAndBlueTeam: {fileID: 0}
-  target: 3
 --- !u!1 &264721661
 GameObject:
   m_ObjectHideFlags: 0
@@ -30562,7 +30530,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1384048201}
-  - component: {fileID: 1384048200}
   m_Layer: 0
   m_Name: SecondTeam
   m_TagString: Untagged
@@ -30570,37 +30537,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1384048200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1384048199}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5852138be89aea47806327a39b1b73b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playersRed: []
-  playersBlue: []
-  txtCounterRed: {fileID: 0}
-  txtCounterBlue: {fileID: 0}
-  currentScoreRed: 0
-  currentScoreBlue: 0
-  PlayersDataPanel: {fileID: 0}
-  playersRedParent: {fileID: 0}
-  playersBlueParent: {fileID: 0}
-  playerDataPref: {fileID: 0}
-  endGamePanel: {fileID: 0}
-  redLabel: {fileID: 0}
-  blueLable: {fileID: 0}
-  AllKillsRed: {fileID: 0}
-  AllKillsBlue: {fileID: 0}
-  playersRedArr: []
-  playersBlueArr: []
-  redAndBlueTeam: {fileID: 0}
-  target: 3
 --- !u!4 &1384048201
 Transform:
   m_ObjectHideFlags: 0
@@ -35630,7 +35566,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1594016738
 GameObject:
@@ -38745,7 +38681,7 @@ RectTransform:
   - {fileID: 1286439802}
   - {fileID: 2482595744566188557}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -40055,52 +39991,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2405294966999231114, guid: 767360ebc51e06f418e371aa3be61380, type: 3}
   m_PrefabInstance: {fileID: 1778445846}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1782117168
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1782117170}
-  - component: {fileID: 1782117169}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1782117169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782117168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ae1e09e7f345a244bd191422f6298c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FirstTeam: {fileID: 263269977}
-  SecondTeam: {fileID: 1384048200}
---- !u!4 &1782117170
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1782117168}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1786426261
 PrefabInstance:
   m_ObjectHideFlags: 0

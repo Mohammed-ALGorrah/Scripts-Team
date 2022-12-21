@@ -15,10 +15,6 @@ MonoBehaviour:
   prefabName: Wizard
   image: {fileID: 0}
   bio: 
-  attackRange: 5
-  basicSkillDamage: 20
-  speacialSkillDamage: 100
   playerType: 2
-  animator: {fileID: 0}
-  maxHealth: 150
+  maxHealth: 250
   maxCharge: 3

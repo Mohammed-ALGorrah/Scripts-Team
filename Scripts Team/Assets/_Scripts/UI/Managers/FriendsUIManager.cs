@@ -138,6 +138,7 @@ namespace Heros.UI.Managers
             {
                 var friendItem = Instantiate(FriendItemPrefab, friendListTransform);
                 friendItem.SetFriendItem(item.Username, item.FriendPlayFabId);
+              
                 friendItem.transform.GetChild(3).GetChild(0).gameObject.GetComponent<Button>().onClick.AddListener(()=> {
                     chatManager.chatPanel.SetActive(true);
                     chatManager.ChatConnectOnClick();

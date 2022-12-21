@@ -16,13 +16,15 @@ MonoBehaviour:
   skillName: Magic Ball
   skillDescription: Create a magic ball that can be hit in any direction from a distance
   skillType: 0
-  skillDmg: 20
+  skillDmg: 40
   skillRange: 7
   skillWidth: 1
   skillCooldown: 1
   hasProjectile: 1
   HelaingSkill: 0
-  player: {fileID: 0}
+  playerID: 0
+  playerOfBullet: {fileID: 0}
+  playerSetupOfBullet: {fileID: 0}
   hitEffect: {fileID: 8382068301544357172, guid: b5a34f44c611ab946881c09d1ead7e0f, type: 3}
   skillIndicator: {fileID: 195872, guid: 681bd95467a254041bb423e8dd49fd4d, type: 3}
   skillProjectile: {fileID: 125044, guid: ae6cf3671590f3741928b2570d0f0dba, type: 3}

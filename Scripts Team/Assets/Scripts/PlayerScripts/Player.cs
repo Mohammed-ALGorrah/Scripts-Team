@@ -30,7 +30,6 @@ namespace Heros.Players
             animator = GetComponent<Animator>();
             health = GetComponent<HealthSystem>();
             chargeSystem = GetComponent<ChargeSystem>();
-            gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         }
         void Start()
         {
