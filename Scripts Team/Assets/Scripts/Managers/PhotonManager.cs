@@ -89,11 +89,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public float lastClickTime = 0f;
     public void OnLoginClick()
     {
-        if (Time.time - lastClickTime > clickTimer)
-        {
-            lastClickTime = Time.time;
+       // if (Time.time - lastClickTime > clickTimer)
+      //  {
+          //  lastClickTime = Time.time;
             ActivateMyPanel(LobbyPanel.name);
-        }
+       // }
     }
 
     public void OnRoomCreateClick()
@@ -113,20 +113,20 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void OnCancelClick()
     {
-        if (Time.time - lastClickTime > clickTimer)
-        {
-            lastClickTime = Time.time;
+       // if (Time.time - lastClickTime > clickTimer)
+        //{
+        //    lastClickTime = Time.time;
             ActivateMyPanel(LobbyPanel.name);
-        }
+       // }
     }
 
     public void OnClosePanel()
     {
-        if (Time.time - lastClickTime > clickTimer)
-        {
-            lastClickTime = Time.time;
+       // if (Time.time - lastClickTime > clickTimer)
+       // {
+          //  lastClickTime = Time.time;
             LobbyPanel.SetActive(false);
-        }
+      //  }
     }
 
     public void RoomListBtnClicked()
@@ -144,28 +144,28 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void BackFromRoomList()
     {
-        if (Time.time - lastClickTime > clickTimer)
-        {
-            lastClickTime = Time.time;
+       // if (Time.time - lastClickTime > clickTimer)
+       // {
+            //lastClickTime = Time.time;
             if (PhotonNetwork.InLobby)
             {
                 PhotonNetwork.LeaveLobby();
-            }
+           // }
             ActivateMyPanel(LobbyPanel.name);
         }
     }
 
     public void BackFromPlayersList()
     {
-        if (Time.time - lastClickTime > clickTimer)
-        {
-            lastClickTime = Time.time;
+      //  if (Time.time - lastClickTime > clickTimer)
+       // {
+         //   lastClickTime = Time.time;
             if (PhotonNetwork.InRoom)
             {
                 PhotonNetwork.LeaveRoom();
             }
             ActivateMyPanel(LobbyPanel.name);
-        }
+      //  }
     }
 
     public void OnClickPlayButton()

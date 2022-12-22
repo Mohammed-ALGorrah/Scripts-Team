@@ -29,7 +29,7 @@ namespace Heros.Manager
         #endregion
 
 
-        void Start()
+        void Awake()
         {
              
             if (PlayerPrefs.GetString("CH","Wizard") == "Wizard")

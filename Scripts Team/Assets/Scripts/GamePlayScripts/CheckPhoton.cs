@@ -24,8 +24,7 @@ public class CheckPhoton : MonoBehaviourPunCallbacks
     
 
     private void Start()
-    {
-        
+    {       
         if (team == 1)
         {
             transform.SetParent(GameObject.Find("FirstTeam").transform);
@@ -87,9 +86,9 @@ public class CheckPhoton : MonoBehaviourPunCallbacks
     IEnumerator ViewPlayer()
     {
         //cache Get Components
-
+        
         yield return new WaitForSeconds(3f);
-        playerBody.transform.position = respawnPos;
+        playerBody.transform.position = playerBody.GetComponent<Heros.Players.Player>().PlayerSpawnPoint.position;
         playerBody.SetActive(true);
         playerBody.GetComponent<CapsuleCollider>().enabled = true;
         playerBody.GetComponent<Rigidbody>().useGravity = true;

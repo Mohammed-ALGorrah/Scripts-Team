@@ -14,6 +14,7 @@ namespace Heros.Players
         public HealthSystem health;
         public ChargeSystem chargeSystem;
         GameManager gameManager;
+        public Transform PlayerSpawnPoint;
 
         public bool CanSpecialAttack;
         public ParticleSystem fxSpecialAttack;
@@ -36,7 +37,14 @@ namespace Heros.Players
             health.maxHealth = playerData.maxHealth;
             health.currentHealth = playerData.maxHealth;
             chargeSystem.maxCharage = playerData.maxCharge;
+            GetComponent<PhotonView>().RPC("SetPlayerPos", RpcTarget.All);
+        }
 
+
+        [PunRPC]
+        public void SetPlayerPos()
+        {
+            PlayerSpawnPoint = gameObject.transform;
         }
 
         public void icreasse(int id)
