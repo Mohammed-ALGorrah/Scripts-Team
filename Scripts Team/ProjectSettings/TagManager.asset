@@ -22,6 +22,9 @@ TagManager:
   - stone
   - Env Snow
   - Env Spring
+  - StrikePoint
+  - Team1Spawn
+  - Team2Spawn
   layers:
   - Default
   - TransparentFX

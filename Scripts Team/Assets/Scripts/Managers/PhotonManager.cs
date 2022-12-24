@@ -236,14 +236,13 @@ public class PhotonManager : MonoBehaviourPunCallbacks
              }
          }*/
     }
-
     public override void OnJoinedRoom()
     {
         Debug.Log(PhotonNetwork.CurrentRoom.Name + " room Is created with max players Number is " + PhotonNetwork.CurrentRoom.MaxPlayers);
         ActivateMyPanel(InsideRoomPanel.name);
         roomName.text = PhotonNetwork.CurrentRoom.Name;
-
-
+        
+        
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -260,13 +259,17 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
 
 
-
         int teamNum = 0;
+        int xPos = 0;
+        int zPos = 0;
+        
 
         var hash2 = PhotonNetwork.LocalPlayer.CustomProperties;
 
         if (PhotonNetwork.CurrentRoom.PlayerCount <= (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
         {
+            xPos = 20;
+            zPos = 10;
             teamNum = 1;
             int team1 = 0;
             foreach (KeyValuePair<int, Player> kvp in PhotonNetwork.CurrentRoom.Players)
@@ -276,6 +279,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
                     Debug.Log("__ " + (int)kvp.Value.CustomProperties["team"]);
                     if ((int)kvp.Value.CustomProperties["team"] == 1)
                     {
+                       
                         team1++;
                     }
 
@@ -286,22 +290,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
             {
                 PhotonNetwork.LocalPlayer.CustomProperties["postion"] = team1;
             }
-
-
-            //Debug.Log("position first "+redCount);
-            //hash2.Add("position", redCount);
-            //redCount++;
         }
         else if (PhotonNetwork.CurrentRoom.PlayerCount > (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
         {
-
             int team1 = 0;
             int team2 = 0;
-
-
-            //Debug.Log("position second "+BlueCount);
-            // hash2.Add("position", BlueCount);
-            //BlueCount++;
             foreach (KeyValuePair<int, Player> kvp in PhotonNetwork.CurrentRoom.Players)
             {
                 if (kvp.Value.CustomProperties["team"] != null)
@@ -309,35 +302,39 @@ public class PhotonManager : MonoBehaviourPunCallbacks
                     Debug.Log("__ " + (int)kvp.Value.CustomProperties["team"]);
                     if ((int)kvp.Value.CustomProperties["team"] == 1)
                     {
+                        //zPos = 10;
+                        //xPos = 20;
                         team1++;
                     }
                     else if ((int)kvp.Value.CustomProperties["team"] == 2)
                     {
+                        //zPos = -10;
+                        //xPos = -20;
                         team2++;
                     }
+                    
                 }
+
 
             }
 
             if (team1 == (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
             {
                 teamNum = 2;
+                xPos = -20;
+                zPos = -10;
                 if (PhotonNetwork.LocalPlayer.CustomProperties["postion"] == null)
                 {
+
                     var hash = PhotonNetwork.LocalPlayer.CustomProperties;
                     hash.Add("postion", team2);
                     PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
                 }
-                /*else if (PhotonNetwork.LocalPlayer.CustomProperties["postion"] != null)
-                {
-                    PhotonNetwork.LocalPlayer.CustomProperties["postion"] = team2;
-                }*/
-
-
-                redCount++;
             }
             else if (team2 == (PhotonNetwork.CurrentRoom.MaxPlayers / 2))
             {
+                //zPos = 10;
+                //xPos = 20;
                 teamNum = 1;
 
                 if (PhotonNetwork.LocalPlayer.CustomProperties["postion"] == null)
@@ -346,12 +343,6 @@ public class PhotonManager : MonoBehaviourPunCallbacks
                     hash.Add("postion", team1);
                     PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
                 }
-                /* else if (PhotonNetwork.LocalPlayer.CustomProperties["postion"] != null)
-                 {
-                     PhotonNetwork.LocalPlayer.CustomProperties["postion"] = team1;
-                 }*/
-
-                BlueCount++;
             }
 
 
@@ -362,18 +353,13 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.LocalPlayer.CustomProperties["team"] == null)
         {
             var hash = PhotonNetwork.LocalPlayer.CustomProperties;
+            hash.Add("xPos", xPos);
+            hash.Add("zPos", zPos);
             hash.Add("team", teamNum);
             PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
 
         }
-        //else if (PhotonNetwork.LocalPlayer.CustomProperties["team"] != null)
-        //{
-        //    PhotonNetwork.LocalPlayer.CustomProperties["team"] = teamNum;
-        //    Debug.Log(teamNum);
-        //}
-
         StartCoroutine(addClientss());
-
     }
 
     IEnumerator addClientss()
@@ -406,6 +392,8 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         }
 
         otherPlayer.CustomProperties.Remove("team");
+        otherPlayer.CustomProperties.Remove("zPos");
+        otherPlayer.CustomProperties.Remove("xPos");
         otherPlayer.CustomProperties.Remove("postion");
 
         Destroy(playersList[otherPlayer.ActorNumber]);
@@ -518,6 +506,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         CreateRoom("random" + Random.Range(0, 100000000) + Time.deltaTime, 4);
+
     }
     #endregion
 
@@ -525,10 +514,11 @@ public class PhotonManager : MonoBehaviourPunCallbacks
 
     public void CreateRoom(string roomName, int maxPlayers)
     {
+        
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = (byte)maxPlayers;
         PhotonNetwork.CreateRoom(roomName, roomOptions);
-
+        
     }
 
     public void ActivateMyPanel(string panelName)
@@ -564,8 +554,15 @@ public class PhotonManager : MonoBehaviourPunCallbacks
     }
     public void AddCientToRoom(Player player)
     {
+        Debug.Log("tttttttttttttttttt " + PhotonNetwork.LocalPlayer.CustomProperties["xPos"]);
+        Debug.Log("tttttttttttttttttt " + PhotonNetwork.LocalPlayer.CustomProperties["team"]);
         if ((int)player.CustomProperties["team"] == 1)
         {
+            
+            
+
+            Debug.Log("xxxxxxxxxxxxxx " + PhotonNetwork.LocalPlayer.CustomProperties["xPos"]);
+
             GameObject playerListItemObject;
             playerListItemObject = Instantiate(playerListItemPrefab2, PlayerListItemParentTeam1.transform);
             playerListItemObject.transform.localScale = Vector3.one;
@@ -582,6 +579,7 @@ public class PhotonManager : MonoBehaviourPunCallbacks
         }
         else if ((int)player.CustomProperties["team"] == 2)
         {
+            Debug.Log("xxxxxxxxxxxxxx " + PhotonNetwork.LocalPlayer.CustomProperties["xPos"]);
             GameObject playerListItemObject;
             playerListItemObject = Instantiate(playerListItemPrefab2, PlayerListItemParentTeam2.transform);
             playerListItemObject.transform.localScale = Vector3.one;

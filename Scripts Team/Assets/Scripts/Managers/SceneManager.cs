@@ -31,33 +31,45 @@ namespace Heros.Manager
 
         void Awake()
         {
-             
-            if (PlayerPrefs.GetString("CH","Wizard") == "Wizard")
-            {
-                player = (GameObject)PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/" + Wizard.name,Vector3.zero, Quaternion.identity);
 
-            }else if (PlayerPrefs.GetString("CH","Wizard") == "Archer")
+            Debug.Log(PhotonNetwork.LocalPlayer.CustomProperties["xPos"]);
+            Debug.Log(PhotonNetwork.LocalPlayer.CustomProperties["team"]);
+
+            int x = (int)PhotonNetwork.LocalPlayer.CustomProperties["xPos"];
+            int z = 0;//(int)PhotonNetwork.LocalPlayer.CustomProperties["zPos"];
+
+            if (PlayerPrefs.GetString("CH", "Wizard") == "Wizard")
             {
-                player = (GameObject)PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/" + Archer.name,Vector3.zero, Quaternion.identity);
+                player = (GameObject)PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/" + Wizard.name,
+                    new Vector3(x, 0, z)
+                    , Quaternion.identity);
+
             }
-            
+            else if (PlayerPrefs.GetString("CH", "Wizard") == "Archer")
+            {
+                player = (GameObject)PhotonNetwork.Instantiate("Prefab/PlayersPrefabs/" + Archer.name,
+                    new Vector3(x, 0, z)
+                    , Quaternion.identity);
+            }
+
 
             thisPlayer = GameObject.FindObjectOfType<Heros.Players.Player>().gameObject;
             thisPlayerPun = thisPlayer.GetComponent<PhotonView>().Owner;
 
-            playerName.text = thisPlayerPun.NickName;
+            playerName.text =thisPlayerPun.NickName + thisPlayerPun.CustomProperties["xPos"].ToString();
 
             if ((int)thisPlayerPun.CustomProperties["team"] == 1)
             {
-                player.transform.position = SpwanPointsTeam1[(int)thisPlayerPun.CustomProperties["postion"]].position;
-                player.GetComponent<CheckPhoton>().respawnPos = SpwanPointsTeam1[(int)thisPlayerPun.CustomProperties["postion"]].position;
+                //player.transform.position = SpwanPointsTeam1[(int)thisPlayerPun.CustomProperties["postion"]].position;
+                //thisPlayer.GetComponentInParent<CheckPhoton>().respawnPos = SpwanPointsTeam1[(int)thisPlayerPun.CustomProperties["postion"]].position;
+
                 GetComponent<PhotonView>().RPC("addTOTeam", RpcTarget.AllBuffered, true);
 
             }
             else if ((int)thisPlayerPun.CustomProperties["team"] == 2)
             {
-                player.transform.position = SpwanPointsTeam2[(int)thisPlayerPun.CustomProperties["postion"]].position;
-                player.GetComponent<CheckPhoton>().respawnPos = SpwanPointsTeam2[(int)thisPlayerPun.CustomProperties["postion"]].position;
+                //player.transform.position = SpwanPointsTeam2[(int)thisPlayerPun.CustomProperties["postion"]].position;
+                //thisPlayer.GetComponentInParent<CheckPhoton>().respawnPos = SpwanPointsTeam2[(int)thisPlayerPun.CustomProperties["postion"]].position;
                 GetComponent<PhotonView>().RPC("addTOTeam", RpcTarget.AllBuffered, false);
             }
         }

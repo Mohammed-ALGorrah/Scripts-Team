@@ -91,6 +91,7 @@ MonoBehaviour:
   - UpdateScoreGame
   - UpdateScoreTeam
   - SyncName
+  - WaitPlayerPos
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

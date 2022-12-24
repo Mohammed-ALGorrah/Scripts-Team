@@ -25,14 +25,14 @@ public class CheckPhoton : MonoBehaviourPunCallbacks
 
     private void Start()
     {       
-        if (team == 1)
+      /*  if (team == 1)
         {
             transform.SetParent(GameObject.Find("FirstTeam").transform);
         }
         else if (team == 2)
         {
             transform.SetParent(GameObject.Find("SecondTeam").transform);
-        }
+        }*/
     }
     private void OnEnable()
     {
@@ -80,18 +80,26 @@ public class CheckPhoton : MonoBehaviourPunCallbacks
     [PunRPC]
     public void showPlayer()
     {
+        
         StartCoroutine("ViewPlayer");
     }
 
+    int x = (int)PhotonNetwork.LocalPlayer.CustomProperties["xPos"];
+    int z = (int)PhotonNetwork.LocalPlayer.CustomProperties["zPos"];
+
     IEnumerator ViewPlayer()
     {
+
         //cache Get Components
-        
+        //playerBody.transform.position = respawnPos;
+        playerBody.GetComponent<Heros.Players.Player>().transform.position = new Vector3(x,0, z) ;
         yield return new WaitForSeconds(3f);
-        playerBody.transform.position = playerBody.GetComponent<Heros.Players.Player>().PlayerSpawnPoint.position;
+        
+        
         playerBody.SetActive(true);
         playerBody.GetComponent<CapsuleCollider>().enabled = true;
         playerBody.GetComponent<Rigidbody>().useGravity = true;
+        
         playerBody.GetComponent<Heros.Players.Player>().health.currentHealth = playerBody.GetComponent<Heros.Players.Player>().playerData.maxHealth;
         playerBody.GetComponent<Heros.Players.Player>().chargeSystem.currentCharge = 0;
         playerBody.GetComponent<Heros.Players.Player>().TopPowrBar.value = 0;
@@ -99,7 +107,7 @@ public class CheckPhoton : MonoBehaviourPunCallbacks
         playerBody.GetComponent<Heros.Players.Player>().fxSpecialAttack.gameObject.SetActive(false);
         playerHealthBar.healthBar.value = 1;
         playerHealthBar.TopHealthBar.value = 1;
-
+        
         if (photonView.IsMine)
         {
             playerBody.GetComponent<PlayerAttack>().enabled = true;

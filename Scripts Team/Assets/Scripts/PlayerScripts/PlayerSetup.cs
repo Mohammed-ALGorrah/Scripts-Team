@@ -26,7 +26,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
-            Player.GetComponent<Player>().enabled = true;
+            /*Player.GetComponent<Player>().enabled = true;
             PlayerAttack.GetComponent<PlayerAttack>().enabled = true;
             PlayerMove.GetComponent<PlayerMove>().enabled = true;
             HealthSystem.GetComponent<HealthSystem>().enabled = true;
@@ -35,7 +35,7 @@ public class PlayerSetup : MonoBehaviourPunCallbacks
             //SpecialPoint.SetActive(true);
 
             // PlayerCanvas.SetActive(true);
-            PlayerCamera.SetActive(true);
+            PlayerCamera.SetActive(true);*/
         }
         else
         {

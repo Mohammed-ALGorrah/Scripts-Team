@@ -4023,7 +4023,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wizard: {fileID: 3526395089554910644, guid: 525f61f78caac85418a4514ede32bcda, type: 3}
   Archer: {fileID: 3993593355484746731, guid: 3217fd79489fa974c8a590483dba744c, type: 3}
-  playerPrefab3: {fileID: 3526395089554910644, guid: 525f61f78caac85418a4514ede32bcda, type: 3}
   SpwanPointsTeam1:
   - {fileID: 1143078399}
   - {fileID: 525794718}
@@ -11247,7 +11246,7 @@ GameObject:
   - component: {fileID: 525794718}
   m_Layer: 0
   m_Name: F_Spwan2
-  m_TagString: Untagged
+  m_TagString: Team1Spawn
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13719,7 +13718,7 @@ GameObject:
   - component: {fileID: 659167160}
   m_Layer: 0
   m_Name: F_Spwan3 (1)
-  m_TagString: Untagged
+  m_TagString: Team2Spawn
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25541,7 +25540,7 @@ GameObject:
   - component: {fileID: 1143078399}
   m_Layer: 0
   m_Name: F_Spwan1
-  m_TagString: Untagged
+  m_TagString: Team1Spawn
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25942,7 +25941,7 @@ GameObject:
   - component: {fileID: 1163551336}
   m_Layer: 0
   m_Name: F_Spwan1 (1)
-  m_TagString: Untagged
+  m_TagString: Team2Spawn
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39555,7 +39554,7 @@ GameObject:
   - component: {fileID: 1750509712}
   m_Layer: 0
   m_Name: F_Spwan3
-  m_TagString: Untagged
+  m_TagString: Team1Spawn
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43515,7 +43514,7 @@ GameObject:
   - component: {fileID: 1943342903}
   m_Layer: 0
   m_Name: F_Spwan2 (1)
-  m_TagString: Untagged
+  m_TagString: Team2Spawn
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
